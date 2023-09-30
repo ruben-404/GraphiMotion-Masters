@@ -1,0 +1,98 @@
+@charset "UTF-8";
+body {
+  background: #F8F6F4;
+  font-family: "Poppins", sans-serif;
+}
+
+.nav {
+  background-color: #C4DFDF;
+  height: 80px;
+  padding: 1.5em 5%;
+  margin-top: -8px;
+  margin-left: -8px;
+  margin-right: -8px;
+  padding-top: 8px;
+  display: grid;
+  gap: 1.5em;
+  align-items: center;
+  grid-template-columns: 100px 1fr 2fr;
+}
+
+.botonHead {
+  background-color: #F8F6F4;
+  border: 0px;
+  border-radius: 20px;
+  width: 146px;
+  height: 44px;
+}
+
+.nav_title {
+  margin: 0 auto;
+}
+
+.nav_list {
+  padding: 0;
+  list-style: none;
+  margin: 0 auto;
+  display: grid;
+  justify-content: end;
+  grid-auto-flow: column;
+  gap: 2.5em;
+}
+
+@media (min-width: 693px) {
+  .nav_title, .nav_list {
+    margin: unset;
+  }
+}
+.imagen {
+  margin-left: -8px;
+  width: 100%;
+  padding-right: 40px;
+  height: 400px;
+  background-image: url(../imgg/Principal.jpg);
+}
+
+.container {
+  display: grid;
+  justify-content: center;
+  grid-auto-flow: column;
+  gap: 2.5em;
+  padding-top: 40px;
+}
+
+.botonesEditar {
+  background-color: #E3F4F4;
+  width: 400px;
+  height: 70px;
+  border-radius: 20px;
+  font-size: 20px;
+  border: 1px solid #C4DFDF;
+}
+
+#imagen-usuario {
+  width: 40px;
+  border-radius: 20px;
+}
+
+.enlaces {
+  display: none;
+  position: absolute;
+  background-color: white; /* Cambia el fondo de los enlaces según tu diseño */
+  border: 1px solid #ccc; /* Agrega un borde para separar los enlaces */
+  padding: 10px; /* Ajusta el espaciado interior de los enlaces */
+  z-index: 1; /* Coloca los enlaces por encima de otros elementos */
+  font-size: 16px;
+  width: 5%;
+  text-align: center;
+  border-radius: 20px;
+}
+
+#imagen-usuario {
+  cursor: pointer; /* Cambia el cursor al hacer clic en la imagen */
+}
+
+.cursos {
+  border: 2px solid black;
+  width: 30%;
+}/*# sourceMappingURL=style.css.map */

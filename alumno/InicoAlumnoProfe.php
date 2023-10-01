@@ -35,22 +35,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Iniciar Sesión alumno profesor</title>
+<title>Iniciar Sesión</title>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body>
-    <form method="POST" action="InicoAlumnoProfe.php">
-        <label for="dni">DNI:</label>
-        <input type="text" id="dni" name="dni" required><br><br>
+<body id="index">
+    
+        <div class="indexContainer">
+            <div class=child>
+                <form method="POST" action="InicoAlumnoProfe.php">
+                    <input type="text" id="dni" name="dni" placeholder="DNI" required><br><br>
+                    <input type="password" id="contrasena" name="contrasena" placeholder="Contrasenya" required><br><br>
+                    <!-- Casilla de verificación para elegir qué función llamar. -->
+                    <label for="casilla">Eres profre</label>
+                    <input type="checkbox" id="casilla" name="casilla"><br><br>
+                    <input type="submit" value="Iniciar Sesión">
+                </form>
+            </div>
+        </div>
 
-        <label for="contrasena">Contraseña:</label>
-        <input type="password" id="contrasena" name="contrasena" required><br><br>
-
-        <!-- Casilla de verificación para elegir qué función llamar. -->
-        <label for="casilla">Eres profre</label>
-        <input type="checkbox" id="casilla" name="casilla"><br><br>
-
-        <input type="submit" value="Iniciar Sesión">
-    </form>
+    
     <?php
     }
     ?>

@@ -1,9 +1,53 @@
 @import "variables";
 
+#index{
+    background-image: url("../imgg/Fondo.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: grid;
+    place-items: center;
+
+
+}
+#casilla{
+    width: 10%;
+    height: 20px;
+}
+::placeholder{
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    color: #B4B4B4;
+}
+.indexContainer{
+    width: 800px;  
+    height: 800px;
+    margin: 0 auto;
+    display: grid;
+    place-items: center;
+}
+.child{
+    width: 738px;
+    height: 503px;
+    background-color: $flojito;
+    display: grid;
+    place-items: center;
+    border-radius: 65px;
+form{
+input{
+    border-radius: 20px;
+    border: 1px solid $header;
+    width: 358px;
+    height: 79px;
+}  
+}    
+}
 body{
     background: $primary;
     font-family: 'Poppins', sans-serif;
+    
+
 }
+
 .nav{
     background-color: $header;
     height: 80px;
@@ -16,14 +60,6 @@ body{
     gap: 1.5em;
     align-items: center;
     grid-template-columns: 100px 1fr 2fr;
-}
-.botonHead{
-    background-color: $primary;
-    border: 0px;
-    border-radius: 20px;
-    width: 146px;
-    height: 44px;
- 
 }
 
 .nav_title{
@@ -55,18 +91,10 @@ body{
 }
 .container{
     display: grid;
-    justify-content: center;
+    justify-content: center;     
     grid-auto-flow: column;
     gap: 2.5em;
     padding-top: 40px;
-}
-.botonesEditar{
-    background-color: $flojito;
-    width: 400px;
-    height: 70px;
-    border-radius: 20px;
-    font-size: 20px;
-    border: 1px solid $header;
 }
 
 #imagen-usuario{
@@ -88,8 +116,4 @@ body{
 
 #imagen-usuario {
     cursor: pointer; /* Cambia el cursor al hacer clic en la imagen */
-}
-.cursos{
-    border: 2px solid black;
-    width: 30%;
 }

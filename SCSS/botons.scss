@@ -1,0 +1,17 @@
+@import "variables";
+.botonHead{
+    background-color: $primary;
+    border: 0px;
+    border-radius: 20px;
+    width: 146px;
+    height: 44px;
+ 
+}
+.botonesEditar{
+    background-color: $flojito;
+    width: 400px;
+    height: 70px;
+    border-radius: 20px;
+    font-size: 20px;
+    border: 1px solid $header;
+}

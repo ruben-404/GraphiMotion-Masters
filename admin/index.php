@@ -4,9 +4,13 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Iniciar Sesión</title>
+    <title>Iniciar Sesión</title>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body id="index">
     <?php
     include '../funciones.php';
     if ($_POST){
@@ -25,16 +29,17 @@ session_start();
     else{
     
     ?>
-	<h1>Iniciar Sesión como Administrador</h1>
-	<form method="POST" action="index.php">
-    	<label for="nombre">Nombre:</label>
-    	<input type="text" id="nombre" name="nombre" required><br><br>
+    <div class="indexContainer">
+        <div class=child>
+            <form method="POST" action="index.php">
+                <input type="text" id="nombre" name="nombre" placeholder="DNI" required><br><br>
+                <input type="password" id="contrasena" name="contrasena" placeholder="Contrasenya" required><br><br>
 
-    	<label for="contrasena">Contraseña:</label>
-    	<input type="password" id="contrasena" name="contrasena" required><br><br>
+                <input type="submit" value="Iniciar Sesión">
+            </form>
+        </div>
+    </div>
 
-    	<input type="submit" value="Iniciar Sesión">
-	</form>
 
 
 <?php
@@ -42,7 +47,6 @@ session_start();
 ?>
 </body>
 </html>
-
 
 
 

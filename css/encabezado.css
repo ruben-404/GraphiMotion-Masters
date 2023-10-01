@@ -1,21 +1,4 @@
 @charset "UTF-8";
-.botonHead {
-  background-color: #F8F6F4;
-  border: 0px;
-  border-radius: 20px;
-  width: 146px;
-  height: 44px;
-}
-
-.botonesEditar {
-  background-color: #E3F4F4;
-  width: 400px;
-  height: 70px;
-  border-radius: 20px;
-  font-size: 20px;
-  border: 1px solid #C4DFDF;
-}
-
 #index {
   background-image: url("../imgg/Fondo.png");
   background-repeat: no-repeat;
@@ -138,4 +121,4 @@ body {
 
 #imagen-usuario {
   cursor: pointer; /* Cambia el cursor al hacer clic en la imagen */
-}/*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=encabezado.css.map */

@@ -720,7 +720,7 @@ function mostrarNotasCursos($dni) {
       // Verificar si hay registros
       if ($result->num_rows > 0) {
           // Imprimir la tabla
-          echo '<table border="1">';
+          echo '<table id="notas_alumno">';
           echo '<tr><th>Curso</th><th>Nota</th></tr>';
           while ($row = $result->fetch_assoc()) {
               echo '<tr>';

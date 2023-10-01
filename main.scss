@@ -2,6 +2,22 @@
 @import 'SCSS/variables.scss';
 //estlos
 @import 'SCSS/botons.scss';
+//encabezados
 @import 'SCSS/encabezado.scss';
+//mixins
 @import 'SCSS/mixins.scss';
+//pie
 @import 'SCSS/piedepagina.scss';
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+#notas_alumno{
+    margin:0 auto;
+    border: 1px solid black;
+    margin-top: 20px;
+    border-radius: 20px;
+    width: 30%;
+    text-align: center;
+}

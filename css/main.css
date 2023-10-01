@@ -138,4 +138,31 @@ body {
 
 #imagen-usuario {
   cursor: pointer; /* Cambia el cursor al hacer clic en la imagen */
+}
+
+footer {
+  background-color: #C4DFDF;
+  height: 80px;
+  padding: 1.5em 5%;
+  margin-left: -8px;
+  margin-right: -8px;
+  padding-top: 8px;
+  display: grid;
+  gap: 1.5em;
+  align-items: center;
+  grid-template-columns: 100px 1fr 2fr;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+#notas_alumno {
+  margin: 0 auto;
+  border: 1px solid black;
+  margin-top: 20px;
+  border-radius: 20px;
+  width: 30%;
+  text-align: center;
 }/*# sourceMappingURL=main.css.map */

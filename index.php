@@ -109,6 +109,9 @@ include 'funciones.php';
         });
         });
 </script>
+<footer>
+    <p>hola</p>
+</footer>
 </body>
 </html>
 

@@ -5,6 +5,7 @@ session_start();
 <html>
 <head>
     <title>Crear alumno</title>
+    <script src="../js/concurso.js"></script>
 </head>
 <body>
     <?php
@@ -23,6 +24,7 @@ session_start();
 
         }else{
             if (AddAlumno($nom, $dni, $passwd, $cognom, $edad, $foto, $estado)) {
+                echo"<script>PremiosBuenos();<script>";
                 echo('<a href="index.php">volver al menu</a>');
             } 
         }

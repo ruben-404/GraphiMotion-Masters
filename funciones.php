@@ -184,6 +184,8 @@ function AddAlumno($nom,$dni,$passwd1,$cognom,$edad,$foto,$estado) {
       $stmt = $conexion->prepare($sql);
       $stmt->execute([$dni, $nom, $cognom, $edad, $foto, $passwd, $estado]);
       echo "Alumno añadido con éxito.";
+      echo"<script>PremiosBuenos();</script>";
+      echo('<a href="index.php">volver al menu</a>');
       return true;
   } catch (PDOException $e) {
       echo "Error al añadir Alumno: " . $e->getMessage();

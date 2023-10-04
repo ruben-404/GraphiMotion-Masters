@@ -138,20 +138,29 @@ function cifrarContrasena($contrasena) {
 function AddProfe($nom,$dni,$passwd1,$cognom,$titol,$foto,$estado) {
     $conexion = conectarseBase();
     $passwd=cifrarContrasena($passwd1);
-    // Consulta SQL para insertar un nuevo profesor
-    $sql = "INSERT INTO profes (Dni, Nom, Cognom, titol, foto, contrasenya, estado) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    if(preg_match("/^[0-9]{8}[A-Za-z]{1}$/", $dni)){
+      $letras = ["T", "R", "W", "A", "G", "M", "Y", "F", "P", "D", "X", "B", "N", "J", "Z", "S", "Q", "V", "H", "L", "C", "K", "E"];
+      $numsDni = intval(substr($dni,0,8));
+      $letra = $letras[$numsDni % 23];
+      if($letra == substr($dni, 8,1)){
+          // Consulta SQL para insertar un nuevo profesor
+          $sql = "INSERT INTO profes (Dni, Nom, Cognom, titol, foto, contrasenya, estado) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-    try {
-        $stmt = $conexion->prepare($sql);
-        $stmt->execute([$dni, $nom, $cognom, $titol, $foto, $passwd, $estado]);
-        echo "Profesor añadido con éxito.";
-        return true;
-    } catch (PDOException $e) {
-        echo "Error al añadir profesor: " . $e->getMessage();
-        return false;
+          try {
+              $stmt = $conexion->prepare($sql);
+              $stmt->execute([$dni, $nom, $cognom, $titol, $foto, $passwd, $estado]);
+              echo "Profesor añadido con éxito.";
+              return true;
+          } catch (PDOException $e) {
+              echo "Error al añadir profesor: " . $e->getMessage();
+              return false;
+          }
+
+          $conexion = null; // Cerrar la conexión
+
+      }
     }
 
-    $conexion = null; // Cerrar la conexión
 }
 
 //añadir curso
@@ -177,22 +186,32 @@ function AddCurso($codigo, $nom, $foto, $descripcion, $horas, $fecha_inicio, $pr
 function AddAlumno($nom,$dni,$passwd1,$cognom,$edad,$foto,$estado) {
   $conexion = conectarseBase();
   $passwd=cifrarContrasena($passwd1);
-  // Consulta SQL para insertar un nuevo profesor
-  $sql = "INSERT INTO alumnes (Dni, Nom, Cognom, Edad, foto, contrasenya, estado) VALUES (?, ?, ?, ?, ?, ?, ?)";
+  if(preg_match("/^[0-9]{8}[A-Za-z]{1}$/", $dni)){
+    $letras = ["T", "R", "W", "A", "G", "M", "Y", "F", "P", "D", "X", "B", "N", "J", "Z", "S", "Q", "V", "H", "L", "C", "K", "E"];
+    $numsDni = intval(substr($dni,0,8));
+    $letra = $letras[$numsDni % 23];
+    if($letra == substr($dni, 8,1)){
+      // Consulta SQL para insertar un nuevo profesor
+      $sql = "INSERT INTO alumnes (Dni, Nom, Cognom, Edad, foto, contrasenya, estado) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-  try {
-      $stmt = $conexion->prepare($sql);
-      $stmt->execute([$dni, $nom, $cognom, $edad, $foto, $passwd, $estado]);
-      echo "Alumno añadido con éxito.";
-      echo"<script>PremiosBuenos();</script>";
-      echo('<a href="index.php">volver al menu</a>');
-      return true;
-  } catch (PDOException $e) {
-      echo "Error al añadir Alumno: " . $e->getMessage();
-      return false;
-  }
+      try {
+          $stmt = $conexion->prepare($sql);
+          $stmt->execute([$dni, $nom, $cognom, $edad, $foto, $passwd, $estado]);
+          echo "Alumno añadido con éxito.";
+          echo"<script>PremiosBuenos();</script>";
+          echo('<a href="index.php">volver al menu</a>');
+          return true;
+      } catch (PDOException $e) {
+          echo "Error al añadir Alumno: " . $e->getMessage();
+          return false;
+      }
 
-  $conexion = null; // Cerrar la conexión
+        $conexion = null; // Cerrar la conexión
+        }else{
+          echo("dni incorrecto");
+        }
+    }
+  
 }
 
 

@@ -24,13 +24,13 @@ include '../funciones.php';
         <h1>GraphiMotion Masters</h1>
         <ul class="nav_list">
             <li class="nav_item">
-                <button class="botonHead">Inici</button>
+                <button onclick="location.href='../index.php'" class="botonHead">Inici</button>
             </li>
             <li class="nav_item">
-                <button class="botonHead">Nosaltres</button>
+                <button onclick="location.href='pages/nosaltres.php'" class="botonHead">Nosaltres</button>
             </li>
             <li class="nav_item">
-                <button class="botonHead">Serveis</button>
+                <button onclick="location.href='pages/serveis.php'" class="botonHead">Serveis</button>
             </li>
             <li class="nav_item">
                 <button class="botonHead">Contacte</button>

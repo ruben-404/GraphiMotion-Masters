@@ -39,7 +39,7 @@ session_start();
             }
             // Llamar a la función para actualizar los demás datos del profesor
             if (UpdateAlumne($nom, $dni, $cognom, $edad)) {
-                header("Location: index.php");
+                header("Location: ../index.php");
             }
         }
     }

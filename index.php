@@ -11,12 +11,6 @@ include 'funciones.php';
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        /* Estilo para ocultar los enlaces inicialmente */
-        .enlaces {
-            display: none;
-        }
-    </style>
 </head>
 <body>
     <nav class="nav">
@@ -24,13 +18,13 @@ include 'funciones.php';
         <h1>GraphiMotion Masters</h1>
         <ul class="nav_list">
             <li class="nav_item">
-                <button class="botonHead">Inici</button>
+                <button onclick="location.href='index.php'" class="botonHead">Inici</button>
             </li>
             <li class="nav_item">
-                <button class="botonHead">Nosaltres</button>
+                <button onclick="location.href='pages/nosaltres.php'" class="botonHead">Nosaltres</button>
             </li>
             <li class="nav_item">
-                <button class="botonHead">Serveis</button>
+                <button onclick="location.href='pages/serveis.php'" class="botonHead">Serveis</button>
             </li>
             <li class="nav_item">
                 <button class="botonHead">Contacte</button>
@@ -52,7 +46,7 @@ include 'funciones.php';
                             echo '</div>';
                         } else {
                             $fotoURL = GetInfoAlumno($dni, 'foto');
-                            echo '<img src="fotos/' . $fotoURL . '" alt="Vista previa de la foto" width="60" id="imagen-usuario" onclick="mostrarEnlaces()"><br>';
+                            echo '<img src="alumno/fotos/' . $fotoURL . '" alt="Vista previa de la foto" width="60" id="imagen-usuario" onclick="mostrarEnlaces()"><br>';
                            
                             echo '<div class="enlaces" id="enlaces-usuario">';
                             echo '<a href="sortir.php">Sortir</a><br>';

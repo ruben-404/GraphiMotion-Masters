@@ -6,17 +6,11 @@ include '../funciones.php';
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Notas</title>
+    <title>Iniciar Sesión</title>
     <link rel="stylesheet" type="text/css" href="../css/main.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        /* Estilo para ocultar los enlaces inicialmente */
-        .enlaces {
-            display: none;
-        }
-    </style>
 </head>
 <body>
     <nav class="nav">
@@ -45,26 +39,27 @@ include '../funciones.php';
                         
                         if ($_SESSION['ROL'] == "profe") {
                             $fotoURL = GetInfoProfe($dni, 'foto');
-                            echo '<img src="../admin/fotos/' . $fotoURL . '" alt="Vista previa de la foto" width="60" id="imagen-usuario" onclick="mostrarEnlaces()"><br>';
+                            echo '<img src="admin/fotos/' . $fotoURL . '" alt="Vista previa de la foto" width="60" id="imagen-usuario" onclick="mostrarEnlaces()"><br>';
                            
                             echo '<div class="enlaces" id="enlaces-usuario">';
-                            echo '<a href="sortir.php">Sortir</a>';
+                            echo '<a href="../sortir.php">Sortir</a>';
                             echo '</div>';
                         } else {
                             $fotoURL = GetInfoAlumno($dni, 'foto');
-                            echo '<img src="../fotos/' . $fotoURL . '" alt="Vista previa de la foto" width="60" id="imagen-usuario" onclick="mostrarEnlaces()"><br>';
+                            echo '<img src="fotos/' . $fotoURL . '" alt="Vista previa de la foto" width="60" id="imagen-usuario" onclick="mostrarEnlaces()"><br>';
                            
                             echo '<div class="enlaces" id="enlaces-usuario">';
                             echo '<a href="sortir.php">Sortir</a><br>';
-                            echo '<a href="alumno/EditarAlumno.php">Info</a><br>';
+                            echo '<a href="../alumno/EditarAlumno.php">Info</a><br>';
+                            echo '<a href="../alumno/TablaNotas.php">Notas</a><br>';
                             echo '</div>';
                         }
                     } else {
                         // Cuando el usuario no ha iniciado sesión, mostramos la imagen del usuario y ocultamos los enlaces
                         echo '<img src="../img/usu.png" alt="foto usu" id="imagen-usuario" onclick="mostrarEnlaces()">';
                         echo '<div class="enlaces" id="enlaces-usuario">';
-                        echo '<a href="alumno/AñadirAlumno.php">Registrar</a><br>';
-                        echo '<a href="alumno/InicoAlumnoProfe.php">Iniciar</a><br>';
+                        echo '<a href="../alumno/AñadirAlumno.php">Registrar</a><br>';
+                        echo '<a href="../alumno/InicoAlumnoProfe.php">Iniciar</a><br>';
                         echo '</div>';
                     }
                     ?>
@@ -74,12 +69,7 @@ include '../funciones.php';
     </nav>
     <div class="imagen">
     </div>
-    <?php
-        
-        mostrarNotasCursos($_SESSION['dni']);
-        
 
-    ?>
     <script>
         function mostrarEnlaces() {
             var enlacesUsuario = document.getElementById('enlaces-usuario');
@@ -90,19 +80,12 @@ include '../funciones.php';
             }
         }
     </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-        // Obtén el botón por su ID
-        var matricularCursoButton = document.getElementById('matricularCursoButton');
 
-        // Agrega un evento click al botón
-        matricularCursoButton.addEventListener('click', function() {
-            // Obtén el código del curso que deseas matricular
-            var code = '<?php echo $code; ?>';
-
-            
-        });
-        });
-</script>
+<footer>
+    <p>hola</p>
+</footer>
 </body>
 </html>
+
+
+

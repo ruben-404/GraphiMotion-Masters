@@ -88,8 +88,19 @@
 }
 .child form .file-label {
   background-image: url("../img/foto.png");
-  padding-left: 50px;
-  padding-top: 25px;
+  margin-top: 5px;
+  width: 50px;
+  height: 48px;
+}
+.child .edad-foto {
+  display: grid;
+  justify-content: center;
+  grid-auto-flow: column;
+  gap: 1.5em;
+  margin-bottom: 50px;
+}
+.child .edad-foto input {
+  width: 250px;
 }
 
 body {

@@ -43,20 +43,19 @@ session_start();
                 <input type="password" id="contrasena" name="contrasena" placeholder="Contrasenya" required><br><br>
                 <input type="text" id="nom" name="nom" placeholder="Nom" required><br><br>
                 <input type="text" id="cognom" name="cognom" placeholder="Cognom" required><br><br>
-
-          
-                <input type="date" id="edad" name="edad" placeholder="Edad" required><br><br>
-
-                <!-- Utiliza una etiqueta label para el campo de tipo file -->
-                <label for="image" class="file-label"></label>
-                <input type="file" id="image" name="image" style="display: none;"><br><br>
-
                 <input type="password" id="contrasenya" name="contrasenya" placeholder="Contrasenya" required><br><br>
-
+          
+                
+                <div class="edad-foto">
+                    <input type="date" id="edad" name="edad" placeholder="Edad" required><br><br>
+                <!-- Utiliza una etiqueta label para el campo de tipo file -->
+                    <label for="image" class="file-label"></label>
+                    <input type="file" id="image" name="image" style="display: none;"><br><br>
+                </div>
 
                 <input type="submit" value="Añadir">
             </form>
-            <a href="sortir.php">Salir de la session</a>
+            
     
         </div>
     </div>

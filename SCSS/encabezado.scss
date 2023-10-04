@@ -66,12 +66,29 @@ input{
 }
 .file-label{
     background-image: url("../img/foto.png");
+    margin-top: 5px;
+    width: 50px;
+    height: 48px;
+
+
+}
+}
+.edad-foto{
+
+    display: grid;
+    justify-content: center;     
+    grid-auto-flow: column;
+    gap: 1.5em;
+    margin-bottom: 50px;
+
+input{
+    width: 250px;
     
-    padding-left: 50px;
-    padding-top: 25px;
+}
 }    
 }  
-}
+
+
 body{
     background: $primary;
     font-family: 'Poppins', sans-serif;

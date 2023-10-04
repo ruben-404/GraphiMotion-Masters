@@ -29,7 +29,7 @@ session_start();
         }else{
             if (AddAlumno($nom, $dni, $passwd, $cognom, $edad, $foto, $estado)) {
                 echo"<script>PremiosBuenos();<script>";
-                echo('<a href="../index.php">volver al menu</a>');
+                echo('<a href="../index.php">volver al menu1</a>');
             } 
         }
         
@@ -40,7 +40,6 @@ session_start();
         <div class=child>
             <form method="POST" action="AñadirAlumno.php" enctype="multipart/form-data">
                 <input type="text" id="dni" name="dni" placeholder="DNI" required><br><br>
-                <input type="password" id="contrasena" name="contrasena" placeholder="Contrasenya" required><br><br>
                 <input type="text" id="nom" name="nom" placeholder="Nom" required><br><br>
                 <input type="text" id="cognom" name="cognom" placeholder="Cognom" required><br><br>
                 <input type="password" id="contrasenya" name="contrasenya" placeholder="Contrasenya" required><br><br>

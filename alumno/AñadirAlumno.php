@@ -17,7 +17,7 @@ session_start();
         $cognom = $_POST['cognom'];
         $edad = $_POST['edad'];
         $foto = adapImage($dni,$_FILES['image']['name'],$_FILES['image']['tmp_name']);
-        $estado = $_POST['estado'];
+        $estado = 1;
         if (VerifyAlumno($dni)){
             echo("Ese alumno ya esta registrado");
             
@@ -25,7 +25,7 @@ session_start();
         }else{
             if (AddAlumno($nom, $dni, $passwd, $cognom, $edad, $foto, $estado)) {
                 echo"<script>PremiosBuenos();<script>";
-                echo('<a href="index.php">volver al menu</a>');
+                echo('<a href="../index.php">volver al menu</a>');
             } 
         }
         
@@ -35,7 +35,7 @@ session_start();
     <h1>Creacio Alumno</h1>
     <form method="POST" action="AñadirAlumno.php" enctype="multipart/form-data">
         <label for="dni">DNI:</label>
-        <input type="text" id="dni" name="dni" required><br><br>
+        <input type="text" id="dni" name="dni" required maxlenght="9" pattern="[0-9]{8}[A-Za-z]{1}"><br><br>
 
         <label for="nom">Nombre:</label>
         <input type="text" id="nom" name="nom" required><br><br>
@@ -52,8 +52,6 @@ session_start();
         <label for="contrasenya">Contraseña:</label>
         <input type="password" id="contrasenya" name="contrasenya" required><br><br>
 
-        <label for="estado">Estado (1 para activo, 0 para inactivo):</label>
-        <input type="number" id="estado" name="estado" min="0" max="1" required><br><br>
 
         <input type="submit" value="Añadir">
     </form>

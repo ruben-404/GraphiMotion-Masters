@@ -102,8 +102,8 @@ body {
 }
 
 #imagen-usuario {
-  width: 40px;
-  border-radius: 20px;
+  width: 30px;
+  cursor: pointer; /* Cambia el cursor al hacer clic en la imagen */
 }
 
 .enlaces {
@@ -117,8 +117,4 @@ body {
   width: 5%;
   text-align: center;
   border-radius: 20px;
-}
-
-#imagen-usuario {
-  cursor: pointer; /* Cambia el cursor al hacer clic en la imagen */
 }/*# sourceMappingURL=encabezado.css.map */

@@ -1,0 +1,16 @@
+.botonHead {
+  background-color: #F8F6F4;
+  border: 0px;
+  border-radius: 20px;
+  width: 146px;
+  height: 44px;
+}
+
+.botonesEditar {
+  background-color: #E3F4F4;
+  width: 400px;
+  height: 70px;
+  border-radius: 20px;
+  font-size: 20px;
+  border: 1px solid #C4DFDF;
+}/*# sourceMappingURL=botons.css.map */

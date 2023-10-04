@@ -69,6 +69,7 @@ include 'funciones.php';
     </nav>
     <div class="imagen">
     </div>
+    <div class="contenedor">
     <?php
         if (isset($_SESSION['dni'])) {
             imprimirCursos($_SESSION['ROL']);
@@ -79,6 +80,7 @@ include 'funciones.php';
         
 
     ?>
+    </div>
     <script>
         function mostrarEnlaces() {
             var enlacesUsuario = document.getElementById('enlaces-usuario');
@@ -103,7 +105,7 @@ include 'funciones.php';
         });
         });
 </script>
-<footer>
+<footer id="IndeFooter">
     <p>hola</p>
 </footer>
 </body>

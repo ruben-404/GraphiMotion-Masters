@@ -395,7 +395,7 @@ function obtenerListaCursos() {
   $conexion = conectarseBase();
 
   // Realiza una consulta SQL para obtener la lista de profesores
-  $sql = "SELECT Codigo, Nom FROM cursos";
+  $sql = "SELECT Codigo, Nom, Estado FROM cursos";
   $result = $conexion->query($sql);
 
   $listaProfesores = array();
@@ -422,24 +422,39 @@ function imprimirCursos($rol) {
   foreach ($cursos as $curso) {
     $codigo = $curso['Codigo'];
     $nombre = $curso['Nom'];
-    $imagenURL = "admin/fotos/$codigo.jpg"; // Reemplaza con la ruta real de tus imágenes
-    echo "<div class='cursos'>";
-    echo "<h2>$nombre</h2>";
-    echo "<img src='$imagenURL' alt='$nombre' width='200'><br>";
-    echo "<img src='imgg/onlinee.png'<br>";
-    echo "<img src='imgg/idioma.png'<br>";
-   
-    // Agregar un enlace al archivo CursoAlumne.php con el código del curso en la URL
-    echo "<a href='alumno/CursoAlumne.php?codigo_curso=$codigo'>";
+    $estado = $curso['Estado'];
+    
+    $imagenURL = "admin/fotos/$codigo.jpg";
+    if($estado==1){
+      echo "<div class='cursos'>";
+      echo "<div class='FotoCurso'>";
+      echo "<img src='$imagenURL' alt='$nombre' width='200'><br>";
+      echo "</div>";
+      echo "<div class='CursoText'>";
+      echo "<div class='TextoCurso'>";
+      echo "<h2 class='titulo'>$nombre</h2>";
+      echo "</div>";
+      echo "<div class='InfoCurso'>";
+      echo "<img src='imgg/onlinee.png'<br>";
+      echo "<img src='imgg/idioma.png'<br>";
+      echo "</div>";
+      echo "</div>";
+      
+    
+      // Agregar un enlace al archivo CursoAlumne.php con el código del curso en la URL
+      echo "<a href='alumno/CursoAlumne.php?codigo_curso=$codigo'>";
 
-    if ($rol == "alumne") {
-      echo "<button>flecha</button>";
-    } else {
-      echo "<button>mi curso</button>";
+      if ($rol == "alumne") {
+        echo "<button class='flecha'><img src='img/flecha.png' alt='fecha'></button>";
+      } else {
+        echo "<button class='flecha'>mi curso</button>";
+      }
+    
+      echo "</a>";
+      echo "</div>";
+
     }
-   
-    echo "</a>";
-    echo "</div>";
+    
   }
 }
 
@@ -456,58 +471,82 @@ function imprimirCursosSin() {
   foreach ($cursos as $curso) {
     $codigo = $curso['Codigo'];
     $nombre = $curso['Nom'];
-    $imagenURL = "admin/fotos/$codigo.jpg"; // Reemplaza con la ruta real de tus imágenes
-    echo "<div class='cursos'>";
-    echo "<h2>$nombre</h2>";
-    echo "<img src='$imagenURL' alt='$nombre' width='200'><br>";
-    echo "<img src='imgg/onlinee.png'<br>";
-    echo "<img src='imgg/idioma.png'<br>";
-   
-    // Agregar un enlace al archivo CursoAlumne.php con el código del curso en la URL
-    echo "<a href='alumno/CursoAlumne.php?codigo_curso=$codigo'>";
-
-    echo "<button>flecha</button>";
+    $estado = $curso['Estado'];
     
-   
-    echo "</a>";
-    echo "</div>";
+    $imagenURL = "admin/fotos/$codigo.jpg";
+    if($estado==1){
+      echo "<div class='cursos'>";
+      echo "<div class='FotoCurso'>";
+      echo "<img src='$imagenURL' alt='$nombre' width='200'><br>";
+      echo "</div>";
+      echo "<div class='CursoText'>";
+      echo "<div class='TextoCurso'>";
+      echo "<h2 class='titulo'>$nombre</h2>";
+      echo "</div>";
+      echo "<div class='InfoCurso'>";
+      echo "<img src='imgg/onlinee.png'<br>";
+      echo "<img src='imgg/idioma.png'<br>";
+      echo "</div>";
+      echo "</div>";
+      
+    
+      // Agregar un enlace al archivo CursoAlumne.php con el código del curso en la URL
+      echo "<a href='alumno/CursoAlumne.php?codigo_curso=$codigo'>";
+
+  
+      echo "<button class='flecha'><img src='img/flecha.png' alt='fecha'></button>";
+     
+    
+      echo "</a>";
+      echo "</div>";
+    }
   }
 }
 
 function InfoCurso($code){
   
   $imagenURL = "../admin/fotos/$code.jpg";
+  echo "<div class='CursoContenedor'>";
+  echo "<div class='colorImg'>";
+  echo "<div class='CursoCompletoIng'>";
   echo "<img src='$imagenURL' alt='foto curso' width='200'><br>";
+  
   echo("<h1>". GetInfoCurso($code, 'Nom') ."</h1>");
+  echo "</div>";
+  echo "<div class='fotosCompleto'>";
   echo "<img src='../imgg/onlinee.png'>";
   echo "<img src='../imgg/idioma.png'>";
-  echo("<p>". GetInfoCurso($code, 'Descripcion') ."</p>");
+  echo "</div>";
+  echo("<p class='descripcion'>". GetInfoCurso($code, 'Descripcion') ."</p>");
   if (isset($_SESSION['dni'])) {
     if(VerifyMatriculado($code,$_SESSION['dni'])){
-      echo("esta matriculado");
+      echo("<p class='notaCurso'>Estas matriculado</p>");
       if(GetInfoMatriculado($code,$_SESSION['dni'])){
         echo(GetInfoMatriculado($code,$_SESSION['dni']));
        
       }else{
-        echo("Nota no disponible");
+        echo("<p class='notaCurso'>Nota no disponible</p>");
       }
       echo'<form method="POST" action="CursoAlumne.php" enctype="multipart/form-data">';
       echo"<input type='hidden' name='codigo_curso' value=". $code .">";
-      echo'<button type="submit" name="botonB" value="borrar">Darte de baja?</button>';
+      echo'<button type="submit" class="botonCurso" name="botonB" value="borrar">Darte de baja?</button>';
       echo'</from>';
 
       //echo "<button id='DarBajaBtn' data-curso-id='$code' data-dni-id='{$_SESSION['dni']}'>Darte de baja?</button>";
     }else{
       echo'<form method="POST" action="CursoAlumne.php" enctype="multipart/form-data">';
       echo"<input type='hidden' name='codigo_curso' value=". $code .">";
-      echo'<button type="submit" name="botonM" value="apuntar">Apuntar</button>';
+      echo'<button type="submit" class="botonCurso" name="botonM" value="apuntar">Apuntar</button>';
       echo'</from>';
       //echo "<button id='matricularBtn' data-curso-id='$code'>mi curso</button>";
       //quitar esto cuando se capaz de poner enlazar una funcion php con un puto boton
      
     }
+
    
   }
+  echo"</div";
+  echo"</div>";
   
 }
 

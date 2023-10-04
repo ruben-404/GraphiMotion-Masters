@@ -1,3 +1,30 @@
-footer {
-  background-color: he;
+#IndeFooter {
+  background-color: #C4DFDF;
+  height: 80px;
+  padding: 1.5em 5%;
+  margin-left: -8px;
+  margin-right: -8px;
+  padding-top: 8px;
+  display: grid;
+  gap: 1.5em;
+  align-items: center;
+  grid-template-columns: 100px 1fr 2fr;
+  position: absolute;
+  width: 100%;
+}
+
+.footerPage {
+  background-color: #C4DFDF;
+  height: 80px;
+  padding: 1.5em 5%;
+  margin-left: -8px;
+  margin-right: -8px;
+  padding-top: 8px;
+  display: grid;
+  gap: 1.5em;
+  align-items: center;
+  grid-template-columns: 100px 1fr 2fr;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
 }/*# sourceMappingURL=piedepagina.css.map */

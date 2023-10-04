@@ -17,20 +17,20 @@ include '../funciones.php';
         <div class = "nav_title"><img src="../imgg/logo.png" alt="Logo"></div>
         <h1>GraphiMotion Masters</h1>
         <ul class="nav_list">
-            <li class="nav_item">
+        <li class="nav_item">
                 <button onclick="location.href='../index.php'" class="botonHead">Inici</button>
             </li>
             <li class="nav_item">
-                <button class="botonHead">Nosaltres</button>
+                <button onclick="location.href='nosaltres.php'" class="botonHead">Nosaltres</button>
             </li>
             <li class="nav_item">
-                <button class="botonHead">Serveis</button>
+                <button onclick="location.href='serveis.php'"  class="botonHead">Serveis</button>
             </li>
             <li class="nav_item">
                 <button class="botonHead">Contacte</button>
             </li>
             <li class="nav_item">
-                <?php
+            <?php
                     
                     
                     // Verificar si el usuario ha iniciado sesión y si la variable dni está configurada en la sesión.
@@ -39,27 +39,27 @@ include '../funciones.php';
                         
                         if ($_SESSION['ROL'] == "profe") {
                             $fotoURL = GetInfoProfe($dni, 'foto');
-                            echo '<img src="admin/fotos/' . $fotoURL . '" alt="Vista previa de la foto" width="60" id="imagen-usuario" onclick="mostrarEnlaces()"><br>';
+                            echo '<img src="../admin/fotos/' . $fotoURL . '" alt="Vista previa de la foto" width="60" id="imagen-usuario" onclick="mostrarEnlaces()"><br>';
                            
                             echo '<div class="enlaces" id="enlaces-usuario">';
-                            echo '<a href="sortir.php">Sortir</a>';
+                            echo '<a href="../sortir.php">Sortir</a>';
                             echo '</div>';
                         } else {
                             $fotoURL = GetInfoAlumno($dni, 'foto');
-                            echo '<img src="fotos/' . $fotoURL . '" alt="Vista previa de la foto" width="60" id="imagen-usuario" onclick="mostrarEnlaces()"><br>';
+                            echo '<img src="../alumno/fotos/' . $fotoURL . '" alt="Vista previa de la foto" width="60" id="imagen-usuario" onclick="mostrarEnlaces()"><br>';
                            
                             echo '<div class="enlaces" id="enlaces-usuario">';
                             echo '<a href="sortir.php">Sortir</a><br>';
-                            echo '<a href="alumno/EditarAlumno.php">Info</a><br>';
-                            echo '<a href="alumno/TablaNotas.php">Notas</a><br>';
+                            echo '<a href="../alumno/EditarAlumno.php">Info</a><br>';
+                            echo '<a href="../alumno/TablaNotas.php">Notas</a><br>';
                             echo '</div>';
                         }
                     } else {
                         // Cuando el usuario no ha iniciado sesión, mostramos la imagen del usuario y ocultamos los enlaces
                         echo '<img src="../img/usu.png" alt="foto usu" id="imagen-usuario" onclick="mostrarEnlaces()">';
                         echo '<div class="enlaces" id="enlaces-usuario">';
-                        echo '<a href="alumno/AñadirAlumno.php">Registrar</a><br>';
-                        echo '<a href="alumno/InicoAlumnoProfe.php">Iniciar</a><br>';
+                        echo '<a href="../alumno/AñadirAlumno.php">Registrar</a><br>';
+                        echo '<a href="../alumno/InicoAlumnoProfe.php">Iniciar</a><br>';
                         echo '</div>';
                     }
                     ?>
@@ -68,8 +68,9 @@ include '../funciones.php';
         </ul>
     </nav>
     <div class="imagen">
+        
     </div>
-
+    <p>serveis</p>
     <script>
         function mostrarEnlaces() {
             var enlacesUsuario = document.getElementById('enlaces-usuario');
@@ -80,8 +81,7 @@ include '../funciones.php';
             }
         }
     </script>
-
-<footer>
+<footer class="footerPage">
     <p>hola</p>
 </footer>
 </body>

@@ -1,1 +1,1 @@
-{"version":3,"sources":["../SCSS/piedepagina.scss","piedepagina.css"],"names":[],"mappings":"AAAA;EACI,oBAAA;ACCJ","file":"piedepagina.css"}
+{"version":3,"sources":["../SCSS/piedepagina.scss","../SCSS/variables.scss","piedepagina.css"],"names":[],"mappings":"AAEA;EACI,yBCFK;EDGL,YAAA;EACA,iBAAA;EACA,iBAAA;EACA,kBAAA;EACA,gBAAA;EACA,aAAA;EACA,UAAA;EACA,mBAAA;EACA,oCAAA;EACA,kBAAA;EACA,WAAA;AEDJ;;AFIA;EACI,yBCjBK;EDkBL,YAAA;EACA,iBAAA;EACA,iBAAA;EACA,kBAAA;EACA,gBAAA;EACA,aAAA;EACA,UAAA;EACA,mBAAA;EACA,oCAAA;EACA,kBAAA;EACA,WAAA;EACA,SAAA;AEDJ","file":"piedepagina.css"}

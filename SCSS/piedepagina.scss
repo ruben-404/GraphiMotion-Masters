@@ -1,4 +1,6 @@
-footer{
+@import "variables";
+
+#IndeFooter{
     background-color: $header;
     height: 80px;
     padding:1.5em 5%;
@@ -9,4 +11,23 @@ footer{
     gap: 1.5em;
     align-items: center;
     grid-template-columns: 100px 1fr 2fr;
+    position: absolute;
+    width: 100%;
+    
+}
+.footerPage{
+    background-color: $header;
+    height: 80px;
+    padding:1.5em 5%;
+    margin-left: -8px;
+    margin-right: -8px;
+    padding-top: 8px;
+    display: grid;
+    gap: 1.5em;
+    align-items: center;
+    grid-template-columns: 100px 1fr 2fr;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+
 }

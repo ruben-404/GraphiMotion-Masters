@@ -156,7 +156,9 @@ include '../funciones.php';
         
     </script>
     
-    
+<footer class="footerPage">
+    <p>hola</p>
+</footer>
 </body>
 </html>
 

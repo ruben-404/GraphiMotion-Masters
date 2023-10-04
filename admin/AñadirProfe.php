@@ -37,7 +37,7 @@ session_start();
     <h1>Creacio Profesor</h1>
     <form method="POST" action="AñadirProfe.php" enctype="multipart/form-data">
         <label for="dni">DNI:</label>
-        <input type="text" id="dni" name="dni" required><br><br>
+        <input type="text" id="dni" name="dni" required maxlenght="9" pattern="[0-9]{8}[A-Za-z]{1}" required><br><br>
 
         <label for="nom">Nombre:</label>
         <input type="text" id="nom" name="nom" required><br><br>

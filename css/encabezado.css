@@ -1,5 +1,5 @@
 @charset "UTF-8";
-#index {
+.index {
   background-image: url("../imgg/Fondo.png");
   background-repeat: no-repeat;
   background-size: cover;
@@ -45,6 +45,34 @@
   border: 1px solid #C4DFDF;
   width: 358px;
   height: 79px;
+}
+
+.indexContainer2 {
+  width: 800px;
+  height: 800px;
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+}
+
+.child {
+  width: 738px;
+  height: 700px;
+  background-color: #E3F4F4;
+  display: grid;
+  place-items: center;
+  border-radius: 65px;
+}
+.child form input {
+  border-radius: 20px;
+  border: 1px solid #C4DFDF;
+  width: 358px;
+  height: 59px;
+}
+.child form .file-label {
+  background-image: url("../img/foto.png");
+  padding-left: 50px;
+  padding-top: 25px;
 }
 
 body {

@@ -6,8 +6,12 @@ session_start();
 <head>
     <title>Crear alumno</title>
     <script src="../js/concurso.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body  class="index">
     <?php
     include '../funciones.php';
     if ($_POST) {
@@ -32,31 +36,30 @@ session_start();
     } else {
     ?>
    
-    <h1>Creacio Alumno</h1>
-    <form method="POST" action="AñadirAlumno.php" enctype="multipart/form-data">
-        <label for="dni">DNI:</label>
-        <input type="text" id="dni" name="dni" required maxlenght="9" pattern="[0-9]{8}[A-Za-z]{1}"><br><br>
+   <div class="indexContainer2">
+        <div class=child>
+            <form method="POST" action="AñadirAlumno.php" enctype="multipart/form-data">
+                <input type="text" id="dni" name="dni" placeholder="DNI" required><br><br>
+                <input type="password" id="contrasena" name="contrasena" placeholder="Contrasenya" required><br><br>
+                <input type="text" id="nom" name="nom" placeholder="Nom" required><br><br>
+                <input type="text" id="cognom" name="cognom" placeholder="Cognom" required><br><br>
 
-        <label for="nom">Nombre:</label>
-        <input type="text" id="nom" name="nom" required><br><br>
+          
+                <input type="date" id="edad" name="edad" placeholder="Edad" required><br><br>
 
-        <label for="cognom">Apellido:</label>
-        <input type="text" id="cognom" name="cognom" required><br><br>
+                <!-- Utiliza una etiqueta label para el campo de tipo file -->
+                <label for="image" class="file-label"></label>
+                <input type="file" id="image" name="image" style="display: none;"><br><br>
 
-        <label for="Edad">Edad:</label>
-        <input type="date" id="edad" name="edad" required><br><br>
-
-        <label for="image">Foto (URL):</label>
-        <input type="file" id="image" name="image"><br><br>
-
-        <label for="contrasenya">Contraseña:</label>
-        <input type="password" id="contrasenya" name="contrasenya" required><br><br>
+                <input type="password" id="contrasenya" name="contrasenya" placeholder="Contrasenya" required><br><br>
 
 
-        <input type="submit" value="Añadir">
-    </form>
-	<a href="sortir.php">Salir de la session</a>
-
+                <input type="submit" value="Añadir">
+            </form>
+            <a href="sortir.php">Salir de la session</a>
+    
+        </div>
+    </div>
     <?php
         }
     ?>

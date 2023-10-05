@@ -24,10 +24,8 @@ session_start();
         if($listaCursos!=null){
             // Genera las opciones del select en función de la lista de profesores
             foreach ($listaCursos as $curso) {
-                echo "<option value='" . $curso['Codigo'] . "'>" . $curso['Nom'] . "</option>";
-                
+                echo "<option value='" . $curso['Codigo'] . "'>" . $curso['Codigo'] . '-' . $curso['Nom'] . "</option>";
                 echo "<a href='EditarCursoFormulario.php?id=" . $curso['Codigo'] . "&NomCurso=" . $curso['Nom'] . "&CursoCodigo=" . $curso['Codigo'] . "'>Actualizar</a>";
-                
             }
 
         }else{

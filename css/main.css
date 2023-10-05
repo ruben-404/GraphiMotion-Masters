@@ -16,6 +16,10 @@
   border: 1px solid #C4DFDF;
 }
 
+.notaCurso, .botonCurso {
+  margin-left: 20px;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -184,6 +188,106 @@ body {
   width: 5%;
   text-align: center;
   border-radius: 20px;
+}
+
+.contenedor {
+  margin: 0;
+  display: grid;
+  place-items: center;
+}
+
+#notas_alumno {
+  margin: 0 auto;
+  border: 1px solid black;
+  margin-top: 20px;
+  border-radius: 20px;
+  width: 30%;
+  text-align: center;
+}
+
+.cursos {
+  margin: 0;
+  width: 753px;
+  background-color: #E3F4F4;
+  border: #C4DFDF 1px solid;
+  margin-top: 40px;
+  margin-bottom: 50px;
+  border-radius: 20px;
+  display: grid;
+  grid-auto-flow: column;
+  height: 167px;
+}
+
+.FotoCurso {
+  float: left;
+  padding: 20px;
+}
+
+.titulo {
+  width: 100%;
+}
+
+.FotoCurso img {
+  width: 123px;
+  height: 121px;
+  border-radius: 20px;
+}
+
+.TextoCurso {
+  width: 100%;
+  display: grid;
+  place-items: center;
+  top: 0;
+}
+
+.InfoCurso {
+  grid-auto-flow: row;
+}
+
+.CursoText {
+  display: grid;
+  grid-auto-flow: row;
+}
+
+.flecha {
+  margin-top: 92px;
+  background: none;
+  border: none;
+  width: 100px;
+  height: 50px;
+}
+
+.CursoContenedor {
+  margin: 0;
+  display: grid;
+  place-items: center;
+  height: 100%;
+}
+
+.colorImg {
+  background-color: #E3F4F4;
+  width: 40%;
+  margin-top: 30px;
+  border-radius: 20px;
+  height: 100%;
+}
+
+.CursoCompletoIng {
+  display: grid;
+  grid-auto-flow: column;
+  padding: 20px;
+}
+
+.CursoCompletoIng img {
+  border-radius: 20px;
+}
+
+.fotosCompleto {
+  margin-left: 35px;
+}
+
+.descripcion {
+  padding: 20px;
 }
 
 #IndeFooter {

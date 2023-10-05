@@ -428,7 +428,7 @@ function imprimirCursos($rol) {
     if($estado==1){
       echo "<div class='cursos'>";
       echo "<div class='FotoCurso'>";
-      echo "<img src='$imagenURL' alt='$nombre' width='200'><br>";
+      echo "<img src='$imagenURL' alt='$nombre'><br>";
       echo "</div>";
       echo "<div class='CursoText'>";
       echo "<div class='TextoCurso'>";
@@ -477,7 +477,7 @@ function imprimirCursosSin() {
     if($estado==1){
       echo "<div class='cursos'>";
       echo "<div class='FotoCurso'>";
-      echo "<img src='$imagenURL' alt='$nombre' width='200'><br>";
+      echo "<img src='$imagenURL' alt='$nombre'><br>";
       echo "</div>";
       echo "<div class='CursoText'>";
       echo "<div class='TextoCurso'>";

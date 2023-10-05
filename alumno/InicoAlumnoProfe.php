@@ -21,7 +21,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     } else {
         if(VerifyAlumnoc($dni,$contrasena)){
-            echo("adios");
             $_SESSION['dni']=$dni;
             $_SESSION['ROL']="alumne";
             header('location: ../index.php');

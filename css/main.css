@@ -105,6 +105,7 @@
 
 body {
   background: #F8F6F4;
+  overflow-x: hidden;
   font-family: "Poppins", sans-serif;
 }
 

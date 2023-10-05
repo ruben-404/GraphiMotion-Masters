@@ -27,10 +27,10 @@ include '../funciones.php';
                 <button onclick="location.href='../index.php'" class="botonHead">Inici</button>
             </li>
             <li class="nav_item">
-                <button onclick="location.href='pages/nosaltres.php'" class="botonHead">Nosaltres</button>
+                <button onclick="location.href='../pages/nosaltres.php'" class="botonHead">Nosaltres</button>
             </li>
             <li class="nav_item">
-                <button onclick="location.href='pages/serveis.php'" class="botonHead">Serveis</button>
+                <button onclick="location.href='../pages/serveis.php'" class="botonHead">Serveis</button>
             </li>
             <li class="nav_item">
                 <button class="botonHead">Contacte</button>

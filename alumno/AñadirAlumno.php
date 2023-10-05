@@ -24,12 +24,15 @@ session_start();
         $estado = 1;
         if (VerifyAlumno($dni)){
             echo("Ese alumno ya esta registrado");
+            echo('<a href="../index.php">volver al menu</a>');
+
             
 
         }else{
             if (AddAlumno($nom, $dni, $passwd, $cognom, $edad, $foto, $estado)) {
                 echo"<script>PremiosBuenos();<script>";
-                echo('<a href="../index.php">volver al menu1</a>');
+                echo('<a href="../index.php">volver al menu</a>');
+            
             } 
         }
         

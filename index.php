@@ -21,7 +21,7 @@ include 'funciones.php';
                 <button onclick="location.href='index.php'" class="botonHead">Inici</button>
             </li>
             <li class="nav_item">
-                <button onclick="location.href='pages/nosaltres.php'" class="botonHead">Nosaltres</button>
+                <button onclick="location.href='#nosaltres'" class="botonHead">Nosaltres</button>
             </li>
             <li class="nav_item">
                 <button onclick="location.href='pages/serveis.php'" class="botonHead">Serveis</button>
@@ -81,8 +81,8 @@ include 'funciones.php';
 
     ?>
     </div>
-    <div class="nosaltres">
-        <div class="nosoltresImg"><img src="imgg/nosaltres.png" alt="foto usu"><div><h2>Sobre nosaltres</h2><p class="NosolatresT">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div></div>
+    <div class="nosaltres" id="nosaltres">
+        <div class="nosoltresImg"><img src="imgg/nosaltres.png" alt="foto usu"><div><h2 id="tituloNos">Sobre nosaltres</h2><div class="NosaltresDesc"><p class="NosolatresT">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div></div></div>
         <div class="nosoltresText">
             
 

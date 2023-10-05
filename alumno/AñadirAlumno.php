@@ -24,7 +24,7 @@ session_start();
         $estado = 1;
         if (VerifyAlumno($dni)){
             echo "<script type='text/javascript'>alert('Ese alumno ya esta registrado');</script>";
-            header("refresh:5;url=../index.php")
+            header("refresh:2;url=../index.php");
 
             
 
@@ -32,7 +32,7 @@ session_start();
             if (AddAlumno($nom, $dni, $passwd, $cognom, $edad, $foto, $estado)) {
                 echo"<script>PremiosBuenos();<script>";
                 echo "<script type='text/javascript'>alert('Todo funciono bien');</script>";
-                header("refresh:5;url=../index.php")
+                header("refresh:2;url=../index.php");
             
             } 
         }

@@ -117,7 +117,7 @@
 }
 //nosaltres
 .nosaltres{
-    width: 85%;
+    width: 100%;
     margin: 0;
     display: grid;
     place-items: center;
@@ -125,8 +125,19 @@
     grid-auto-flow: column;
 }
 .nosoltresText{
-    grid-auto-flow: column;
+    display: grid;
+    grid-auto-flow: row;
+    
 }
 .nosoltresImg{
-    width: 0%;
+    width: 60%;
+    margin-left: 450px;
+    display: grid;
+    grid-auto-flow: column;
+    padding: 20px;
+}
+.NosolatresT{
+    border-radius: 20px;
+    background-color: $flojito;
+    
 }

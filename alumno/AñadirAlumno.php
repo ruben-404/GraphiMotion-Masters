@@ -23,15 +23,16 @@ session_start();
         $foto = adapImage($dni,$_FILES['image']['name'],$_FILES['image']['tmp_name']);
         $estado = 1;
         if (VerifyAlumno($dni)){
-            echo("Ese alumno ya esta registrado");
-            echo('<a href="../index.php">volver al menu</a>');
+            echo "<script type='text/javascript'>alert('Ese alumno ya esta registrado');</script>";
+            header("refresh:5;url=../index.php")
 
             
 
         }else{
             if (AddAlumno($nom, $dni, $passwd, $cognom, $edad, $foto, $estado)) {
                 echo"<script>PremiosBuenos();<script>";
-                echo('<a href="../index.php">volver al menu</a>');
+                echo "<script type='text/javascript'>alert('Todo funciono bien');</script>";
+                header("refresh:5;url=../index.php")
             
             } 
         }

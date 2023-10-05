@@ -81,6 +81,20 @@ include 'funciones.php';
 
     ?>
     </div>
+    <div class="nosaltres">
+        <div class="nosoltresImg"><img src="imgg/nosaltres.png" alt="foto usu"></div>
+        <div class="nosoltresText">
+            <h2>Sobre nosaltres</h2>
+
+
+        </div>
+    </div>
+    <div class="serveis">
+        <p>Serveis</p>
+    </div>
+    <div class="contacte">
+        <p>Conctate</p>
+    </div>
     <script>
         function mostrarEnlaces() {
             var enlacesUsuario = document.getElementById('enlaces-usuario');

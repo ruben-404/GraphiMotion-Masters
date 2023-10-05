@@ -317,4 +317,21 @@ body {
 
 .notaCurso, .botonCurso {
   margin-left: 20px;
+}
+
+.nosaltres {
+  width: 85%;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  margin-top: 20%;
+  grid-auto-flow: column;
+}
+
+.nosoltresText {
+  grid-auto-flow: column;
+}
+
+.nosoltresImg {
+  width: 0%;
 }/*# sourceMappingURL=main.css.map */

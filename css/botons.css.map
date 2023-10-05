@@ -1,1 +1,1 @@
-{"version":3,"sources":["../SCSS/botons.scss","../SCSS/variables.scss","botons.css"],"names":[],"mappings":"AACA;EACI,yBCFM;EDGN,WAAA;EACA,mBAAA;EACA,YAAA;EACA,YAAA;AEAJ;;AFGA;EACI,yBCRM;EDSN,YAAA;EACA,YAAA;EACA,mBAAA;EACA,eAAA;EACA,yBAAA;AEAJ","file":"botons.css"}
+{"version":3,"sources":["../SCSS/botons.scss","../SCSS/variables.scss","botons.css"],"names":[],"mappings":"AACA;EACI,yBCFM;EDGN,WAAA;EACA,mBAAA;EACA,YAAA;EACA,YAAA;AEAJ;;AFGA;EACI,yBCRM;EDSN,YAAA;EACA,YAAA;EACA,mBAAA;EACA,eAAA;EACA,yBAAA;AEAJ;;AFEA;EACI,iBAAA;AECJ","file":"botons.css"}

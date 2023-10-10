@@ -23,23 +23,22 @@ session_start();
         if ($_POST) {
             $nom = $_POST['nom'];
             $cognom = $_POST['cognom'];
-            $edad = $_POST['edad'];
+            $titol = $_POST['titol'];
             $foto = adapImage($dni, $_FILES['image']['name'], $_FILES['image']['tmp_name']);
             
             // Verificar si se proporcionó una nueva contraseña
             $nuevaContrasena = $_POST['contrasenya'];
             if (!empty($nuevaContrasena)) {
                 // Llamar a la función para actualizar la contraseña
-                UpdateContrasenaAlumne($dni, $nuevaContrasena);
+                UpdateContrasenaProfe($dni, $nuevaContrasena);
             }
             if(isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK){
                 $image = adapImage($_POST['dni'], $_FILES['image']['name'], $_FILES['image']['tmp_name']);
-            
-                UpdateFotoAlumne($dni, $foto);
+                UpdateFotoProfe($dni, $foto);
 
             }
             // Llamar a la función para actualizar los demás datos del profesor
-            if (UpdateAlumne($nom, $dni, $cognom, $edad)) {
+            if (UpdateProfeyou($nom,$dni,$cognom,$titol)) {
                 header("Location: ../index.php");
             }
         }
@@ -48,26 +47,29 @@ session_start();
     ?>
 
     <!-- Formulario de actualización -->
-    <form method="POST" action="EditarAlumno.php" enctype="multipart/form-data">
+    <form method="POST" action="EditarProfe.php" enctype="multipart/form-data">
         
         <?php
-            echo("Editar alumno".$dni);
+            echo("Editar Profe".$dni);
             // Mostrar la imagen de vista previa si hay una URL de imagen
-            $fotoURL = GetInfoAlumno($dni, 'foto');
+            $fotoURL = GetInfoProfe($dni, 'foto');
+            
             // echo($fotoURL);
             if (!empty($fotoURL)) {
-                echo '<img src="fotos/' . $fotoURL . '" alt="Vista previa de la foto" width="150"><br>';
+                echo '<img src="../admin/fotos/' . $fotoURL . '" alt="Vista previa de la foto" width="150"><br>';
+        }else{
+            
         }
             
         ?>
         <label for="nom">Nombre:</label>
-        <input type="text" id="nom" name="nom" value="<?php echo GetInfoAlumno($dni, 'Nom'); ?>" required><br><br>
+        <input type="text" id="nom" name="nom" value="<?php echo GetInfoProfe($dni, 'Nom'); ?>" required><br><br>
 
         <label for="cognom">Apellido:</label>
-        <input type="text" id="cognom" name="cognom" value="<?php echo GetInfoAlumno($dni, 'Cognom'); ?>" required><br><br>
+        <input type="text" id="cognom" name="cognom" value="<?php echo GetInfoProfe($dni, 'Cognom'); ?>" required><br><br>
 
-        <label for="edad">Edad:</label>
-        <input type="date" id="edad" name="edad" value="<?php echo GetInfoAlumno($dni, 'Edad'); ?>" required><br><br>
+        <label for="titol">Título:</label>
+        <input type="text" id="titol" name="titol" value="<?php echo GetInfoProfe($dni, 'titol'); ?>" required><br><br>
 
         <label for="image">Foto:</label>
         <input type="file" id="image" name="image"><br>
@@ -99,4 +101,3 @@ session_start();
     </script>
 </body>
 </html>
-

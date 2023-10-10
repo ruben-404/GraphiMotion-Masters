@@ -339,7 +339,7 @@ function obtenerListaProfesores() {
 
 function GetInfoProfe($dniProfesor, $campo) {
   $conexion = conectarseBase();
-  $sql = "SELECT $campo FROM Profes WHERE DNI = '$dniProfesor'";
+  $sql = "SELECT $campo FROM profes WHERE DNI = '$dniProfesor'";
   $result = $conexion->query($sql);
 
   if ($result && $result->num_rows > 0) {
@@ -716,6 +716,26 @@ function InfoCurso($code){
   echo"</div>";
   
 }
+function InfoCursoProfe($code){
+  
+  $imagenURL = "../admin/fotos/$code.jpg";
+  echo "<div class='CursoContenedor'>";
+  echo "<div class='colorImg'>";
+  echo "<div class='CursoCompletoIng'>";
+  echo "<img src='$imagenURL' alt='foto curso' width='200'><br>";
+  
+  echo("<h1>". GetInfoCurso($code, 'Nom') ."</h1>");
+  echo "</div>";
+ 
+
+      
+    
+    
+
+   
+
+  
+  }
 
 function VerifyMatriculado($code,$dni)
 {
@@ -783,10 +803,11 @@ function BorrarAlumneCurso($dni, $code) {
     $stmt = $conexion->prepare($sql);
     $stmt->bind_param("ss", $code, $dni); // "ss" indica que ambos valores son strings
     $stmt->execute();
-    echo "Registro eliminado con éxito.";
+    header("refresh:1;url=../index.php");
     return true;
   } catch (PDOException $e) {
     echo "Error al eliminar el registro: " . $e->getMessage();
+    header("refresh:2;url=../index.php");
     return false;
   }
 }
@@ -798,10 +819,11 @@ function InsertAlumneCurso($dni,$code){
   try {
     $stmt = $conexion->prepare($sql);
     $stmt->execute([$code, $dni]);
-    echo "matriculado con éxito.";
+    header("refresh:1;url=../index.php");
     return true;
   }catch (PDOException $e) {
     echo "Error al  matricular: " . $e->getMessage();
+    header("refresh:2;url=../index.php");
     return false;
 }
 }
@@ -825,14 +847,32 @@ function UpdateAlumne($nom, $dni, $cognom, $edad) {
   $conexion = null; // Cerrar la conexión
 }
 
-function UpdateProfe($nom, $dni, $cognom, $titol, $foto ,$estado) {
+function UpdateProfe($nom, $dni, $cognom, $titol ,$estado) {
   $conexion = conectarseBase();
   // Consulta SQL para actualizar un profesor
-  $sql = "UPDATE profes SET Nom = ?, Cognom = ?, titol = ?, foto = ? ,estado = ? WHERE Dni = ?";
+  $sql = "UPDATE profes SET Nom = ?, Cognom = ?, titol = ?, estado = ? WHERE Dni = ?";
 
   try {
       $stmt = $conexion->prepare($sql);
-      $stmt->execute([$nom, $cognom, $titol, $foto, $estado, $dni]);
+      $stmt->execute([$nom, $cognom, $titol, $estado, $dni]);
+      echo "Profesor actualizado con éxito.";
+      return true;
+  } catch (PDOException $e) {
+      echo "Error al actualizar profesor: " . $e->getMessage();
+      return false;
+  }
+
+  $conexion = null; // Cerrar la conexión
+}
+
+function UpdateProfeyou($nom, $dni, $cognom, $titol ) {
+  $conexion = conectarseBase();
+  // Consulta SQL para actualizar un profesor
+  $sql = "UPDATE profes SET Nom = ?, Cognom = ?, titol = ? WHERE Dni = ?";
+
+  try {
+      $stmt = $conexion->prepare($sql);
+      $stmt->execute([$nom, $cognom, $titol, $dni]);
       echo "Profesor actualizado con éxito.";
       return true;
   } catch (PDOException $e) {
@@ -904,19 +944,44 @@ function UpdateContrasenaAlumne($dni, $passwd1) {
 function UpdateFotoAlumne($dni, $foto) {
   $conexion = conectarseBase();
 
-  // Consulta SQL para actualizar la contraseña de un profesor
+  // Consulta SQL para actualizar la foto de un alumno
   $sql = "UPDATE alumnes SET Foto = ? WHERE DNI = ?";
- 
+
   try {
+      // Convertir el DNI a cadena
+      $dni = strval($dni);
+
       $stmt = $conexion->prepare($sql);
       $stmt->execute([$foto, $dni]);
-      echo "foto del profesor actualizada con éxito.";
+      echo "Foto del alumno actualizada con éxito.";
       return true;
   } catch (PDOException $e) {
-      echo "Error al actualizar la foto del profesor: " . $e->getMessage();
+      echo "Error al actualizar la foto del alumno: " . $e->getMessage();
       return false;
   }
- 
+
+  $conexion = null; // Cerrar la conexión
+}
+
+function UpdateFotoProfe($dni, $foto) {
+  $conexion = conectarseBase();
+
+  // Consulta SQL para actualizar la foto de un alumno
+  $sql = "UPDATE profes SET Foto = ? WHERE Dni = ?";
+
+  try {
+      // Convertir el DNI a cadena
+      $dni = strval($dni);
+
+      $stmt = $conexion->prepare($sql);
+      $stmt->execute([$foto, $dni]);
+      echo "Foto del profe actualizada con éxito.";
+      return true;
+  } catch (PDOException $e) {
+      echo "Error al actualizar la foto del profe: " . $e->getMessage();
+      return false;
+  }
+
   $conexion = null; // Cerrar la conexión
 }
 

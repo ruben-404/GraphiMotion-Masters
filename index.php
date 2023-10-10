@@ -40,10 +40,11 @@ include 'funciones.php';
                         
                         if ($_SESSION['ROL'] == "profe") {
                             $fotoURL = GetInfoProfe($dni, 'Foto');
-                            echo '<img src="admin/fotos/' . $fotoURL . '" alt="Vista previa de la foto" width="60" id="imagen-usuario" onclick="mostrarEnlaces()"><br>';
+                            echo '<img class="profile" src="admin/fotos/' . $fotoURL . '" alt="Vista previa de la foto" onclick="mostrarEnlaces()"><br>';
                            
                             echo '<div class="enlaces" id="enlaces-usuario">';
-                            echo '<a href="sortir.php">Sortir</a>';
+                            echo '<a href="sortir.php">Sortir</a></br>';
+                            echo '<a href="profe/EditarProfe.php">Info</a><br>';
                             echo '</div>';
                         } else {
                             $fotoURL = GetInfoAlumno($dni, 'Foto');

@@ -46,14 +46,14 @@ include '../funciones.php';
                         
                         if ($_SESSION['ROL'] == "profe") {
                             $fotoURL = GetInfoProfe($dni, 'foto');
-                            echo '<img src="../admin/fotos/' . $fotoURL . '" alt="Vista previa de la foto" width="60" id="imagen-usuario" onclick="mostrarEnlaces()"><br>';
+                            echo '<img class="profile" src="../admin/fotos/' . $fotoURL . '" alt="Vista previa de la foto" onclick="mostrarEnlaces()"><br>';
                            
                             echo '<div class="enlaces" id="enlaces-usuario">';
                             echo '<a href="../alumno/sortir.php">Sortir</a>';
                             echo '</div>';
                         } else {
                             $fotoURL = GetInfoAlumno($dni, 'foto');
-                            echo '<img src="../alumno/fotos/' . $fotoURL . '" alt="Vista previa de la foto" width="60" id="imagen-usuario" onclick="mostrarEnlaces()"><br>';
+                            echo '<img class="profile" src="../alumno/fotos/' . $fotoURL . '" alt="Vista previa de la foto" onclick="mostrarEnlaces()"><br>';
                            
                             echo '<div class="enlaces" id="enlaces-usuario">';
                             echo '<a href="../sortir.php">Sortir</a><br>';
@@ -96,7 +96,13 @@ include '../funciones.php';
         // Obtener el código del curso desde la URL
         $codigoCurso = $_GET['codigo_curso'];
 
-        InfoCurso($codigoCurso);
+        
+        if ($_SESSION['ROL'] == "profe") {
+            InfoCursoProfe($codigoCurso);
+        }else{
+            InfoCurso($codigoCurso);
+        }
+        
         }
         ?>
         

@@ -39,9 +39,14 @@ if (isset($_GET['nombre']) && isset($_GET['dni'])) {
                     // Llamar a la función para actualizar la contraseña
                     UpdateContrasenaProfe($dniProfesor, $nuevaContrasena);
                 }
+                if(isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK){
+                    $image = adapImage($_POST['dni'], $_FILES['image']['name'], $_FILES['image']['tmp_name']);
+                    UpdateFotoProfe($dni, $foto);
+    
+                }
 
                 // Llamar a la función para actualizar los demás datos del profesor
-                if (UpdateProfe($nom, $dniProfesor, $cognom, $titol, $foto, $estado)) {
+                if (UpdateProfe($nom, $dniProfesor, $cognom, $titol, $estado)) {
                     header("Location: menu.php");
                 }
             }

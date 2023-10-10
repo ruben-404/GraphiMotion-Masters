@@ -10,6 +10,7 @@
   background-size: cover;
   display: grid;
   place-items: center;
+  font-family: "Poppins", sans-serif;
 }
 
 #casilla {
@@ -73,6 +74,8 @@
   border: 1px solid #C4DFDF;
   width: 358px;
   height: 59px;
+  background-color: #F8F6F4;
+  font-family: "Poppins", sans-serif;
 }
 .child form .file-label {
   background-image: url("../img/foto.png");
@@ -229,11 +232,12 @@ body {
 }
 
 .flecha {
-  margin-top: 92px;
   background: none;
   border: none;
-  width: 100px;
-  height: 50px;
+  width: 48px;
+  height: 48px;
+  margin-top: 96px;
+  padding-left: 100px;
 }
 
 .CursoContenedor {
@@ -267,4 +271,9 @@ body {
 
 .descripcion {
   padding: 20px;
+}
+
+.confirmar {
+  font-weight: bold;
+  font-size: 24px;
 }/*# sourceMappingURL=encabezado.css.map */

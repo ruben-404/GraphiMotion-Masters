@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <!-- Casilla de verificación para elegir qué función llamar. -->
                     <label for="casilla">Eres profre</label>
                     <input type="checkbox" id="casilla" name="casilla"><br><br>
-                    <input type="submit" value="Iniciar Sesión">
+                    <input type="submit" value="Iniciar sessió" class="confirmar">
                 </form>
             </div>
         </div>

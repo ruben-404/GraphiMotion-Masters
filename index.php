@@ -74,9 +74,15 @@ include 'funciones.php';
     <?php
         if (isset($_SESSION['dni'])) {
             echo("<h2>Mis cursos</h2>");
-            imprimirCursos($_SESSION['ROL'],$_SESSION['dni']);
-            echo("<h2>Cursos disponibles</h2>");
-            imprimirCursosNoMatriculados($_SESSION['ROL'],$_SESSION['dni']);
+            if ($_SESSION['ROL'] == "profe") {
+                imprimirCursosProfes($_SESSION['ROL'],$_SESSION['dni']);
+
+            }else{
+                imprimirCursos($_SESSION['ROL'],$_SESSION['dni']);
+                echo("<h2>Cursos disponibles</h2>");
+                imprimirCursosNoMatriculados($_SESSION['ROL'],$_SESSION['dni']);
+            }
+            
         }else{
             imprimirCursosSin();
         }

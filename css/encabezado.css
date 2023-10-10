@@ -95,7 +95,7 @@
 }
 
 body {
-  width: 1490;
+  width: 100%;
   height: 900px;
   font-family: "Poppins", sans-serif;
 }
@@ -108,6 +108,7 @@ body {
   gap: 1.5em;
   align-items: center;
   grid-template-columns: 100px 1fr 2fr;
+  position: fixed;
 }
 .nav h1 {
   color: #000;
@@ -139,6 +140,10 @@ body {
     margin: unset;
   }
 }
+.espacioHeader {
+  height: 145px;
+}
+
 .imagen {
   background-image: url("../imgg/Principal.jpg");
   width: 100%;

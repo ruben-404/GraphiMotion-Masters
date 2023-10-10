@@ -67,6 +67,7 @@ include 'funciones.php';
             
         </ul>
     </nav>
+    <div class="espacioHeader"></div>
     <div class="imagen">
     </div>
     <div class="contenedor">

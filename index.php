@@ -29,7 +29,8 @@ include 'funciones.php';
             <li class="nav_item">
                 <button class="botonHead">Contacte</button>
             </li>
-            <li class="nav_item">
+        </ul>
+        <div class="inicio_sesion">
                 <?php
                     
                     
@@ -63,9 +64,9 @@ include 'funciones.php';
                         echo '</div>';
                     }
                     ?>
-            </li>
+        </div>
             
-        </ul>
+
     </nav>
     <div class="espacioHeader"></div>
     <div class="imagen">

@@ -390,7 +390,7 @@ function GetInfoCurso($codigo, $campo) {
   }
 }
 
-// Función para obtener la lista de profesores desde la base de datos
+// Función para obtener la lista de cursos desde la base de datos
 function obtenerListaCursos() {
   $conexion = conectarseBase();
 
@@ -409,9 +409,57 @@ function obtenerListaCursos() {
 
   return $listaProfesores;
 }
-function imprimirCursos($rol) {
+
+function obtenerCursosMatriculados($dni) {
+  $conexion = conectarseBase();
+
+  // Realiza una consulta SQL para obtener la lista de cursos matriculados por el alumno
+  $sql = "SELECT cursos.Codigo, cursos.Nom, cursos.Estado FROM cursos
+          INNER JOIN curso_alumne ON cursos.Codigo = curso_alumne.curso
+          WHERE curso_alumne.alumne = '$dni'";
+
+  $result = $conexion->query($sql);
+
+  $listaCursosMatriculados = array();
+
+  // Recorre los resultados y los almacena en un arreglo
+  while ($row = $result->fetch_assoc()) {
+      $listaCursosMatriculados[] = $row;
+  }
+
+  $conexion->close();
+
+  return $listaCursosMatriculados;
+}
+
+function obtenerCursosNoMatriculados($dni) {
+  $conexion = conectarseBase();
+
+  // Obtiene la fecha actual en el formato de MySQL (YYYY-MM-DD)
+  $fechaActual = date("Y-m-d");
+
+  // Realiza una consulta SQL para obtener la lista de cursos en los que el alumno NO está matriculado y cuya DataFinal no ha pasado
+  $sql = "SELECT Codigo, Nom, Estado FROM cursos
+          WHERE Codigo NOT IN (SELECT curso FROM curso_alumne WHERE alumne = '$dni')
+          AND DataFinal >= '$fechaActual'";
+
+  $result = $conexion->query($sql);
+
+  $listaCursosNoMatriculados = array();
+
+  // Recorre los resultados y los almacena en un arreglo
+  while ($row = $result->fetch_assoc()) {
+      $listaCursosNoMatriculados[] = $row;
+  }
+
+  $conexion->close();
+
+  return $listaCursosNoMatriculados;
+}
+
+function imprimirCursos($rol,$dni) {
   // Obtener la lista de cursos utilizando la función anterior
-  $cursos = obtenerListaCursos();
+  $cursos = obtenerCursosMatriculados($dni);
 
   // Iniciar la sesión si aún no está iniciada
   if (!isset($_SESSION)) {
@@ -457,6 +505,56 @@ function imprimirCursos($rol) {
     
   }
 }
+
+function imprimirCursosNoMatriculados($rol,$dni) {
+  // Obtener la lista de cursos utilizando la función anterior
+  $cursos = obtenerCursosNoMatriculados($dni);
+
+  // Iniciar la sesión si aún no está iniciada
+  if (!isset($_SESSION)) {
+    session_start();
+  }
+
+  // Recorrer la lista de cursos y mostrar los nombres y las fotos
+  foreach ($cursos as $curso) {
+    $codigo = $curso['Codigo'];
+    $nombre = $curso['Nom'];
+    $estado = $curso['Estado'];
+    
+    $imagenURL = "admin/fotos/$codigo.jpg";
+    if($estado==1){
+      echo "<div class='cursos'>";
+      echo "<div class='FotoCurso'>";
+      echo "<img src='$imagenURL' alt='$nombre'><br>";
+      echo "</div>";
+      echo "<div class='CursoText'>";
+      echo "<div class='TextoCurso'>";
+      echo "<h2 class='titulo'>$nombre</h2>";
+      echo "</div>";
+      echo "<div class='InfoCurso'>";
+      echo "<img src='imgg/onlinee.png'<br>";
+      echo "<img src='imgg/idioma.png'<br>";
+      echo "</div>";
+      echo "</div>";
+      
+    
+      // Agregar un enlace al archivo CursoAlumne.php con el código del curso en la URL
+      echo "<a href='alumno/CursoAlumne.php?codigo_curso=$codigo'>";
+
+      if ($rol == "alumne") {
+        echo "<button class='flecha'><img src='img/flecha.png' alt='fecha'></button>";
+      } else {
+        echo "<button class='flecha'>mi curso</button>";
+      }
+    
+      echo "</a>";
+      echo "</div>";
+
+    }
+    
+  }
+}
+
 
 function imprimirCursosSin() {
   // Obtener la lista de cursos utilizando la función anterior

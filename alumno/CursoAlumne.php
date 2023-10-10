@@ -49,11 +49,11 @@ include '../funciones.php';
                             echo '<img src="../admin/fotos/' . $fotoURL . '" alt="Vista previa de la foto" width="60" id="imagen-usuario" onclick="mostrarEnlaces()"><br>';
                            
                             echo '<div class="enlaces" id="enlaces-usuario">';
-                            echo '<a href="../sortir.php">Sortir</a>';
+                            echo '<a href="../alumno/sortir.php">Sortir</a>';
                             echo '</div>';
                         } else {
                             $fotoURL = GetInfoAlumno($dni, 'foto');
-                            echo '<img src="../fotos/' . $fotoURL . '" alt="Vista previa de la foto" width="60" id="imagen-usuario" onclick="mostrarEnlaces()"><br>';
+                            echo '<img src="../alumno/fotos/' . $fotoURL . '" alt="Vista previa de la foto" width="60" id="imagen-usuario" onclick="mostrarEnlaces()"><br>';
                            
                             echo '<div class="enlaces" id="enlaces-usuario">';
                             echo '<a href="../sortir.php">Sortir</a><br>';

@@ -130,7 +130,7 @@ include 'funciones.php';
         });
         });
 </script>
-<footer id="IndeFooter">
+<footer>
     <p>hola</p>
 </footer>
 </body>

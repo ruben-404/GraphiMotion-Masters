@@ -339,7 +339,7 @@ function obtenerListaProfesores() {
 
 function GetInfoProfe($dniProfesor, $campo) {
   $conexion = conectarseBase();
-  $sql = "SELECT $campo FROM Profes WHERE DNI = $dniProfesor";
+  $sql = "SELECT $campo FROM Profes WHERE DNI = '$dniProfesor'";
   $result = $conexion->query($sql);
 
   if ($result && $result->num_rows > 0) {
@@ -352,7 +352,7 @@ function GetInfoProfe($dniProfesor, $campo) {
 
 function GetInfoAlumno($dni, $campo) {
   $conexion = conectarseBase();
-  $sql = "SELECT $campo FROM alumnes WHERE DNI = $dni";
+  $sql = "SELECT $campo FROM alumnes WHERE DNI = '$dni'";
   $result = $conexion->query($sql);
 
   if ($result && $result->num_rows > 0) {
@@ -366,7 +366,7 @@ function GetInfoAlumno($dni, $campo) {
 function GetInfoMatriculado($code,$dni) {
   $campo = "nota";
   $conexion = conectarseBase();
-  $sql = "SELECT $campo FROM curso_alumne WHERE curso = $code and alumne = $dni";
+  $sql = "SELECT $campo FROM curso_alumne WHERE curso = $code and alumne = '$dni'";
   $result = $conexion->query($sql);
 
   if ($result && $result->num_rows > 0) {

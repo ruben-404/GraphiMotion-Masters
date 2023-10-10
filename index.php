@@ -33,19 +33,19 @@ include 'funciones.php';
                 <?php
                     
                     
-                    // Verificar si el usuario ha iniciado sesión y si la variable dni está configurada en la sesión.
+                    // Verificar si el usuario ha iniciado sesión y si la variable dni está configurada en la sesión. //meter cursos disponibles y del usuario hacer mas usuario friendly
                     if (isset($_SESSION['dni'])) {
                         $dni = $_SESSION['dni'];
                         
                         if ($_SESSION['ROL'] == "profe") {
-                            $fotoURL = GetInfoProfe($dni, 'foto');
+                            $fotoURL = GetInfoProfe($dni, 'Foto');
                             echo '<img src="admin/fotos/' . $fotoURL . '" alt="Vista previa de la foto" width="60" id="imagen-usuario" onclick="mostrarEnlaces()"><br>';
                            
                             echo '<div class="enlaces" id="enlaces-usuario">';
                             echo '<a href="sortir.php">Sortir</a>';
                             echo '</div>';
                         } else {
-                            $fotoURL = GetInfoAlumno($dni, 'foto');
+                            $fotoURL = GetInfoAlumno($dni, 'Foto');
                             echo '<img src="alumno/fotos/' . $fotoURL . '" alt="Vista previa de la foto" width="60" id="imagen-usuario" onclick="mostrarEnlaces()"><br>';
                            
                             echo '<div class="enlaces" id="enlaces-usuario">';

@@ -163,7 +163,7 @@ include '../funciones.php';
         
     </script>
     
-<footer class="footerPage">
+<footer class="IndeFooter">
     <p>hola</p>
 </footer>
 </body>

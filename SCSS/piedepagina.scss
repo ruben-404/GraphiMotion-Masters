@@ -1,26 +1,8 @@
 @import "variables";
 
-#IndeFooter{
+footer{
     background-color: $header;
-    height: 80px;
-   
-    display: grid;
-    gap: 1.5em;
-    align-items: center;
-    grid-template-columns: 100px 1fr 2fr;
-    position: absolute;
     width: 100%;
-    
+    height: 100px;
 }
-.footerPage{
-    background-color: $header;
-    height: 80px;
-    display: grid;
-    gap: 1.5em;
-    align-items: center;
-    grid-template-columns: 100px 1fr 2fr;
-    position: absolute;
-    width: 100%;
-    bottom: 0;
 
-}

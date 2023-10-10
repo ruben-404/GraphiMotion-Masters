@@ -56,7 +56,7 @@ session_start();
                     <input type="file" id="image" name="image" style="display: none;"><br><br>
                 </div>
 
-                <input type="submit" value="Añadir">
+                <input type="submit" value="Registra't" class="confirmar">
             </form>
             
     

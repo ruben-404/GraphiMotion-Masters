@@ -74,6 +74,7 @@ include '../funciones.php';
             
         </ul>
     </nav>
+    <div class="espacioHeader"></div>
     <div>
         <?php
         // Iniciar la sesión si aún no está iniciada

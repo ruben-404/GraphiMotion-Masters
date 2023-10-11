@@ -13,37 +13,3 @@
     margin: 0px;
     padding: 0px;
 }
-
-//nosaltres
-.nosaltres{
-    width: 100%;
-    margin: 0;
-    display: grid;
-    place-items: center;
-    margin-top: 20%;
-    grid-auto-flow: column;
-}
-.nosoltresText{
-    display: grid;
-    grid-auto-flow: row;
-    
-}
-.nosoltresImg{
-    width: 60%;
-    margin-left: 450px;
-    display: grid;
-    grid-auto-flow: column;
-    padding: 20px;
-}
-.NosolatresT{
-    border-radius: 20px;
-    background-color: $flojito;
-    padding: 20px;
-    margin-top: 329px;
-}
-.NosaltresDesc{
-    padding: 20px;
-}
-#tituloNos{
-    text-align: center;
-}

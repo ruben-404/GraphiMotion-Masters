@@ -41,7 +41,7 @@ if (isset($_GET['nombre']) && isset($_GET['dni'])) {
                 }
                 if(isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK){
                     $image = adapImage($_POST['dni'], $_FILES['image']['name'], $_FILES['image']['tmp_name']);
-                    UpdateFotoProfe($dni, $foto);
+                    UpdateFotoProfe($dniProfesor, $foto);
     
                 }
 

@@ -394,20 +394,24 @@ function GetInfoCurso($codigo, $campo) {
 function obtenerListaCursos() {
   $conexion = conectarseBase();
 
-  // Realiza una consulta SQL para obtener la lista de profesores
-  $sql = "SELECT Codigo, Nom, Estado FROM cursos";
+  // Obtiene la fecha actual en el formato de MySQL (YYYY-MM-DD)
+  $fechaActual = date("Y-m-d");
+
+  // Realiza una consulta SQL para obtener la lista de cursos en los que el alumno NO está matriculado y cuya DataFinal no ha pasado
+  $sql = "SELECT Codigo, Nom, Estado FROM cursos WHERE DataInici >= '$fechaActual'";
+
   $result = $conexion->query($sql);
 
-  $listaProfesores = array();
+  $listaCursosNoMatriculados = array();
 
   // Recorre los resultados y los almacena en un arreglo
   while ($row = $result->fetch_assoc()) {
-      $listaProfesores[] = $row;
+      $listaCursosNoMatriculados[] = $row;
   }
 
   $conexion->close();
 
-  return $listaProfesores;
+  return $listaCursosNoMatriculados;
 }
 
 function obtenerCursosMatriculados($dni) {
@@ -461,7 +465,7 @@ function obtenerCursosNoMatriculados($dni) {
   // Realiza una consulta SQL para obtener la lista de cursos en los que el alumno NO está matriculado y cuya DataFinal no ha pasado
   $sql = "SELECT Codigo, Nom, Estado FROM cursos
           WHERE Codigo NOT IN (SELECT curso FROM curso_alumne WHERE alumne = '$dni')
-          AND DataFinal >= '$fechaActual'";
+          AND DataInici >= '$fechaActual'";
 
   $result = $conexion->query($sql);
 
@@ -515,7 +519,7 @@ function imprimirCursosProfes($rol,$dni) {
       if ($rol == "alumne") {
         echo "<button class='flecha'><img src='img/flecha.png' alt='fecha'></button>";
       } else {
-        echo "<button class='flecha'>mi curso</button>";
+        echo "<button class='flecha'><img src='img/flecha.png' alt='fecha'></button>";
       }
     
       echo "</a>";
@@ -666,6 +670,9 @@ function imprimirCursosSin() {
     
       echo "</a>";
       echo "</div>";
+      echo"</div>";
+      echo"</div>";
+      
     }
   }
 }
@@ -712,7 +719,9 @@ function InfoCurso($code){
 
    
   }
-  echo"</div";
+  echo"</div>";
+  echo"</div>";
+  echo"</div>";
   echo"</div>";
   
 }
@@ -725,6 +734,8 @@ function InfoCursoProfe($code){
   echo "<img src='$imagenURL' alt='foto curso' width='200'><br>";
   
   echo("<h1>". GetInfoCurso($code, 'Nom') ."</h1>");
+  echo("</div>");
+  echo("</div>");
   echo "</div>";
  
 

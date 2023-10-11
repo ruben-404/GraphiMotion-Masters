@@ -49,7 +49,7 @@ include '../funciones.php';
                             echo '<img class="profile" src="../admin/fotos/' . $fotoURL . '" alt="Vista previa de la foto" onclick="mostrarEnlaces()"><br>';
                            
                             echo '<div class="enlaces" id="enlaces-usuario">';
-                            echo '<a href="../alumno/sortir.php">Sortir</a>';
+                            echo '<a href="../sortir.php">Sortir</a>';
                             echo '</div>';
                         } else {
                             $fotoURL = GetInfoAlumno($dni, 'foto');
@@ -96,12 +96,17 @@ include '../funciones.php';
         // Obtener el código del curso desde la URL
         $codigoCurso = $_GET['codigo_curso'];
 
-        
-        if ($_SESSION['ROL'] == "profe") {
-            InfoCursoProfe($codigoCurso);
+        if (isset($_SESSION['dni'])) {
+            if ($_SESSION['ROL'] == "profe") {
+                InfoCursoProfe($codigoCurso);
+            }else{
+                InfoCurso($codigoCurso);
+            }
+
         }else{
             InfoCurso($codigoCurso);
         }
+        
         
         }
         ?>

@@ -304,8 +304,8 @@ body{
 .nosaltres{
     display: grid;   
     grid-template-columns: 384px 1fr;
-    padding-top: 100px;
-    padding-left: 296px;
+    padding-top: 200px;
+    padding-left: 282px;
   
 }
 .nosaltresText{
@@ -334,3 +334,10 @@ a{
     width: 750px;
 }
 }
+.serveis{
+    display: grid;   
+    grid-template-columns: 908px 384px;
+    padding-top: 200px;
+    padding-left: 282px;
+}
+

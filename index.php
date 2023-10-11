@@ -16,8 +16,8 @@ include 'funciones.php';
 <body>
     <div class="Contenedor_Principal">
         <nav class="nav">
-            <div class = "nav_title"><img src="imgg/logo.png" alt="Logo"></div>
-            <h1>GraphiMotion Masters</h1>
+            <div class = "nav_title"><img class="logo"src="imgg/logo.png" alt="Logo"></div>
+            <a class="title">GraphiMotion Masters</a>
             <ul class="nav_list">
                 <li class="nav_item">
                     <button onclick="location.href='index.php'" class="botonHead">Inici</button>
@@ -92,17 +92,32 @@ include 'funciones.php';
             }
         ?>
         </div>
-        <div class="nosaltres" id="nosaltres">
-            <div class="nosoltresImg"><img src="imgg/nosaltres.png" alt="foto usu"><div><h2 id="tituloNos">Sobre nosaltres</h2><div class="NosaltresDesc"><p class="NosolatresT">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div></div></div>
-            <div class="nosoltresText">
-                
-
-
+        <div class="nosaltres">
+            <div class="nosaltresImg">
+                <img src="imgg/nosaltres.png" alt="foto usu">
+            </div>
+            <div class="nosaltresText">
+                <div class="nosaltresTitle">
+                    Sobre Nosaltres
+                </div>
+                <div class="nosaltresCaja">
+                    <a >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</a>
+                </div>
             </div>
         </div>
-        <div class="serveis">
-            <p>Serveis</p>
-        </div>
+        <div class="nosaltres">
+            <div class="nosaltresImg">
+                    <img src="imgg/nosaltres.png" alt="foto usu">
+                </div>
+                <div class="nosaltresText">
+                    <div class="nosaltresTitle">
+                        Sobre Nosaltres
+                    </div>
+                    <div class="nosaltresCaja">
+                        <a >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</a>
+                    </div>
+                </div>
+            </div>
         <div class="contacte">
             <p>Conctate</p>
         </div>

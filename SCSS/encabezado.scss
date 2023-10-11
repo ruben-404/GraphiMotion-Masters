@@ -102,6 +102,9 @@ body{
     font-family: 'Poppins', sans-serif; 
 
 }
+.Contenedor_Principal{
+    min-height: calc(100% - 100px);
+}
 
 .nav{
     width: 100%;
@@ -114,20 +117,24 @@ body{
     position: fixed;
     
    
-h1{
-    color: #000;
+
+}
+
+.logo{
+    width: 70px;
+    height: 70px;
+}
+.nav_title{
+    margin:0 auto;
+    padding-left: 126px;
+}
+.title{
+    font-family: Poppins;
     font-size: 20px;
     font-style: normal;
     font-weight: 700;
     line-height: normal; 
-    padding-left: 126px;
-    
-}
-}
-
-.nav_title{
-    margin:0 auto;
-    padding-left: 126px;
+    padding-left: 81px;
 }
 .nav_list{
     padding: 0;
@@ -137,7 +144,6 @@ h1{
     justify-content: end;
     grid-auto-flow: column;
     gap: 2.5em;
-    
     
 }
 
@@ -295,6 +301,36 @@ h1{
     font-size: 24px;
     
 }
-.Contenedor_Principal{
-    min-height: calc(100% - 100px);
+.nosaltres{
+    display: grid;   
+    grid-template-columns: 384px 1fr;
+    padding-top: 100px;
+    padding-left: 296px;
+  
+}
+.nosaltresText{
+    padding-left: 108px;
+}
+.nosaltresTitle{
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal; 
+    padding-bottom: 223px;
+}
+.nosaltresCaja{
+   
+    width: 800px;
+    height: 294px;
+    border-radius: 20px;
+    background: $flojito;
+    display: grid;
+    place-items: center;
+a{
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: 750px;
+}
 }

@@ -20,7 +20,7 @@ session_start();
 	
     <?php
         // Llama a la función obtenerListaProfesores para obtener la lista de profesores
-        $listaCursos = obtenerListaCursos();
+        $listaCursos = obtenerListaCursosa1();
         if($listaCursos!=null){
             // Genera las opciones del select en función de la lista de profesores
             foreach ($listaCursos as $curso) {

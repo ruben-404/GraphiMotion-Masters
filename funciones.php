@@ -414,6 +414,26 @@ function obtenerListaCursos() {
   return $listaCursosNoMatriculados;
 }
 
+function obtenerListaCursosa1() {
+  $conexion = conectarseBase();
+
+  // Realiza una consulta SQL para obtener la lista de cursos en los que el alumno NO está matriculado y cuya DataFinal no ha pasado
+  $sql = "SELECT Codigo, Nom, Estado FROM cursos";
+
+  $result = $conexion->query($sql);
+
+  $listaCursosNoMatriculados = array();
+
+  // Recorre los resultados y los almacena en un arreglo
+  while ($row = $result->fetch_assoc()) {
+      $listaCursosNoMatriculados[] = $row;
+  }
+
+  $conexion->close();
+
+  return $listaCursosNoMatriculados;
+}
+
 function obtenerCursosMatriculados($dni) {
   $conexion = conectarseBase();
 
@@ -669,8 +689,8 @@ function imprimirCursosSin() {
      
     
       echo "</a>";
-      echo "</div>";
-      echo"</div>";
+     
+      
       echo"</div>";
       
     }
@@ -734,16 +754,16 @@ function InfoCursoProfe($code){
   echo "<img src='$imagenURL' alt='foto curso' width='200'><br>";
   
   echo("<h1>". GetInfoCurso($code, 'Nom') ."</h1>");
+  $alumnos = obtenerDatosAlumnosPorCurso($code); 
+  if(is_array($alumnos) && count($alumnos) >0){
+    mostrarTablaNotasAlumnos($alumnos,$code);
+  }else{
+    echo "No hay alumnos";
+  }
+  
   echo("</div>");
   echo("</div>");
   echo "</div>";
- 
-
-      
-    
-    
-
-   
 
   
   }
@@ -1045,5 +1065,62 @@ function mostrarNotasCursos($dni) {
   }
 }
 
+function obtenerDatosAlumnosPorCurso($codigoCurso) {
+  $conexion = conectarseBase();
+  // Verificar la conexión
+  if ($conexion->connect_error) {
+      die("Error de conexión: " . $conexion->connect_error);
+  }
+
+  // Preparar la consulta SQL con un marcador de posición para el código del curso
+  $sql = "SELECT a.DNI, a.Nom, ca.nota, c.Nom as NombreCurso
+          FROM curso_alumne ca
+          INNER JOIN alumnes a ON ca.alumne = a.DNI
+          INNER JOIN cursos c ON ca.curso = c.Codigo
+          WHERE ca.curso = ?"; // Marcador de posición para el código del curso
+
+  // Preparar la consulta con el marcador de posición
+  $stmt = $conexion->prepare($sql);
+
+  // Asociar el código del curso al marcador de posición
+  $stmt->bind_param("i", $codigoCurso); // "i" indica que es un entero
+
+  // Ejecutar la consulta
+  $stmt->execute();
+
+  // Obtener resultados
+  $result = $stmt->get_result();
+
+  $alumnos = array();
+  // Obtener datos de los alumnos
+  while ($row = $result->fetch_assoc()) {
+      $alumnos[] = $row;
+  }
+  return $alumnos;
+}
+
+function mostrarTablaNotasAlumnos($alumnos,$code) {
+  echo "<h2>Notas de Alumnos</h2>";
+  echo "<form method='post' action='CursoAlumne.php?codigo_curso=$code'>"; 
+  echo "<table border='1'>
+          <tr>
+              <th>Nombre</th>
+              <th>Nota</th>
+          </tr>";
+
+  foreach ($alumnos as $alumno) {
+      $nombre = $alumno['Nom']; // Reemplaza 'nombre' con el nombre del campo en tu base de datos
+      $nota = $alumno['nota']; // Reemplaza 'nota' con el nombre del campo en tu base de datos
+
+      echo "<tr>
+              <td>$nombre</td>
+              <td><input type='number' min='0' max='10' name='notas[$nombre]' value='$nota'></td>
+            </tr>";
+  }
+
+  echo "</table>";
+  echo "<input type='submit' value='Guardar Notas'>";
+  echo "</form>";
+}
 
 ?>

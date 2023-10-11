@@ -84,14 +84,46 @@ include '../funciones.php';
             session_start();
             }
             if ($_POST) {
-                $codigoCurso=$_POST['codigo_curso'];
-                if(isset($_POST['botonB'])){
-                    BorrarAlumneCurso($_SESSION['dni'],$codigoCurso);
-                }
-                if(isset($_POST['botonM'])){
-                    MatricularCurso($codigoCurso,$_SESSION['dni']);
+                if ($_SESSION['ROL'] == "profe"){
+                    
+                    $codigoCurso = $_GET['codigo_curso'];
+                    $notas = $_POST['notas'];
+            
+                    // Conecta a la base de datos
+                    $conexion = conectarseBase();
+            
+                    // Prepara la consulta para actualizar las notas
+                    $sql = "UPDATE curso_alumne SET nota = ? WHERE curso = ? AND alumne = (SELECT DNI FROM alumnes WHERE Nom = ?)";
+            
+                    // Prepara la declaración SQL
+                    $stmt = $conexion->prepare($sql);
+            
+                    // Recorre el array de notas y realiza las actualizaciones
+                    foreach ($notas as $nombre_alumno => $nota) {
+                        // Bind de los parámetros y ejecución de la consulta
+                        $stmt->bind_param("iss", $nota, $codigoCurso, $nombre_alumno);
+                        $stmt->execute();
+                    }
+            
+                    // Cierra la conexión y muestra un mensaje de éxito
+                    $stmt->close();
+                    $conexion->close();
+                    
+                    echo "Notas actualizadas con éxito.";
+                
+                    
+                        
+                }else{
+                    if(isset($_POST['botonB'])){
+                        BorrarAlumneCurso($_SESSION['dni'],$_POST['codigo_curso']);
+                    }
+                    if(isset($_POST['botonM'])){
+                        MatricularCurso($_POST['codigo_curso'],$_SESSION['dni']);
+                    }
                 }
             }
+                
+            
 
             // Verificar si se pasó un código de curso en la URL
             if (isset($_GET['codigo_curso'])) {

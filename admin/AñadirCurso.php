@@ -85,24 +85,31 @@ session_start();
 
     <script>
         function validarFechas() {
-            var fechaInicio = new Date(document.getElementById("fecha_inicio").value);
-            var fechaFinal = new Date(document.getElementById("fecha_final").value);
-            var fechaActual = new Date();
+    var fechaInicio = new Date(document.getElementById("fecha_inicio").value);
+    var fechaFinal = new Date(document.getElementById("fecha_final").value);
+    var fechaActual = new Date();
 
-            // Verificar si la fecha de inicio es anterior a la fecha actual
-            if (fechaInicio =< fechaActual) {
-                alert("La fecha de inicio debe ser igual o posterior a la fecha actual.");
-                return false;
-            }
+    // Establecer las horas de las fechas a las 00:00:00 para comparar solo las fechas
+    fechaInicio.setHours(0, 0, 0, 0);
+    fechaFinal.setHours(0, 0, 0, 0);
+    fechaActual.setHours(0, 0, 0, 0);
 
-            // Verificar si la fecha final es anterior a la fecha de inicio
-            if (fechaFinal < fechaInicio) {
-                alert("La fecha final debe ser igual o posterior a la fecha de inicio.");
-                return false;
-            }
+    // Verificar si la fecha de inicio es anterior al día actual
+    if (fechaInicio < fechaActual) {
+        alert("La fecha de inicio debe ser igual o posterior al día actual.");
+        return false;
+    }
 
-            return true;
-        }
+    // Verificar si la fecha final es anterior a la fecha de inicio
+    if (fechaFinal < fechaInicio) {
+        alert("La fecha final debe ser igual o posterior a la fecha de inicio.");
+        return false;
+    }
+
+    return true;
+}
+
+
     </script>
 
     <?php

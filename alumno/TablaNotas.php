@@ -53,11 +53,11 @@ include '../funciones.php';
                             echo '</div>';
                         } else {
                             $fotoURL = GetInfoAlumno($dni, 'foto');
-                            echo '<img class="profile" src="fotos/' . $fotoURL . '" alt="Vista previa de la foto" id="imagen-usuario" onclick="mostrarEnlaces()"><br>';
+                            echo '<img class="profile" src="fotos/' . $fotoURL . '" alt="Vista previa de la foto" onclick="mostrarEnlaces()"><br>';
                            
                             echo '<div class="enlaces" id="enlaces-usuario">';
-                            echo '<a href="sortir.php">Sortir</a><br>';
-                            echo '<a href="alumno/EditarAlumno.php">Info</a><br>';
+                            echo '<a href="../sortir.php">Sortir</a><br>';
+                            echo '<a href="EditarAlumno.php">Info</a><br>';
                             echo '</div>';
                         }
                     } else {

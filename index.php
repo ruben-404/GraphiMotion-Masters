@@ -90,9 +90,6 @@ include 'funciones.php';
             }else{
                 imprimirCursosSin();
             }
-
-            
-
         ?>
         </div>
         <div class="nosaltres" id="nosaltres">

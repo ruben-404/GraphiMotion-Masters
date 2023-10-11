@@ -12,6 +12,7 @@ if (isset($_GET['nombre']) && isset($_GET['dni'])) {
 <html>
 <head>
     <title>Actualizar Profesor</title>
+    <script src="../js/script.js"></script>
 </head>
 <body>
     <?php
@@ -92,22 +93,6 @@ if (isset($_GET['nombre']) && isset($_GET['dni'])) {
 
         <input type="submit" value="Editar Profesor">
     </form>
-
-    <!-- JavaScript para mostrar/ocultar el campo de contraseña -->
-    <script>
-        function toggleContrasena() {
-            var contrasenyaInput = document.getElementById("contrasenya");
-            var cambiarContrasenaBtn = document.getElementById("cambiarContrasenaBtn");
-           
-            if (contrasenyaInput.style.display === "none") {
-                contrasenyaInput.style.display = "block";
-                cambiarContrasenaBtn.innerText = "Cancelar Cambio de Contraseña";
-            } else {
-                contrasenyaInput.style.display = "none";
-                cambiarContrasenaBtn.innerText = "Cambiar Contraseña";
-            }
-        }
-    </script>
 </body>
 </html>
 

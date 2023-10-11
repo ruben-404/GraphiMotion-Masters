@@ -8,6 +8,7 @@ include 'funciones.php';
 <head>
     <title>Iniciar Sesión</title>
     <link rel="stylesheet" type="text/css" href="css/main.css"/>
+    <script src="js/script.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
@@ -110,30 +111,6 @@ include 'funciones.php';
         </div>
 
     </div>
-    <script>
-        function mostrarEnlaces() {
-            var enlacesUsuario = document.getElementById('enlaces-usuario');
-            if (enlacesUsuario.style.display === 'none') {
-                enlacesUsuario.style.display = 'block';
-            } else {
-                enlacesUsuario.style.display = 'none';
-            }
-        }
-    </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-        // Obtén el botón por su ID
-        var matricularCursoButton = document.getElementById('matricularCursoButton');
-
-        // Agrega un evento click al botón
-        matricularCursoButton.addEventListener('click', function() {
-            // Obtén el código del curso que deseas matricular
-            var code = '<?php echo $code; ?>';
-
-            
-        });
-        });
-</script>
 <footer>
     <p>hola</p>
 </footer>

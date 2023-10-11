@@ -8,6 +8,8 @@ session_start();
 <html>
 <head>
     <title>Actualizar alumno</title>
+    <script src="../js/script.js"></script>
+
 </head>
 <body>
     <?php
@@ -81,22 +83,6 @@ session_start();
 
         <input type="submit" value="Editar">
     </form>
-
-    <!-- JavaScript para mostrar/ocultar el campo de contraseña -->
-    <script>
-        function toggleContrasena() {
-            var contrasenyaInput = document.getElementById("contrasenya");
-            var cambiarContrasenaBtn = document.getElementById("cambiarContrasenaBtn");
-           
-            if (contrasenyaInput.style.display === "none") {
-                contrasenyaInput.style.display = "block";
-                cambiarContrasenaBtn.innerText = "Cancelar Cambio de Contraseña";
-            } else {
-                contrasenyaInput.style.display = "none";
-                cambiarContrasenaBtn.innerText = "Cambiar Contraseña";
-            }
-        }
-    </script>
 </body>
 </html>
 

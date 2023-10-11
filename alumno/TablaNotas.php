@@ -11,6 +11,7 @@ include '../funciones.php';
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <script src="../js/script.js"></script>
     <style>
         /* Estilo para ocultar los enlaces inicialmente */
         .enlaces {
@@ -45,14 +46,14 @@ include '../funciones.php';
                         
                         if ($_SESSION['ROL'] == "profe") {
                             $fotoURL = GetInfoProfe($dni, 'foto');
-                            echo '<img src="../admin/fotos/' . $fotoURL . '" alt="Vista previa de la foto" width="60" id="imagen-usuario" onclick="mostrarEnlaces()"><br>';
+                            echo '<img src="../admin/fotos/' . $fotoURL . '" alt="Vista previa de la foto"  id="imagen-usuario" onclick="mostrarEnlaces()"><br>';
                            
                             echo '<div class="enlaces" id="enlaces-usuario">';
                             echo '<a href="sortir.php">Sortir</a>';
                             echo '</div>';
                         } else {
                             $fotoURL = GetInfoAlumno($dni, 'foto');
-                            echo '<img src="../fotos/' . $fotoURL . '" alt="Vista previa de la foto" width="60" id="imagen-usuario" onclick="mostrarEnlaces()"><br>';
+                            echo '<img class="profile" src="fotos/' . $fotoURL . '" alt="Vista previa de la foto" id="imagen-usuario" onclick="mostrarEnlaces()"><br>';
                            
                             echo '<div class="enlaces" id="enlaces-usuario">';
                             echo '<a href="sortir.php">Sortir</a><br>';
@@ -80,29 +81,5 @@ include '../funciones.php';
         
 
     ?>
-    <script>
-        function mostrarEnlaces() {
-            var enlacesUsuario = document.getElementById('enlaces-usuario');
-            if (enlacesUsuario.style.display === 'none') {
-                enlacesUsuario.style.display = 'block';
-            } else {
-                enlacesUsuario.style.display = 'none';
-            }
-        }
-    </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-        // Obtén el botón por su ID
-        var matricularCursoButton = document.getElementById('matricularCursoButton');
-
-        // Agrega un evento click al botón
-        matricularCursoButton.addEventListener('click', function() {
-            // Obtén el código del curso que deseas matricular
-            var code = '<?php echo $code; ?>';
-
-            
-        });
-        });
-</script>
 </body>
 </html>

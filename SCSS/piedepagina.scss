@@ -3,6 +3,10 @@
 footer{
     background-color: $header;
     width: 100%;
-    height: 100px;
+    height: 317px;
+}
+.containFooter{
+    display: grid;
+    align-items: center;
 }
 

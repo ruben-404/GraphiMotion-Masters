@@ -119,12 +119,26 @@ include 'funciones.php';
             </div>
         </div>
         <div class="contacte">
-            <p>Conctate</p>
+            <div class="contactePersona">
+                <img src="imgg/coment.png" alt="perfil">
+                <div class="cajaContacte">
+                    <div>Me ha encantado el curso!! Los profesores se explican super bien! 10/10</div>
+                </div>          
+            </div>
+            <div class="contactePersona">
+                <img src="imgg/coment.png" alt="perfil">
+                <div class="cajaContacte">
+                    <div>Lo que te enseñan en los cursos es muy entretenido, muy recomendable si te gusta este mundillo!</div>
+                </div>          
+            </div>
+
         </div>
 
     </div>
 <footer>
-    <p>hola</p>
+    <div class="containFooter">
+        <img src="imgg/logo.png" alt="logo" width="211px" height="205px">
+    </div>
 </footer>
 </body>
 </html>

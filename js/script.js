@@ -124,7 +124,7 @@ function enviarDatosEstudiantes() {
    	 const estudiantes = contenido.split(';');
 
    	 const datosEstudiantes = estudiantes.map(estudiante => {
-   		 const camposSin = estudiante.split('(');
+   		 const camposSin = estudiante.split(',(');
    		 const campos = camposSin[0].split(','); 
    		 let codigos = camposSin[1] ? camposSin[1].replace(')', '').trim() : ''; // Obtener códigos entre paréntesis sin paréntesis y sin espacios
    		 codigos = codigos ? codigos.split(',').join(',') : ''; // Eliminar espacios y unir códigos con comas
@@ -132,7 +132,7 @@ function enviarDatosEstudiantes() {
    		 // Devolver el array de campos y códigos sin espacios alrededor
    		 return [...campos.map(campo => campo.trim()), codigos];
    	 });
-
+	 console.log(datosEstudiantes);
    	 // Enviar datos al servidor
    	 fetch('procesar_datos.php', {
    		 method: 'POST',

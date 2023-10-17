@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    	 $Edad = $estudiante[3];
    	 $Foto = $estudiante[4];
 	 $estado = 1;
-   	 $idCursos = explode(',', $estudiante[6]); // Convertir la lista de cursos en un array
+   	 $idCursos = explode(',', $estudiante[5]); // Convertir la lista de cursos en un array
 
    	 // Hash de la contraseña
    	 $contrasena = 123; // Implementa esta función

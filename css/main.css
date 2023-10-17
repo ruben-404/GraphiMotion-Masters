@@ -359,15 +359,13 @@ body {
   width: 750px;
 }
 
-/*
-.serveis{
-    display: grid;   
-    grid-template-columns: 908px 384px;
-    padding-top: 200px;
-    padding-left: 282px;
+.serveis {
+  display: grid;
+  grid-template-columns: 908px 384px;
+  padding-top: 200px;
+  padding-left: 282px;
 }
 
-<<<<<<< Updated upstream
 .contacte {
   margin-top: 200px;
   margin-bottom: 100px;
@@ -398,9 +396,6 @@ body {
   width: 316px;
 }
 
-=======
-*/
->>>>>>> Stashed changes
 footer {
   background-color: #C4DFDF;
   width: 100%;

@@ -88,6 +88,7 @@ include '../funciones.php';
                     
                     $codigoCurso = $_GET['codigo_curso'];
                     $notas = $_POST['notas'];
+                    print_r($notas);
             
                     // Conecta a la base de datos
                     $conexion = conectarseBase();

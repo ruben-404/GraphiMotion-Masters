@@ -390,6 +390,42 @@ function GetInfoCurso($codigo, $campo) {
   }
 }
 
+function verificarCursoFinalizado($codigoCurso) {
+  // Conectar a la base de datos
+  $conexion = conectarseBase();
+
+  // Verificar la conexión
+  if ($conexion->connect_error) {
+      die("Error de conexión: " . $conexion->connect_error);
+  }
+
+  // Preparar la consulta SQL para obtener las fechas de inicio y finalización del curso
+  $sql = "SELECT DataInici, DataFinal FROM cursos WHERE Codigo = ?";
+  $stmt = $conexion->prepare($sql);
+  $stmt->bind_param("i", $codigoCurso); // "i" indica que es un entero
+  $stmt->execute();
+  $stmt->bind_result($fechaInicio, $fechaFinal);
+  $stmt->fetch();
+
+  // Obtener la fecha actual
+  $fechaActual = date("Y-m-d");
+
+  // Verificar si la fecha actual está dentro del rango del curso
+  if ($fechaActual >= $fechaInicio && $fechaActual <= $fechaFinal) {
+      // El curso está en progreso
+      return false;
+  } else {
+      // El curso ha finalizado
+      return true;
+  }
+
+  // Cerrar la conexión a la base de datos
+  $stmt->close();
+  $conexion->close();
+}
+
+
+
 // Función para obtener la lista de cursos desde la base de datos
 function obtenerListaCursos() {
   $conexion = conectarseBase();
@@ -756,7 +792,15 @@ function InfoCursoProfe($code){
   echo("<h1>". GetInfoCurso($code, 'Nom') ."</h1>");
   $alumnos = obtenerDatosAlumnosPorCurso($code); 
   if(is_array($alumnos) && count($alumnos) >0){
-    mostrarTablaNotasAlumnos($alumnos,$code);
+
+
+    if(verificarCursoFinalizado($code)){
+      mostrarTablaNotasAlumnos($alumnos,$code);
+    }else{
+      mostrarTablaNotasAlumnosSinNota($alumnos,$code);
+    }
+
+    
   }else{
     echo "No hay alumnos";
   }
@@ -1122,5 +1166,44 @@ function mostrarTablaNotasAlumnos($alumnos,$code) {
   echo "<input type='submit' value='Guardar Notas'>";
   echo "</form>";
 }
+function mostrarTablaNotasAlumnosSinNota(){
+  $conexion = conectarseBase();
+
+  // Consultar los cursos y las notas del alumno
+  $sql = "SELECT curso, nota FROM curso_alumne WHERE alumne = ?";
+ 
+  try {
+      $stmt = $conexion->prepare($sql);
+      $stmt->bind_param("s", $dni);
+      $stmt->execute();
+     
+      // Obtener el resultado del statement
+      $result = $stmt->get_result();
+
+      // Verificar si hay registros
+      if ($result->num_rows > 0) {
+          // Imprimir la tabla
+          echo '<table id="notas_alumno">';
+          echo '<tr><th>Curso</th><th>Nota</th></tr>';
+          while ($row = $result->fetch_assoc()) {
+              echo '<tr>';
+              echo '<td>' . htmlspecialchars($row['curso']) . '</td>';
+              echo '</tr>';
+          }
+          echo '</table>';
+      } else {
+          // Mostrar un mensaje si no hay registros
+          echo 'No se encontraron cursos.';
+      }
+     
+      $result->close();  // Cerrar el resultado
+      $stmt->close();    // Cerrar el statement
+     
+  } catch (Exception $e) {
+      echo "Error al obtener las notas: " . $e->getMessage();
+  }
+  
+}
+
 
 ?>

@@ -1,11 +1,15 @@
 <?php
 session_start();
+include '../funciones.php';
+
 ?>
 <!DOCTYPE html>
 <html>
 <head>
     <title>Iniciar Sesión</title>
     <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+    <script src="../js/script.js"></script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
@@ -42,7 +46,7 @@ session_start();
     <div class="imagen">
     </div>
     <?php
-    include '../funciones.php';
+  
 
     if (!isset($_SESSION['nom'])) {
         echo("No estás validado");
@@ -50,17 +54,12 @@ session_start();
     ?>
    <div class="container">
        
-        <a href="EditarProfe.php">
-            <button class="botonesEditar">Editar professores</button>
-        </a>
-       
-        <a href="EditarCurso.php">
-            <button class="botonesEditar">Editar cursos</button>
-        </a>
+        <input type="file" id="archivoInput">
+        <table id="tablaEstudiantes" border="1"></table>
+        <button id="enviarDatos" onclick="enviarDatosEstudiantes()">Enviar Datos a PHP</button>
+        
 
-        <a href="tablaAlumnes.php">
-            <button class="botonesEditar">Añadir Alumnos</button>
-        </a>
+
 
         
    </div>
@@ -71,15 +70,13 @@ session_start();
         }
     
     ?>
-        <script>
-        function mostrarEnlaces() {
-            var enlacesUsuario = document.getElementById('enlaces-usuario');
-            if (enlacesUsuario.style.display === 'none') {
-                enlacesUsuario.style.display = 'block';
-            } else {
-                enlacesUsuario.style.display = 'none';
-            }
-        }
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            
+            document.getElementById('archivoInput').addEventListener('change', procesarArchivo);
+        });
     </script>
+
+
 </body>
 </html>

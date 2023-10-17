@@ -5,6 +5,8 @@ footer {
 }
 
 .containFooter {
+  padding-left: 126px;
+  height: 317px;
   display: grid;
   align-items: center;
 }/*# sourceMappingURL=piedepagina.css.map */

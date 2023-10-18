@@ -5,7 +5,7 @@ header("Content-Type: application/json");
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$datosEstudiantes = json_decode(file_get_contents("php://input"), true);
 
-	print_r($datosEstudiantes);
+	
     // Conectarse a la base de datos y procesar los datos
     $conexion = new mysqli("localhost", "root", "", "learning-academy");
 	
@@ -23,7 +23,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     foreach ($datosEstudiantes['estudiantes'] as $estudiante) {
 		
    	 // Acceder a los elementos del array
-	 print_r($estudiante);
    	 $DNI = $estudiante[0];
    	 $Nom = $estudiante[1];
    	 $Cognom = $estudiante[2];
@@ -53,8 +52,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
    	 // Matricular al estudiante en los cursos indicados
    	 foreach ($idCursos as $idCurso) {
-		 $sqlMatricula->bind_param("ii", $idCurso, $DNI);
-   		 $sqlMatricula->execute();
+		$sqlMatricula->bind_param("ii", $idCurso, $DNI);
+   		$sqlMatricula->execute();
    	 }
     }
 

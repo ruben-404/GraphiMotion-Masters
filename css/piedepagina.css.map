@@ -1,1 +1,1 @@
-{"version":3,"sources":["../SCSS/piedepagina.scss","../SCSS/variables.scss","piedepagina.css"],"names":[],"mappings":"AAEA;EACI,yBCFK;EDGL,WAAA;EACA,aAAA;AEDJ;;AFGA;EACI,aAAA;EACA,mBAAA;AEAJ","file":"piedepagina.css"}
+{"version":3,"sources":["../SCSS/piedepagina.scss","../SCSS/variables.scss","piedepagina.css"],"names":[],"mappings":"AAEA;EACI,yBCFK;EDGL,WAAA;EACA,aAAA;AEDJ;;AFGA;EACI,mBAAA;EACA,aAAA;EACA,aAAA;EACA,mBAAA;AEAJ","file":"piedepagina.css"}

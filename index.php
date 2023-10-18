@@ -138,6 +138,7 @@ include 'funciones.php';
 <footer>
     <div class="containFooter">
         <img src="imgg/logo.png" alt="logo" width="211px" height="205px">
+        
     </div>
 </footer>
 </body>

@@ -26,10 +26,10 @@ include 'funciones.php';
                     <button onclick="location.href='#nosaltres'" class="botonHead">Nosaltres</button>
                 </li>
                 <li class="nav_item">
-                    <button onclick="location.href='pages/serveis.php'" class="botonHead">Serveis</button>
+                    <button onclick="location.href='#seveis'" class="botonHead">Serveis</button>
                 </li>
                 <li class="nav_item">
-                    <button class="botonHead">Contacte</button>
+                    <button onclick="location.href='#Contacte'" class="botonHead">Contacte</button>
                 </li>
             </ul>
             <div class="inicio_sesion">
@@ -105,7 +105,7 @@ include 'funciones.php';
                 </div>
             </div>
         </div>
-        <div class="serveis">
+        <div class="serveis" id="seveis">
             <div>
                 <div class="nosaltresTitle">
                     Serveis
@@ -118,7 +118,7 @@ include 'funciones.php';
                 <img src="imgg/serveis.png" alt="foto usu">
             </div>
         </div>
-        <div class="contacte">
+        <div class="contacte" id="Contacte">
             <div class="contactePersona">
                 <img src="imgg/coment.png" alt="perfil">
                 <div class="cajaContacte">

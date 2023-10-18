@@ -140,6 +140,9 @@ include 'funciones.php';
         <img src="imgg/logo.png" alt="logo" width="211px" height="205px">
         <img src="imgg/instagram.png" alt="instagram" class="social">
         <img src="imgg/facebook.png" alt="facebook" class="social">
+        <img src="imgg/tiktok.png" alt="tiktok" class="social" id="tiktok">
+        <img src="imgg/youtube.png" alt="youtube" class="social">
+        <img src="imgg/twitter.png" alt="twitter" class="social">
     </div>
 </footer>
 </body>

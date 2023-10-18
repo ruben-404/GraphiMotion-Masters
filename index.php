@@ -92,7 +92,7 @@ include 'funciones.php';
             }
         ?>
         </div>
-        <div class="nosaltres">
+        <div class="nosaltres" id="nosaltres">
             <div class="nosaltresImg">
                 <img src="imgg/nosaltres.png" alt="foto usu">
             </div>

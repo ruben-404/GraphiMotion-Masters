@@ -370,3 +370,35 @@ div{
     
 }
 }
+.centrarIMG{
+    display: grid;
+    place-items: center;
+    margin-bottom: 20px;
+}
+.edad-foto2{
+
+    display: grid;
+    grid-auto-flow: column;
+.textEdad{
+    display: grid;
+    align-items: center;
+}
+.calendario{
+    width: 220px;
+    
+}
+}    
+.contra-desplegable{
+    margin-top: 20px;
+    height: 120px;
+    margin-bottom: 20px;
+}
+.confirmar2{
+
+    display: grid;
+    place-items: center;
+input{
+    font-weight: bold;
+    font-size: 24px;
+}
+}

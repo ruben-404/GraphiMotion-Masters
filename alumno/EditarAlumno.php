@@ -9,9 +9,12 @@ session_start();
 <head>
     <title>Actualizar alumno</title>
     <script src="../js/script.js"></script>
-
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body  class="index">
     <?php
     include '../funciones.php';
    
@@ -48,41 +51,56 @@ session_start();
     }
     
     ?>
+    <div class="indexContainer2">
+        <div class=child>
+            <!-- Formulario de actualización -->
+            <form method="POST" action="EditarAlumno.php" enctype="multipart/form-data">
+                <div class="centrarIMG">
+                <?php
+                    // Mostrar la imagen de vista previa si hay una URL de imagen
+                    $fotoURL = GetInfoAlumno($dni, 'foto');
+                    // echo($fotoURL);
+               
+                    if (!empty($fotoURL)) {
+                        echo '<img  class="profile" src="fotos/' . $fotoURL . '" alt="Vista previa de la foto" ><br>';
+                    }                
 
-    <!-- Formulario de actualización -->
-    <form method="POST" action="EditarAlumno.php" enctype="multipart/form-data">
-        
-        <?php
-            echo("Editar alumno".$dni);
-            // Mostrar la imagen de vista previa si hay una URL de imagen
-            $fotoURL = GetInfoAlumno($dni, 'foto');
-            // echo($fotoURL);
-            if (!empty($fotoURL)) {
-                echo '<img src="fotos/' . $fotoURL . '" alt="Vista previa de la foto" width="150"><br>';
-        }
-            
-        ?>
-        <label for="nom">Nombre:</label>
-        <input type="text" id="nom" name="nom" value="<?php echo GetInfoAlumno($dni, 'Nom'); ?>" required><br><br>
+                    
+                ?>    
+                </div>                
+                <label for="nom">Nombre:</label>
+                <input type="text" id="nom" name="nom" value="<?php echo GetInfoAlumno($dni, 'Nom'); ?>" required><br><br>
 
-        <label for="cognom">Apellido:</label>
-        <input type="text" id="cognom" name="cognom" value="<?php echo GetInfoAlumno($dni, 'Cognom'); ?>" required><br><br>
+                <label for="cognom">Apellido:</label>
+                <input type="text" id="cognom" name="cognom" value="<?php echo GetInfoAlumno($dni, 'Cognom'); ?>" required><br><br>
 
-        <label for="edad">Edad:</label>
-        <input type="date" id="edad" name="edad" value="<?php echo GetInfoAlumno($dni, 'Edad'); ?>" required><br><br>
+                
+               
+                <div class="edad-foto2">
+                    <label class="textEdad" for="edad">Edad:</label>
+                    <input class="calendario" type="date" id="edad" name="edad" value="<?php echo GetInfoAlumno($dni, 'Edad'); ?>" required>
+                    <label for="image" class="file-label"></label>
+                    <input type="file" id="image" name="image" style="display: none;">
+                </div>
+                
 
-        <label for="image">Foto:</label>
-        <input type="file" id="image" name="image"><br>
 
-        <!-- Campo para la nueva contraseña -->
-        <label for="contrasenya">Nueva Contraseña:</label>
-        <input type="password" id="contrasenya" name="contrasenya" style="display:none;"><br><br>
-       
-        <!-- Botón para mostrar/ocultar el campo de contraseña -->
-        <button type="button" id="cambiarContrasenaBtn" onclick="toggleContrasena()">Cambiar Contraseña</button>
-
-        <input type="submit" value="Editar">
-    </form>
+                <!-- Campo para la nueva contraseña -->
+                <div class="contra-desplegable">
+                    <label for="contrasenya">Nueva Contraseña:</label>
+                    <input type="password" id="contrasenya" name="contrasenya" style="display:none;">
+                
+                    <!-- Botón para mostrar/ocultar el campo de contraseña -->
+                    <button type="button" id="cambiarContrasenaBtn" onclick="toggleContrasena()">Cambiar Contraseña</button>
+                </div>
+                
+                <div class="confirmar2">
+                    <input type="submit" value="Guardar">
+                </div>
+                   
+            </form>
+        </div>
+    </div>
 </body>
 </html>
 

@@ -396,6 +396,39 @@ body {
   width: 316px;
 }
 
+.centrarIMG {
+  display: grid;
+  place-items: center;
+  margin-bottom: 20px;
+}
+
+.edad-foto2 {
+  display: grid;
+  grid-auto-flow: column;
+}
+.edad-foto2 .textEdad {
+  display: grid;
+  align-items: center;
+}
+.edad-foto2 .calendario {
+  width: 220px;
+}
+
+.contra-desplegable {
+  margin-top: 20px;
+  height: 120px;
+  margin-bottom: 20px;
+}
+
+.confirmar2 {
+  display: grid;
+  place-items: center;
+}
+.confirmar2 input {
+  font-weight: bold;
+  font-size: 24px;
+}
+
 footer {
   background-color: #C4DFDF;
   width: 100%;

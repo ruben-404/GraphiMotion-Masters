@@ -1091,7 +1091,7 @@ function mostrarNotasCursos($dni) {
           echo '<tr><th>Curso</th><th>Nota</th></tr>';
           while ($row = $result->fetch_assoc()) {
               echo '<tr>';
-              echo '<td>' . htmlspecialchars($row['curso']) . '</td>';
+              echo '<td>' . GetInfoCurso($row['curso'],"Nom"). '</td>';
               echo '<td>' . ($row['nota'] !== null ? htmlspecialchars($row['nota']) : 'Nota no disponible') . '</td>';
               echo '</tr>';
           }
@@ -1144,9 +1144,10 @@ function obtenerDatosAlumnosPorCurso($codigoCurso) {
 }
 
 function mostrarTablaNotasAlumnos($alumnos,$code) {
+  echo "<div class='NotasTabla'>";
   echo "<h2>Notas de Alumnos</h2>";
   echo "<form method='post' action='CursoAlumne.php?codigo_curso=$code'>"; 
-  echo "<table border='1'>
+  echo "<table class='TablaNotas'>
           <tr>
               <th>Nombre</th>
               <th>Nota</th>
@@ -1165,6 +1166,7 @@ function mostrarTablaNotasAlumnos($alumnos,$code) {
   echo "</table>";
   echo "<input type='submit' value='Guardar Notas'>";
   echo "</form>";
+  echo "</div>";
 }
 function mostrarTablaNotasAlumnosSinNota(){
   $conexion = conectarseBase();

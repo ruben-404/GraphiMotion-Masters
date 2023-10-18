@@ -22,20 +22,20 @@ include '../funciones.php';
 <body>
     <div class="Contenedor_Principal">
         <nav class="nav">
-            <div class = "nav_title"><img src="../imgg/logo.png" alt="Logo"></div>
-            <h1>GraphiMotion Masters</h1>
+            <div class = "nav_title"><img class="logo" src="../imgg/logo.png" alt="Logo"></div>
+            <a class="title">GraphiMotion Masters</a>
             <ul class="nav_list">
                 <li class="nav_item">
                     <button onclick="location.href='../index.php'" class="botonHead">Inici</button>
                 </li>
                 <li class="nav_item">
-                    <button onclick="location.href='../pages/nosaltres.php'" class="botonHead">Nosaltres</button>
+                    <button onclick="location.href='../index.php#nosaltres'" class="botonHead">Nosaltres</button>
                 </li>
                 <li class="nav_item">
-                    <button onclick="location.href='../pages/serveis.php'" class="botonHead">Serveis</button>
+                    <button onclick="location.href='../index.php#seveis'" class="botonHead">Serveis</button>
                 </li>
                 <li class="nav_item">
-                    <button class="botonHead">Contacte</button>
+                    <button onclick="location.href='../index.php#Contacte'" class="botonHead">Contacte</button>
                 </li>
                 <li class="nav_item">
                     <?php
@@ -88,7 +88,7 @@ include '../funciones.php';
                     
                     $codigoCurso = $_GET['codigo_curso'];
                     $notas = $_POST['notas'];
-                    print_r($notas);
+                    
             
                     // Conecta a la base de datos
                     $conexion = conectarseBase();
@@ -109,8 +109,7 @@ include '../funciones.php';
                     // Cierra la conexión y muestra un mensaje de éxito
                     $stmt->close();
                     $conexion->close();
-                    
-                    echo "Notas actualizadas con éxito.";
+        
                 
                     
                         
@@ -156,7 +155,14 @@ include '../funciones.php';
     ?>
     
 <footer>
-    <p>hola</p>
+    <div class="containFooter">
+        <img src="../imgg/logo.png" alt="logo" width="211px" height="205px">
+        <img src="../imgg/instagram.png" alt="instagram" class="social">
+        <img src="../imgg/facebook.png" alt="facebook" class="social">
+        <img src="../imgg/tiktok.png" alt="tiktok" class="social" id="tiktok">
+        <img src="../imgg/youtube.png" alt="youtube" class="social">
+        <img src="../imgg/twitter.png" alt="twitter" class="social">
+    </div>
 </footer>
 </body>
 </html>

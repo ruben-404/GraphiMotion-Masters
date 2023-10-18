@@ -13,3 +13,32 @@
     margin: 0px;
     padding: 0px;
 }
+
+#tablaEstudiantes{
+    border-radius: 20px;
+    border:1px solid black;
+    display: none;
+td{
+    padding: 5px;
+}
+}
+#enviarDatos,#archivoInput{
+    height: 35px;
+}
+#enviarDatos{
+    display: none;
+}
+
+//notas alumnos
+.TablaNotas{
+    border-radius: 20px;
+    border:1px solid black;
+ 
+th,td{
+    padding: 5px;
+}
+}
+.NotasTabla{
+    display: grid;
+    grid-auto-flow: row;
+}

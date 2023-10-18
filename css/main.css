@@ -455,4 +455,34 @@ footer {
 * {
   margin: 0px;
   padding: 0px;
+}
+
+#tablaEstudiantes {
+  border-radius: 20px;
+  border: 1px solid black;
+  display: none;
+}
+#tablaEstudiantes td {
+  padding: 5px;
+}
+
+#enviarDatos, #archivoInput {
+  height: 35px;
+}
+
+#enviarDatos {
+  display: none;
+}
+
+.TablaNotas {
+  border-radius: 20px;
+  border: 1px solid black;
+}
+.TablaNotas th, .TablaNotas td {
+  padding: 5px;
+}
+
+.NotasTabla {
+  display: grid;
+  grid-auto-flow: row;
 }/*# sourceMappingURL=main.css.map */

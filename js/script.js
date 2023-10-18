@@ -65,6 +65,7 @@ function procesarArchivo(event) {
     	const contenido = e.target.result;
     	const estudiantes = contenido.split(';');
     	const tabla = document.getElementById('tablaEstudiantes');
+		tabla.innerHTML = '';
 
     	estudiantes.forEach(estudiante => {
         	const datosEstudiante = estudiante.split(',');
@@ -75,44 +76,13 @@ function procesarArchivo(event) {
             	celda.textContent = datosEstudiante[i];
         	}
     	});
-	};
 
+	};
+	document.getElementById("enviarDatos").style.display="block";
+	document.getElementById("tablaEstudiantes").style.display="block";
 	lector.readAsText(archivo);
 }
-/*
-function enviarDatosEstudiantes() {
-	const archivoInput = document.getElementById('archivoInput');
-	const archivo = archivoInput.files[0];
 
-	const lector = new FileReader();
-
-	lector.onload = function(e) {
-    	const contenido = e.target.result;
-    	const estudiantes = contenido.split('\n'); // Suponiendo que los datos están separados por saltos de línea en el archivo CSV
-
-    	// Procesar los datos del archivo y construir el array de estudiantes
-    	const datosEstudiantes = estudiantes.map(estudiante => {
-        	const campos = estudiante.split(',');
-        	return campos.map(campo => campo.trim());
-    	});
-		console.log(datosEstudiantes);
-    	// Enviar datos al servidor
-    	fetch('procesar_datos.php', {
-        	method: 'POST',
-        	body: JSON.stringify({ estudiantes: datosEstudiantes }),
-        	headers: {
-            	'Content-Type': 'application/json'
-        	}
-    	})
-    	.then(response => response.text())
-    	.then(data => {
-        	console.log(data); // Muestra la respuesta del servidor en la consola del navegador
-    	});
-	};
-
-	lector.readAsText(archivo);
-}
-*/
 function enviarDatosEstudiantes() {
     const archivoInput = document.getElementById('archivoInput');
     const archivo = archivoInput.files[0];
@@ -134,6 +104,8 @@ function enviarDatosEstudiantes() {
    	 });
 	 console.log(datosEstudiantes);
    	 // Enviar datos al servidor
+	 document.getElementById("enviarDatos").style.display="none";
+	 document.getElementById("archivoInput").style.display="none";
    	 fetch('procesar_datos.php', {
    		 method: 'POST',
    		 body: JSON.stringify({ estudiantes: datosEstudiantes }),
@@ -144,6 +116,8 @@ function enviarDatosEstudiantes() {
    	 .then(response => response.text())
    	 .then(data => {
    		 console.log(data);
+		 const resultado = document.getElementById('resultado');
+		 resultado.innerHTML = data;
    	 });
     };
 

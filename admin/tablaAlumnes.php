@@ -55,9 +55,9 @@ include '../funciones.php';
    <div class="container">
        
         <input type="file" id="archivoInput">
-        <table id="tablaEstudiantes" border="1"></table>
+        <table id="tablaEstudiantes"></table>
         <button id="enviarDatos" onclick="enviarDatosEstudiantes()">Enviar Datos a PHP</button>
-        
+        <p id="resultado"></p>
 
 
 

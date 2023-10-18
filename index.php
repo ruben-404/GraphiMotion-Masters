@@ -138,7 +138,8 @@ include 'funciones.php';
 <footer>
     <div class="containFooter">
         <img src="imgg/logo.png" alt="logo" width="211px" height="205px">
-        
+        <img src="imgg/instagram.png" alt="instagram" class="social">
+        <img src="imgg/facebook.png" alt="facebook" class="social">
     </div>
 </footer>
 </body>

@@ -22,4 +22,25 @@
 
 .notaCurso, .botonCurso {
   margin-left: 20px;
+}
+
+.flecha {
+  background: none;
+  border: none;
+  width: 48px;
+  height: 48px;
+  margin-top: 96px;
+  padding-left: 100px;
+}
+
+.editIMG {
+  background: none;
+  border: none;
+  width: 55px;
+  height: 55px;
+}
+
+.buttonAgregar {
+  margin-left: 1185px;
+  margin-top: -200px;
 }/*# sourceMappingURL=botons.css.map */

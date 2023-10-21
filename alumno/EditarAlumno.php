@@ -51,7 +51,7 @@ session_start();
     }
     
     ?>
-    <div class="indexContainer2">
+    <div class="indexContainer2 boldLetter">
         <div class=child>
             <!-- Formulario de actualización -->
             <form method="POST" action="EditarAlumno.php" enctype="multipart/form-data">

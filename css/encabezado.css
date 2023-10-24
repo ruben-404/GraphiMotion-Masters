@@ -378,6 +378,9 @@ body {
 .edad-foto2 .calendario {
   width: 220px;
 }
+.edad-foto2 .calendario2 {
+  width: 80px;
+}
 
 .contra-desplegable {
   margin-top: 20px;
@@ -410,7 +413,6 @@ body {
   height: 86px;
   border-radius: 20px;
   display: grid;
-  margin-top: -200px;
   padding-left: 20px;
   grid-template-columns: 2fr 100px;
   background-color: #F8F6F4;

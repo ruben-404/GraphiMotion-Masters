@@ -13,8 +13,12 @@ if (isset($_GET['nombre']) && isset($_GET['dni'])) {
 <head>
     <title>Actualizar Profesor</title>
     <script src="../js/script.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="index">
     <?php
     include '../funciones.php';
    
@@ -56,43 +60,51 @@ if (isset($_GET['nombre']) && isset($_GET['dni'])) {
         }
     }
     ?>
-
-    <!-- Formulario de actualización -->
-    <form method="POST" action="EditarProfeFormulario.php" enctype="multipart/form-data">
-        
-    <?php
-            // Mostrar la imagen de vista previa si hay una URL de imagen
-            $fotoURL = GetInfoProfe($dniProfesor, 'foto');
-            // echo($fotoURL);
-            if (!empty($fotoURL)) {
-                echo '<img src="fotos/' . $fotoURL . '" alt="Vista previa de la foto" width="150"><br>';
-        }
-            
+    <div class="indexContainer2 boldLetter">
+        <div class=child>
+            <!-- Formulario de actualización -->
+            <form method="POST" action="EditarProfeFormulario.php" enctype="multipart/form-data">
+            <div class="centrarIMG">   
+            <?php
+                    // Mostrar la imagen de vista previa si hay una URL de imagen
+                    $fotoURL = GetInfoProfe($dniProfesor, 'foto');
+                    // echo($fotoURL);
+                    if (!empty($fotoURL)) {
+                        echo '<img class="profile"  src="fotos/' . $fotoURL . '" alt="Vista previa de la foto" width="150"><br>';
+                }
+                    
             ?>
-        <label for="nom">Nombre:</label>
-        <input type="text" id="nom" name="nom" value="<?php echo GetInfoProfe($dniProfesor, 'Nom'); ?>" required><br><br>
+            <div class="centrarIMG">
+                <label for="nom">Nombre:</label>
+                <input type="text" id="nom" name="nom" value="<?php echo GetInfoProfe($dniProfesor, 'Nom'); ?>" required><br><br>
 
-        <label for="cognom">Apellido:</label>
-        <input type="text" id="cognom" name="cognom" value="<?php echo GetInfoProfe($dniProfesor, 'Cognom'); ?>" required><br><br>
+                <label for="cognom">Apellido:</label>
+                <input type="text" id="cognom" name="cognom" value="<?php echo GetInfoProfe($dniProfesor, 'Cognom'); ?>" required><br><br>
 
-        <label for="titol">Título:</label>
-        <input type="text" id="titol" name="titol" value="<?php echo GetInfoProfe($dniProfesor, 'titol'); ?>" required><br><br>
+                <label for="titol">Título:</label>
+                <input type="text" id="titol" name="titol" value="<?php echo GetInfoProfe($dniProfesor, 'titol'); ?>" required><br><br>
 
-        <label for="image">Foto:</label>
-        <input type="file" id="image" name="image"><br>
+                <!-- Campo para la nueva contraseña -->
+                <label for="contrasenya">Nueva Contraseña:</label>
+                <input type="password" id="contrasenya" name="contrasenya" style="display:none;"><br><br>
+            
+                <!-- Botón para mostrar/ocultar el campo de contraseña -->
+                <button type="button" id="cambiarContrasenaBtn" onclick="toggleContrasena()">Cambiar Contraseña</button>
 
-        <!-- Campo para la nueva contraseña -->
-        <label for="contrasenya">Nueva Contraseña:</label>
-        <input type="password" id="contrasenya" name="contrasenya" style="display:none;"><br><br>
-       
-        <!-- Botón para mostrar/ocultar el campo de contraseña -->
-        <button type="button" id="cambiarContrasenaBtn" onclick="toggleContrasena()">Cambiar Contraseña</button>
-
-        <label for="estado">Estado (1 para activo, 0 para inactivo):</label>
-        <input type="number" id="estado" name="estado" min="0" max="1" value="<?php echo GetInfoProfe($dniProfesor, 'estado'); ?>" required><br><br>
-
-        <input type="submit" value="Editar Profesor">
-    </form>
+                <div class="edad-foto2">
+                    
+                    <label for="estado">Estado (1 para activo, 0 para inactivo):</label>
+                    <input class="calendario2" type="number" id="estado" name="estado" min="0" max="1" value="<?php echo GetInfoProfe($dniProfesor, 'estado'); ?>" required>
+                    <!-- Utiliza una etiqueta label para el campo de tipo file -->
+                    <label for="image" class="file-label"></label>
+                    <input type="file" id="image" name="image" style="display: none;"><br><br>
+                </div>
+                <div class="confirmar2">
+                    <input type="submit" value="Guardar">
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
 

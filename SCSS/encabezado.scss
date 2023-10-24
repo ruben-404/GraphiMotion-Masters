@@ -380,6 +380,11 @@ div{
     width: 220px;
     
 }
+.calendario2{
+    width: 80px;
+    
+}
+
 }    
 .contra-desplegable{
     margin-top: 20px;
@@ -411,7 +416,7 @@ input{
     height: 86px;
     border-radius: 20px;
     display: grid;
-    margin-top:-200px ;    
+      
     padding-left: 20px;
     grid-template-columns: 2fr 100px;
     background-color: $primary;

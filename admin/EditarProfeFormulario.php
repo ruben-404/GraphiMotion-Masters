@@ -91,10 +91,11 @@ if (isset($_GET['nombre']) && isset($_GET['dni'])) {
                 <!-- Botón para mostrar/ocultar el campo de contraseña -->
                 <button type="button" id="cambiarContrasenaBtn" onclick="toggleContrasena()">Cambiar Contraseña</button>
 
-                <label for="estado">Estado (1 para activo, 0 para inactivo):</label>
-                <input type="number" id="estado" name="estado" min="0" max="1" value="<?php echo GetInfoProfe($dniProfesor, 'estado'); ?>" required><br><br>
-                <div class="edad-foto">
-                <!-- Utiliza una etiqueta label para el campo de tipo file -->
+                <div class="edad-foto2">
+                    
+                    <label for="estado">Estado (1 para activo, 0 para inactivo):</label>
+                    <input class="calendario2" type="number" id="estado" name="estado" min="0" max="1" value="<?php echo GetInfoProfe($dniProfesor, 'estado'); ?>" required>
+                    <!-- Utiliza una etiqueta label para el campo de tipo file -->
                     <label for="image" class="file-label"></label>
                     <input type="file" id="image" name="image" style="display: none;"><br><br>
                 </div>

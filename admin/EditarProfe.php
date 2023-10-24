@@ -48,5 +48,6 @@ session_start();
             }
         ?>
     </div>
+<footer></footer>
 </body>
 </html>

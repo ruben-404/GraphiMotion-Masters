@@ -20,7 +20,7 @@ include '../funciones.php';
         <h1 class = "nav_title">GraphiMotion Masters</h1>
         <ul class="nav_list">
             <li class="nav_item">
-                <button class="botonHead">Inici</button>
+                <button onclick="location.href='menu.php'" class="botonHead">Inici</button>
             </li>
             <li class="nav_item">
                 <button class="botonHead">Nosaltres</button>

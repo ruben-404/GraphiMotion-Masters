@@ -35,7 +35,12 @@ if (isset($_GET['NomCurso']) && isset($_GET['CursoCodigo'])) {
                 $profe = $_POST['profe'];
                 $estado = $_POST['estado'];
                 $fecha_final = $_POST['fecha_final'];
-                if(UpdateCurso($codigo,$nom, $foto, $descripcion, $horas, $fecha_inicio, $profe, $estado, $fecha_final)){
+                if(isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK){
+                    $image = adapImage($codigo, $_FILES['image']['name'], $_FILES['image']['tmp_name']);
+                    UpdateFotoCurso($codigo, $foto);
+    
+                }
+                if(UpdateCurso($codigo,$nom, $descripcion, $horas, $fecha_inicio, $profe, $estado, $fecha_final)){
                     header("Location: menu.php");
                 }
             }
@@ -50,6 +55,7 @@ if (isset($_GET['NomCurso']) && isset($_GET['CursoCodigo'])) {
     <?php
        
        // Mostrar la imagen de vista previa si hay una URL de imagen
+       $profesorSeleccionado =  GetInfoCurso($codigo, 'Profe');
        $fotoURL = GetInfoCurso($codigo, 'foto');
        // echo($fotoURL);
        if (!empty($fotoURL)) {
@@ -80,23 +86,24 @@ if (isset($_GET['NomCurso']) && isset($_GET['CursoCodigo'])) {
         echo'<label for="profe">Profesor:</label>';
         echo'<select id="profe" name="profe" required>';
         ?>
-            <!-- Opción por defecto -->
-            <option value="" disabled selected>Selecciona un profesor</option>
-            
+              <!-- Opción por defecto -->
+            <option value="" disabled>Selecciona un profesor</option>
+
             <?php
             // Llama a la función obtenerListaProfesores para obtener la lista de profesores
             $listaProfesores = obtenerListaProfesores();
 
             // Genera las opciones del select en función de la lista de profesores
             foreach ($listaProfesores as $profesor) {
-                echo "<option value='" . $profesor['Dni'] . "'>" . $profesor['Dni'] . "-" .$profesor["Nom"]. "</option>";
+                $selected = ($profesor['Dni'] == $profesorSeleccionado) ? 'selected' : '';
+                echo "<option value='" . $profesor['Dni'] . "' $selected>" . $profesor['Dni'] . "-" . $profesor["Nom"] . "</option>";
             }
-            ?>
+        ?>
 
         </select><br><br>
 
         <label for="estado">Estado (1 para activo, 0 para inactivo):</label>
-        <input type="number" id="estado" name="estado" min="0" max="1" required><br><br>
+        <input type="number" id="estado" name="estado" min="0" max="1" value="<?php echo GetInfoCurso($codigo, 'estado'); ?>" required><br><br>
 
         <input type="submit" value="editar Curso">
     </form>

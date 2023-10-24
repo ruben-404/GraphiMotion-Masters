@@ -38,7 +38,7 @@ session_start();
                 UpdateContrasenaAlumne($dni, $nuevaContrasena);
             }
             if(isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK){
-                $image = adapImage($_POST['dni'], $_FILES['image']['name'], $_FILES['image']['tmp_name']);
+                $image = adapImage($dni, $_FILES['image']['name'], $_FILES['image']['tmp_name']);
             
                 UpdateFotoAlumne($dni, $foto);
 

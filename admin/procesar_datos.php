@@ -95,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	
    	 // Insertar estudiante
 	 if(VerifyAlumnoc($DNI)){
-		echo "El alumno con DNI: " .$DNI . " ya existe\n";
+		echo "El alumno con DNI: " .$DNI . " ya existe<br>";
 		continue;
 	 }else{
 		$sqlEstudiante->execute();
@@ -110,7 +110,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$sqlMatricula->bind_param("ii", $idCurso, $DNI);
 		if(!$sqlMatricula->execute()){
 			$error = $sqlMatricula->errorInfo();
-			echo "Error en la consulta SQL:\n" .$error[2];
+			echo "Error en la consulta SQL:<br>" .$error[2];
 		}
    	 }
     }
@@ -120,7 +120,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sqlMatricula->close();
     $conexion->close(); 
 	if($AlumnosInsertados){
-		echo "Datos agregados\n";
+		echo "Datos agregados<br>";
 	}
     
 } else {

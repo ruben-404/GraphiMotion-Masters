@@ -8,6 +8,8 @@ session_start();
 <html>
 <head>
     <title>Actualizar alumno</title>
+    <script src="../js/script.js"></script>
+
 </head>
 <body>
     <?php
@@ -24,7 +26,7 @@ session_start();
             $nom = $_POST['nom'];
             $cognom = $_POST['cognom'];
             $titol = $_POST['titol'];
-            $foto = adapImage($dni, $_FILES['image']['name'], $_FILES['image']['tmp_name']);
+            $foto = adapImageProfes($dni, $_FILES['image']['name'], $_FILES['image']['tmp_name']);
             
             // Verificar si se proporcionó una nueva contraseña
             $nuevaContrasena = $_POST['contrasenya'];
@@ -33,7 +35,7 @@ session_start();
                 UpdateContrasenaProfe($dni, $nuevaContrasena);
             }
             if(isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK){
-                $image = adapImage($_POST['dni'], $_FILES['image']['name'], $_FILES['image']['tmp_name']);
+                $image = adapImage($dni, $_FILES['image']['name'], $_FILES['image']['tmp_name']);
                 UpdateFotoProfe($dni, $foto);
 
             }
@@ -84,20 +86,6 @@ session_start();
         <input type="submit" value="Editar">
     </form>
 
-    <!-- JavaScript para mostrar/ocultar el campo de contraseña -->
-    <script>
-        function toggleContrasena() {
-            var contrasenyaInput = document.getElementById("contrasenya");
-            var cambiarContrasenaBtn = document.getElementById("cambiarContrasenaBtn");
-           
-            if (contrasenyaInput.style.display === "none") {
-                contrasenyaInput.style.display = "block";
-                cambiarContrasenaBtn.innerText = "Cancelar Cambio de Contraseña";
-            } else {
-                contrasenyaInput.style.display = "none";
-                cambiarContrasenaBtn.innerText = "Cambiar Contraseña";
-            }
-        }
-    </script>
+    
 </body>
 </html>

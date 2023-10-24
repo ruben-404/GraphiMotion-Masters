@@ -413,10 +413,10 @@ function verificarCursoFinalizado($codigoCurso) {
   // Verificar si la fecha actual está dentro del rango del curso
   if ($fechaActual >= $fechaInicio && $fechaActual <= $fechaFinal) {
       // El curso está en progreso
-      return false;
+      return true;
   } else {
       // El curso ha finalizado
-      return true;
+      return false;
   }
 
   // Cerrar la conexión a la base de datos
@@ -540,8 +540,10 @@ function obtenerCursosNoMatriculados($dni) {
 function imprimirCursosProfes($rol,$dni) {
   // Obtener la lista de cursos utilizando la función anterior
   $cursos = obtenerCursosPorProfesor($_SESSION['dni']);
-
-  // Iniciar la sesión si aún no está iniciada
+  if($cursos==NULL){
+    echo("No hay cursos");
+  }else{
+    // Iniciar la sesión si aún no está iniciada
   if (!isset($_SESSION)) {
     session_start();
   }
@@ -584,6 +586,8 @@ function imprimirCursosProfes($rol,$dni) {
     }
     
   }
+  }
+  
 }
 
 function imprimirCursos($rol,$dni) {
@@ -747,6 +751,8 @@ function InfoCurso($code){
   echo "<img src='../imgg/onlinee.png'>";
   echo "<img src='../imgg/idioma.png'>";
   echo "</div>";
+  echo "<p class='fechas'> Inicio: " . GetInfoCurso($code, 'DataInici')."</p>";
+  echo "<p class='fechas'>Final: " . GetInfoCurso($code, 'DataFinal')."</p>";
   echo("<p class='descripcion'>". GetInfoCurso($code, 'Descripcion') ."</p>");
   if (isset($_SESSION['dni'])) {
     if(VerifyMatriculado($code,$_SESSION['dni'])){
@@ -795,8 +801,10 @@ function InfoCursoProfe($code){
 
 
     if(verificarCursoFinalizado($code)){
+     
       mostrarTablaNotasAlumnos($alumnos,$code);
     }else{
+     
       mostrarTablaNotasAlumnosSinNota($alumnos,$code);
     }
 
@@ -959,17 +967,38 @@ function UpdateProfeyou($nom, $dni, $cognom, $titol ) {
 }
 
 
-function UpdateCurso($codigo,$nom,$foto,$descripcion,$horas,$fecha_inicio,$profe,$estado,$fecha_final) {
+function UpdateCurso($codigo,$nom,$descripcion,$horas,$fecha_inicio,$profe,$estado,$fecha_final) {
   $conexion = conectarseBase();
   // Consulta SQL para insertar un nuevo profesor
-  $sql = "UPDATE cursos SET Nom = ?, Foto = ?, Descripcion = ?, NumeroHoras = ?, DataInici = ?, Profe = ?, Estado = ?, DataFinal = ? WHERE Codigo = ?";
+  $sql = "UPDATE cursos SET Nom = ?, Descripcion = ?, NumeroHoras = ?, DataInici = ?, Profe = ?, Estado = ?, DataFinal = ? WHERE Codigo = ?";
   try {
       $stmt = $conexion->prepare($sql);
-      $stmt->execute([$nom,$foto,$descripcion,$horas,$fecha_inicio,$profe,$estado,$fecha_final,$codigo]);
+      $stmt->execute([$nom,$descripcion,$horas,$fecha_inicio,$profe,$estado,$fecha_final,$codigo]);
       echo "Curso actualizado con éxito.";
       return true;
   } catch (PDOException $e) {
       echo "Error al actualizar el curso: " . $e->getMessage();
+      return false;
+  }
+
+  $conexion = null; // Cerrar la conexión
+}
+function UpdateFotoCurso($code, $foto) {
+  $conexion = conectarseBase();
+
+  // Consulta SQL para actualizar la foto de un alumno
+  $sql = "UPDATE cursos SET Foto = ? WHERE Codigo = ?";
+
+  try {
+      // Convertir el DNI a cadena
+      $dni = strval($code);
+
+      $stmt = $conexion->prepare($sql);
+      $stmt->execute([$foto, $code]);
+      echo "Foto del curso actualizada con éxito.";
+      return true;
+  } catch (PDOException $e) {
+      echo "Error al actualizar la foto del curso: " . $e->getMessage();
       return false;
   }
 
@@ -1040,7 +1069,7 @@ function UpdateFotoAlumne($dni, $foto) {
 
 function UpdateFotoProfe($dni, $foto) {
   $conexion = conectarseBase();
-
+  echo("fottttttttoooo");
   // Consulta SQL para actualizar la foto de un alumno
   $sql = "UPDATE profes SET Foto = ? WHERE Dni = ?";
 
@@ -1066,6 +1095,16 @@ function adapImage($data,$name,$tmpname){
   $image = $data . "." . $extension;
   $image_tmp = $tmpname;
   $image_path = "fotos/".$image;
+  move_uploaded_file($image_tmp,$image_path);
+  return $image;
+}
+
+function adapImageProfes($data,$name,$tmpname){
+  $imagename = $name;
+  $extension = pathinfo($imagename, PATHINFO_EXTENSION);
+  $image = $data . "." . $extension;
+  $image_tmp = $tmpname;
+  $image_path = "../admin/fotos/".$image;
   move_uploaded_file($image_tmp,$image_path);
   return $image;
 }
@@ -1168,43 +1207,28 @@ function mostrarTablaNotasAlumnos($alumnos,$code) {
   echo "</form>";
   echo "</div>";
 }
-function mostrarTablaNotasAlumnosSinNota(){
-  $conexion = conectarseBase();
+function mostrarTablaNotasAlumnosSinNota($alumnos,$code){
+  echo "<div class='NotasTabla'>";
+  echo "<h2>Notas de Alumnos</h2>";
+  echo "<form method='post' action='CursoAlumne.php?codigo_curso=$code'>"; 
+  echo "<table class='TablaNotas'>
+          <tr>
+              <th>Nombre</th>
+              <th>Nota</th>
+          </tr>";
 
-  // Consultar los cursos y las notas del alumno
-  $sql = "SELECT curso, nota FROM curso_alumne WHERE alumne = ?";
- 
-  try {
-      $stmt = $conexion->prepare($sql);
-      $stmt->bind_param("s", $dni);
-      $stmt->execute();
-     
-      // Obtener el resultado del statement
-      $result = $stmt->get_result();
+  foreach ($alumnos as $alumno) {
+      $nombre = $alumno['Nom']; // Reemplaza 'nombre' con el nombre del campo en tu base de datos
 
-      // Verificar si hay registros
-      if ($result->num_rows > 0) {
-          // Imprimir la tabla
-          echo '<table id="notas_alumno">';
-          echo '<tr><th>Curso</th><th>Nota</th></tr>';
-          while ($row = $result->fetch_assoc()) {
-              echo '<tr>';
-              echo '<td>' . htmlspecialchars($row['curso']) . '</td>';
-              echo '</tr>';
-          }
-          echo '</table>';
-      } else {
-          // Mostrar un mensaje si no hay registros
-          echo 'No se encontraron cursos.';
-      }
-     
-      $result->close();  // Cerrar el resultado
-      $stmt->close();    // Cerrar el statement
-     
-  } catch (Exception $e) {
-      echo "Error al obtener las notas: " . $e->getMessage();
+      echo "<tr>
+              <td>$nombre</td>
+            </tr>";
   }
-  
+
+  echo "</table>";
+  echo "<input type='submit' value='Guardar Notas'>";
+  echo "</form>";
+  echo "</div>";
 }
 
 

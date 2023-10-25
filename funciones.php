@@ -1,4 +1,5 @@
 <?php
+// Funcion conectarseBase () Este metodo permite realizar la consulta de la base de
 function conectarseBase()
 {
     $conexion = mysqli_connect("localhost", "root", "", "learning-academy");
@@ -10,6 +11,7 @@ function conectarseBase()
     return $conexion;
 }
 
+// Verifica si el usuario esta contrario devuelve
 function VerifyAdmin($name,$passwd1)
 {
     $conexion = conectarseBase();
@@ -46,36 +48,29 @@ function VerifyAdmin($name,$passwd1)
     }
 }
 
+// \ brief Verifie la conexion desde la base \ param $dni DNI a recuper
 function VerifyAlumnoc($dni,$passwd1)
 {
     $conexion = conectarseBase();
     $passwd=cifrarContrasena($passwd1);
     
-    // Preparar la consulta SELECT
     $sql = "SELECT * FROM alumnes WHERE DNI = ? AND Contrasenya = ?";
 
-    // Preparar la sentencia SQL
     $stmt = $conexion->prepare($sql);
-
-    // Vincular los parámetros de la sentencia SQL
-    //$stmt->bind_param("ss", $name, $passwd);
+   
     $stmt->bind_param("ss", $dni, $passwd);
-
-
-    // Ejecutar la consulta
+   
     $stmt->execute();
-
-    // Obtener el resultado de la consulta
+   
     $result = $stmt->get_result();
-
-    // Verificar si se encontraron registros
+    
     if ($result->num_rows > 0) {
-      // Las credenciales son válidas
+    
       $stmt->close();
       $conexion->close();
       return true;
     } else {
-      // Las credenciales son inválidas
+      
       $stmt->close();
       $conexion->close();
       return false;
@@ -815,14 +810,12 @@ function InfoCurso($code){
       echo'<button type="submit" class="botonCurso" name="botonB" value="borrar">Darte de baja?</button>';
       echo'</from>';
 
-      //echo "<button id='DarBajaBtn' data-curso-id='$code' data-dni-id='{$_SESSION['dni']}'>Darte de baja?</button>";
     }else{
       echo'<form method="POST" action="CursoAlumne.php" enctype="multipart/form-data">';
       echo"<input type='hidden' name='codigo_curso' value=". $code .">";
       echo'<button type="submit" class="botonCurso" name="botonM" value="apuntar">Apuntar</button>';
       echo'</from>';
-      //echo "<button id='matricularBtn' data-curso-id='$code'>mi curso</button>";
-      //quitar esto cuando se capaz de poner enlazar una funcion php con un puto boton
+      
      
     }
 

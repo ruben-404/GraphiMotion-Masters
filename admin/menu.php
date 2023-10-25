@@ -30,7 +30,7 @@ session_start();
             </li>
             <li class="nav_item">
                 <?php
-                    echo '<img src="../img/usu.png" alt="foto usu" id="imagen-usuario" onclick="mostrarEnlaces()">';
+                    echo '<img src="../imgg/logout.png" alt="foto usu" id="imagen-usuario" onclick="mostrarEnlaces()">';
                     echo '<div class="enlaces" id="enlaces-usuario">';
                     echo '<a href="sortir.php">sortir</a><br>';
                     echo '</div>';

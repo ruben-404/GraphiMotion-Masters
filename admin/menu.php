@@ -2,9 +2,10 @@
 session_start();
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
     <title>Iniciar Sesión</title>
+    <script src="../js/script.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/main.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -71,15 +72,5 @@ session_start();
         }
     
     ?>
-        <script>
-        function mostrarEnlaces() {
-            var enlacesUsuario = document.getElementById('enlaces-usuario');
-            if (enlacesUsuario.style.display === 'none') {
-                enlacesUsuario.style.display = 'block';
-            } else {
-                enlacesUsuario.style.display = 'none';
-            }
-        }
-    </script>
 </body>
 </html>

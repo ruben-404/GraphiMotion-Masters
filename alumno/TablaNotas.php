@@ -85,7 +85,7 @@ include '../funciones.php';
         </div>
         <footer>
     <div class="containFooter">
-        <img src="imgg/logo.png" alt="logo" width="211px" height="205px">
+        <img src="imgg/logo.png" alt="logo" class="logoFooter">
         <img src="imgg/instagram.png" alt="instagram" class="social">
         <img src="imgg/facebook.png" alt="facebook" class="social">
         <img src="imgg/tiktok.png" alt="tiktok" class="social" id="tiktok">

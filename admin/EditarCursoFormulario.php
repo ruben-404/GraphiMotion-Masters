@@ -14,6 +14,8 @@ if (isset($_GET['NomCurso']) && isset($_GET['CursoCodigo'])) {
 <html>
 <head>
     <title>Actualizar Profesor</title>
+    <script src="../js/script.js"></script>
+
 </head>
 <body>
     <?php

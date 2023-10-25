@@ -5,6 +5,7 @@ session_start();
 <html>
 <head>
     <title>Iniciar Sesión</title>
+    <script src="../js/script.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/main.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,8 +31,14 @@ session_start();
             if($listaCursos!=null){
                 // Genera las opciones del select en función de la lista de profesores
                 foreach ($listaCursos as $curso) {
-                    echo "<div class='listaEdit'><option value='" . $curso['Codigo'] . "'>" . $curso['Codigo'] . '-' . $curso['Nom'] . "</option><a class='editIMG'  href='EditarCursoFormulario.php?id=" . $curso['Codigo'] . "&NomCurso=" . $curso['Nom'] . "&CursoCodigo=" . $curso['Codigo'] . "'><img src='../imgg/edita.png' alt='edita'></a></div>";
-                 //   echo "<a href='EditarCursoFormulario.php?id=" . $curso['Codigo'] . "&NomCurso=" . $curso['Nom'] . "&CursoCodigo=" . $curso['Codigo'] . "'>Actualizar</a>";
+                    $id = $curso['Codigo'];
+                    $nombreCurso = $curso['Nom'];
+                
+                    echo "<div class='listaEdit'>";
+                    echo "<div>" . $id . " " . $nombreCurso . "</div>";
+                    // Usar urlencode para codificar los valores en la URL
+                    echo "<a class='editIMG' href='EditarCursoFormulario.php?id=" . urlencode($id) . "&nombre=" . urlencode($nombreCurso) . "&dni=" . urlencode($id) . "'><img src='../imgg/edita.png' alt='edita'></a>";
+                    echo "</div>";
                 }
 
             }else{

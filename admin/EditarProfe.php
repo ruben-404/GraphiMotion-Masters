@@ -5,6 +5,7 @@ session_start();
 <html>
 <head>
     <title>Iniciar Sesión</title>
+    <script src="../js/script.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/main.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,9 +32,15 @@ session_start();
             // Genera las opciones del select en función de la lista de profesores
             if($listaProfesores!=null){
                 foreach ($listaProfesores as $profesor) {
-                    echo "<div class='listaEdit'><option value='" . $profesor['Dni'] . "'>" . $profesor['Dni'] . "    " . $profesor['Nom'] . "</option><a class='editIMG' href='EditarProfeFormulario.php?id=" . $profesor['Dni'] . "&nombre=" . $profesor['Nom'] . "&dni=" . $profesor['Dni'] . "'><img src='../imgg/edita.png' alt='edita'></a></div>";
-                    
-                   // echo "<a href='EditarProfeFormulario.php?id=" . $profesor['Dni'] . "&nombre=" . $profesor['Nom'] . "&dni=" . $profesor['Dni'] . "'>Actualizar</a>";
+                    $id =  $profesor['Dni'] ;
+                    $nombreCurso = $profesor['Nom'];
+                
+                    echo "<div class='listaEdit'>";
+                    echo "<div>" . $id . " " . $nombreCurso . "</div>";
+                    // Usar urlencode para codificar los valores en la URL
+                    echo "<a class='editIMG' href='EditarProfeFormulario.php?id=" . urlencode($id) . "&nombre=" . urlencode($nombreCurso) . "&dni=" . urlencode($id) . "'><img src='../imgg/edita.png' alt='edita'></a>";
+                    echo "</div>";                  
+                   
                     
                 }
 

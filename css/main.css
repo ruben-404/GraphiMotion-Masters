@@ -489,6 +489,11 @@ footer {
   border-radius: 5px;
 }
 
+.logoFooter {
+  width: 211px;
+  height: 205px;
+}
+
 * {
   margin: 0px;
   padding: 0px;

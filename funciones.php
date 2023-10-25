@@ -689,6 +689,53 @@ function imprimirCursosNoMatriculados($rol,$dni) {
 }
 
 
+// function imprimirCursosSin() {
+//   // Obtener la lista de cursos utilizando la función anterior
+//   $cursos = obtenerListaCursos();
+
+//   // Iniciar la sesión si aún no está iniciada
+//   if (!isset($_SESSION)) {
+//     session_start();
+//   }
+
+//   // Recorrer la lista de cursos y mostrar los nombres y las fotos
+//   foreach ($cursos as $curso) {
+//     $codigo = $curso['Codigo'];
+//     $nombre = $curso['Nom'];
+//     $estado = $curso['Estado'];
+    
+//     $imagenURL = "admin/fotos/$codigo.jpg";
+//     if($estado==1){
+//       echo "<div class='cursos'>";
+//       echo "<div class='FotoCurso'>";
+//       echo "<img src='$imagenURL' alt='$nombre'><br>";
+//       echo "</div>";
+//       echo "<div class='CursoText'>";
+//       echo "<div class='TextoCurso'>";
+//       echo "<h2 class='titulo'>$nombre</h2>";
+//       echo "</div>";
+//       echo "<div class='InfoCurso'>";
+//       echo "<img src='imgg/onlinee.png'<br>";
+//       echo "<img src='imgg/idioma.png'<br>";
+//       echo "</div>";
+//       echo "</div>";
+      
+    
+//       // Agregar un enlace al archivo CursoAlumne.php con el código del curso en la URL
+//       echo "<a href='alumno/CursoAlumne.php?codigo_curso=$codigo'>";
+
+  
+//       echo "<button class='flecha'><img src='img/flecha.png' alt='fecha'></button>";
+     
+    
+//       echo "</a>";
+     
+      
+//       echo"</div>";
+      
+//     }
+//   }
+// }
 function imprimirCursosSin() {
   // Obtener la lista de cursos utilizando la función anterior
   $cursos = obtenerListaCursos();
@@ -715,8 +762,8 @@ function imprimirCursosSin() {
       echo "<h2 class='titulo'>$nombre</h2>";
       echo "</div>";
       echo "<div class='InfoCurso'>";
-      echo "<img src='imgg/onlinee.png'<br>";
-      echo "<img src='imgg/idioma.png'<br>";
+      echo "<img src='imgg/onlinee.png' alt='foto'><br>";
+      echo "<img src='imgg/idioma.png' alt='foto'><br>";
       echo "</div>";
       echo "</div>";
       
@@ -725,7 +772,7 @@ function imprimirCursosSin() {
       echo "<a href='alumno/CursoAlumne.php?codigo_curso=$codigo'>";
 
   
-      echo "<button class='flecha'><img src='img/flecha.png' alt='fecha'></button>";
+      echo "<div class='flecha'><img src='img/flecha.png' alt='fecha'></div>";
      
     
       echo "</a>";
@@ -748,8 +795,8 @@ function InfoCurso($code){
   echo("<h1>". GetInfoCurso($code, 'Nom') ."</h1>");
   echo "</div>";
   echo "<div class='fotosCompleto'>";
-  echo "<img src='../imgg/onlinee.png'>";
-  echo "<img src='../imgg/idioma.png'>";
+  echo "<img src='../imgg/onlinee.png' alt='logo'>";
+  echo "<img src='../imgg/idioma.png' alt='logo'>";
   echo "</div>";
   echo "<p class='fechas'> Inicio: " . GetInfoCurso($code, 'DataInici')."</p>";
   echo "<p class='fechas'>Final: " . GetInfoCurso($code, 'DataFinal')."</p>";
@@ -783,8 +830,7 @@ function InfoCurso($code){
   }
   echo"</div>";
   echo"</div>";
-  echo"</div>";
-  echo"</div>";
+
   
 }
 function InfoCursoProfe($code){

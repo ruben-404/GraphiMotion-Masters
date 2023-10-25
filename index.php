@@ -16,7 +16,7 @@ include 'funciones.php';
 <body>
     <div class="Contenedor_Principal">
         <nav class="nav">
-            <div class = "nav_title"><img class="logo"src="imgg/logo.png" alt="Logo"></div>
+            <div class = "nav_title"><img class="logo" src="imgg/logo.png" alt="Logo"></div>
             <a class="title">GraphiMotion Masters</a>
             <ul class="nav_list">
                 <li class="nav_item">
@@ -137,7 +137,7 @@ include 'funciones.php';
     </div>
 <footer>
     <div class="containFooter">
-        <img src="imgg/logo.png" alt="logo" width="211px" height="205px">
+        <img src="imgg/logo.png" alt="logo" class="logoFooter">
         <img src="imgg/instagram.png" alt="instagram" class="social">
         <img src="imgg/facebook.png" alt="facebook" class="social">
         <img src="imgg/tiktok.png" alt="tiktok" class="social" id="tiktok">

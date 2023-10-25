@@ -5,6 +5,8 @@ session_start();
 <html>
 <head>
     <title>Iniciar Sesión</title>
+    <script src="../js/script.js"></script>
+
 </head>
 <body>
     <?php

@@ -43,14 +43,14 @@ session_start();
    <div class="indexContainer2">
         <div class=child>
             <form method="POST" action="AñadirAlumno.php" enctype="multipart/form-data">
-                <input type="text" id="dni" name="dni" placeholder="DNI" required><br><br>
-                <input type="text" id="nom" name="nom" placeholder="Nom" required><br><br>
-                <input type="text" id="cognom" name="cognom" placeholder="Cognom" required><br><br>
-                <input type="password" id="contrasenya" name="contrasenya" placeholder="Contrasenya" required><br><br>
+                <label for="dni"></label><input type="text" id="dni" name="dni" placeholder="DNI" required><br><br>
+                <label for="nom"></label><input type="text" id="nom" name="nom" placeholder="Nom" required><br><br>
+                <label for="cognom"></label><input type="text" id="cognom" name="cognom" placeholder="Cognom" required><br><br>
+                <label for="contrasenya"></label><input type="password" id="contrasenya" name="contrasenya" placeholder="Contrasenya" required><br><br>
           
                 
                 <div class="edad-foto">
-                    <input type="date" id="edad" name="edad" placeholder="Edad" required><br><br>
+                    <label for="edad"></label><input type="date" id="edad" name="edad" placeholder="Edad" required><br><br>
                 <!-- Utiliza una etiqueta label para el campo de tipo file -->
                     <label for="image" class="file-label"></label>
                     <input type="file" id="image" name="image" style="display: none;"><br><br>

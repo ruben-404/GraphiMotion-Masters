@@ -2,7 +2,7 @@
 session_start();
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
     <title>Iniciar Sesión</title>
     <link rel="stylesheet" type="text/css" href="../css/main.css"/>

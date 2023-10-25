@@ -40,6 +40,7 @@ session_start();
             
         </ul>
     </nav>
+    <div class="espacioHeader"></div>
     <div class="imagen">
     </div>
     <?php

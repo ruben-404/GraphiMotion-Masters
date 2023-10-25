@@ -9,9 +9,14 @@ session_start();
 <head>
     <title>Actualizar alumno</title>
     <script src="../js/script.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
 
 </head>
-<body>
+<body class="index">
     <?php
     include '../funciones.php';
    
@@ -47,45 +52,53 @@ session_start();
     }
     
     ?>
+    <div class="indexContainer2 boldLetter">
+        <div class=child>
+            <!-- Formulario de actualización -->
+            <form method="POST" action="EditarProfe.php" enctype="multipart/form-data">
+            <div class="centrarIMG">
+                <?php
+                   
+                    // Mostrar la imagen de vista previa si hay una URL de imagen
+                    $fotoURL = GetInfoProfe($dni, 'foto');
+                    
+                    // echo($fotoURL);
+                    
+                    if (!empty($fotoURL)) {
+                        echo '<img class="profile" src="../admin/fotos/' . $fotoURL . '" alt="Vista previa de la foto" width="150"><br>';
+                }else{
+                    
+                }
+                
+                ?>
+            </div>
+                <label for="nom">Nombre:</label>
+                <input type="text" id="nom" name="nom" value="<?php echo GetInfoProfe($dni, 'Nom'); ?>" required><br><br>
 
-    <!-- Formulario de actualización -->
-    <form method="POST" action="EditarProfe.php" enctype="multipart/form-data">
-        
-        <?php
-            echo("Editar Profe".$dni);
-            // Mostrar la imagen de vista previa si hay una URL de imagen
-            $fotoURL = GetInfoProfe($dni, 'foto');
-            
-            // echo($fotoURL);
-            if (!empty($fotoURL)) {
-                echo '<img src="../admin/fotos/' . $fotoURL . '" alt="Vista previa de la foto" width="150"><br>';
-        }else{
-            
-        }
-            
-        ?>
-        <label for="nom">Nombre:</label>
-        <input type="text" id="nom" name="nom" value="<?php echo GetInfoProfe($dni, 'Nom'); ?>" required><br><br>
+                <label for="cognom">Apellido:</label>
+                <input type="text" id="cognom" name="cognom" value="<?php echo GetInfoProfe($dni, 'Cognom'); ?>" required><br><br>
 
-        <label for="cognom">Apellido:</label>
-        <input type="text" id="cognom" name="cognom" value="<?php echo GetInfoProfe($dni, 'Cognom'); ?>" required><br><br>
 
-        <label for="titol">Título:</label>
-        <input type="text" id="titol" name="titol" value="<?php echo GetInfoProfe($dni, 'titol'); ?>" required><br><br>
-
-        <label for="image">Foto:</label>
-        <input type="file" id="image" name="image"><br>
-
-        <!-- Campo para la nueva contraseña -->
-        <label for="contrasenya">Nueva Contraseña:</label>
-        <input type="password" id="contrasenya" name="contrasenya" style="display:none;"><br><br>
-       
-        <!-- Botón para mostrar/ocultar el campo de contraseña -->
-        <button type="button" id="cambiarContrasenaBtn" onclick="toggleContrasena()">Cambiar Contraseña</button>
-
-        <input type="submit" value="Editar">
-    </form>
-
+                <div class="edad-foto2">
+                    <label for="titol">Título:</label>
+                    <input class="calendario"  type="text" id="titol" name="titol" value="<?php echo GetInfoProfe($dni, 'titol'); ?>" required>
+                    <label for="image" class="file-label"></label>
+                    <input type="file" id="image" name="image" style="display: none;">
+                </div>
+                <!-- Campo para la nueva contraseña -->
+                <div class="contra-desplegable">
+                    <label for="contrasenya">Nueva Contraseña:</label>
+                    <input type="password" id="contrasenya" name="contrasenya" style="display:none;">
+                
+                    <!-- Botón para mostrar/ocultar el campo de contraseña -->
+                    <button type="button" id="cambiarContrasenaBtn" onclick="toggleContrasena()">Cambiar Contraseña</button>
+                </div>
+                <div class="confirmar2">
+                    <input type="submit" value="Guardar">
+                </div>
+            </form>
+        </div>
+    </div>
     
 </body>
 </html>

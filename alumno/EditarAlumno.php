@@ -80,7 +80,7 @@ session_start();
                     <label class="textEdad" for="edad">Edad:</label>
                     <input class="calendario" type="date" id="edad" name="edad" value="<?php echo GetInfoAlumno($dni, 'Edad'); ?>" required>
                     <label for="image" class="file-label"></label>
-                    <input type="file" id="image" name="image" style="display: none;">
+                    <input type="file" id="image" name="image" accept="image/*" style="display: none;">
                 </div>
                 
 

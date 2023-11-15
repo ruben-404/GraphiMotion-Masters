@@ -23,6 +23,11 @@ session_start();
             $titol = $_POST['titol'];
             $foto = adapImage($dni,$_FILES['image']['name'],$_FILES['image']['tmp_name']);
             $estado = $_POST['estado'];
+            if($estado==NULL){
+                $estado=0; 
+             }else{
+                 $estado=1;
+             }
             if (VerifyProfe($dni)){
                 echo("Ese profe ya esta registrado");
                
@@ -51,13 +56,14 @@ session_start();
         <input type="text" id="titol" name="titol" required><br><br>
 
         <label for="image">Foto (URL):</label>
-        <input type="file" id="foto" name="image"><br><br>
+        <input type="file" id="foto" name="image" accept="image/*"><br><br>
 
         <label for="contrasenya">Contraseña:</label>
         <input type="password" id="contrasenya" name="contrasenya" required><br><br>
 
-        <label for="estado">Estado (1 para activo, 0 para inactivo):</label>
-        <input type="number" id="estado" name="estado" min="0" max="1" required><br><br>
+        <label for="estado">Estado:</label>
+        <input type="checkbox" id="estado" name="estado">
+
 
         <input type="submit" value="Añadir Profesor">
     </form>

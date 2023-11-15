@@ -37,6 +37,11 @@ if (isset($_GET['nombre']) && isset($_GET['dni'])) {
                 $titol = $_POST['titol'];
                 $foto = adapImage($dniProfesor, $_FILES['image']['name'], $_FILES['image']['tmp_name']);
                 $estado = $_POST['estado'];
+                if($estado==NULL){
+                   $estado=0; 
+                }else{
+                    $estado=1;
+                }
 
                 // Verificar si se proporcionó una nueva contraseña
                 $nuevaContrasena = $_POST['contrasenya'];
@@ -93,11 +98,11 @@ if (isset($_GET['nombre']) && isset($_GET['dni'])) {
 
                 <div class="edad-foto2">
                     
-                    <label for="estado">Estado (1 para activo, 0 para inactivo):</label>
-                    <input class="calendario2" type="number" id="estado" name="estado" min="0" max="1" value="<?php echo GetInfoProfe($dniProfesor, 'estado'); ?>" required>
+                    <label for="estado">Estado:</label>
+                    <input class="calendario2" type="checkbox" id="estado" name="estado" <?php echo (GetInfoProfe($dniProfesor, 'estado') == 1) ? 'checked' : ''; ?>>
                     <!-- Utiliza una etiqueta label para el campo de tipo file -->
                     <label for="image" class="file-label"></label>
-                    <input type="file" id="image" name="image" style="display: none;"><br><br>
+                    <input type="file" id="image" name="image" accept="image/*" style="display: none;" accept="image/*"><br><br>
                 </div>
                 <div class="confirmar2">
                     <input type="submit" value="Guardar">

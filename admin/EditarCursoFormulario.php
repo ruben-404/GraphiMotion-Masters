@@ -2,9 +2,11 @@
 session_start();
 
 
-if (isset($_GET['NomCurso']) && isset($_GET['CursoCodigo'])) {
-    $_SESSION['cursoNombre'] = $_GET['NomCurso'];
-    $_SESSION['cursoCodigo'] = $_GET['CursoCodigo'];
+if (isset($_GET['nombre']) && isset($_GET['dni'])) {
+    
+    $_SESSION['cursoNombre'] = $_GET['nombre'];
+    $_SESSION['cursoCodigo'] = $_GET['dni'];
+    
     
     
 }
@@ -37,6 +39,11 @@ if (isset($_GET['NomCurso']) && isset($_GET['CursoCodigo'])) {
                 $profe = $_POST['profe'];
                 $estado = $_POST['estado'];
                 $fecha_final = $_POST['fecha_final'];
+                if($estado==NULL){
+                    $estado=0; 
+                 }else{
+                     $estado=1;
+                 }
                 if(isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK){
                     $image = adapImage($codigo, $_FILES['image']['name'], $_FILES['image']['tmp_name']);
                     UpdateFotoCurso($codigo, $foto);
@@ -71,7 +78,7 @@ if (isset($_GET['NomCurso']) && isset($_GET['CursoCodigo'])) {
         echo '<input type="text" id="nombre" name="nombre" value="' . GetInfoCurso($codigo, 'Nom') . '" required><br><br>';
 
         echo'<label for="foto">Foto (URL):</label>';
-        echo'<input type="file" id="image" name="image" value="' . GetInfoCurso($codigo, 'foto') . '"><br><br>';
+        echo'<input type="file" id="image" name="image" accept="image/*" value="' . GetInfoCurso($codigo, 'foto') . '"><br><br>';
 
         echo'<label for="descripcion">Descripción:</label>';
         echo '<textarea id="descripcion" name="descripcion" rows="4" cols="50" required>' . GetInfoCurso($codigo, 'Descripcion') . '</textarea><br><br>';
@@ -104,8 +111,9 @@ if (isset($_GET['NomCurso']) && isset($_GET['CursoCodigo'])) {
 
         </select><br><br>
 
-        <label for="estado">Estado (1 para activo, 0 para inactivo):</label>
-        <input type="number" id="estado" name="estado" min="0" max="1" value="<?php echo GetInfoCurso($codigo, 'estado'); ?>" required><br><br>
+        <label for="estado">Estado:</label>
+        <input type="checkbox" id="estado" name="estado" <?php echo (GetInfoCurso($codigo, 'estado') == 1) ? 'checked' : ''; ?>>
+
 
         <input type="submit" value="editar Curso">
     </form>

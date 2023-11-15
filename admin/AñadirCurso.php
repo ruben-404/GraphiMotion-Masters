@@ -25,6 +25,11 @@ session_start();
             $profe = $_POST['profe'];
             $estado = $_POST['estado'];
             $fecha_final = $_POST['fecha_final'];
+            if($estado==NULL){
+                $estado=0; 
+             }else{
+                 $estado=1;
+             }
            
             if (VerifyCurso($codigo)) {
                 echo("Ese curso ya está registrado");
@@ -47,7 +52,7 @@ session_start();
         <input type="text" id="nombre" name="nombre" required><br><br>
 
         <label for="foto">Foto (URL):</label>
-        <input type="file" id="image" name="image"><br><br>
+        <input type="file" id="image" name="image" accept="image/*"><br><br>
 
         <label for="descripcion">Descripción:</label>
         <textarea id="descripcion" name="descripcion" rows="4" cols="50" required></textarea><br><br>
@@ -78,8 +83,8 @@ session_start();
 
         </select><br><br>
 
-        <label for="estado">Estado (1 para activo, 0 para inactivo):</label>
-        <input type="number" id="estado" name="estado" min="0" max="1" required><br><br>
+        <label for="estado">Estado:</label>
+        <input type="checkbox" id="estado" name="estado">
 
         <input type="submit" value="Agregar Curso">
     </form>

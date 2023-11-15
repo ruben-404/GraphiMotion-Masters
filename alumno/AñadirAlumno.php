@@ -53,7 +53,7 @@ session_start();
                     <label for="edad"></label><input type="date" id="edad" name="edad" placeholder="Edad" required><br><br>
                 <!-- Utiliza una etiqueta label para el campo de tipo file -->
                     <label for="image" class="file-label"></label>
-                    <input type="file" id="image" name="image" style="display: none;"><br><br>
+                    <input type="file" id="image" name="image" style="display: none;" accept="image/*"><br><br>
                 </div>
 
                 <input type="submit" value="Registra't" class="confirmar">

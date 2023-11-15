@@ -20,26 +20,49 @@ session_start();
         if (!isset($_SESSION['nom'])) {
             echo("No estás validado");
         } else {
+         
             
         ?>
         <h1>Lista de cursos</h1>
+        
         <a class="buttonAgregar" href="AñadirCurso.php"><img src="../imgg/agregar.png" alt="Añadir"></a>
+       
+        <form method="POST" action="EditarCurso.php" enctype="multipart/form-data" class="buscador">
+            <input type="text" id="searchInput" name="searchInput" placeholder="Buscar por nombre del curso">
+            <input type="submit" value="Buscar">
+        </form>
+
         
         <?php
             // Llama a la función obtenerListaProfesores para obtener la lista de profesores
             $listaCursos = obtenerListaCursosa1();
+          
             if($listaCursos!=null){
                 // Genera las opciones del select en función de la lista de profesores
+                echo"<div>";
                 foreach ($listaCursos as $curso) {
                     $id = $curso['Codigo'];
                     $nombreCurso = $curso['Nom'];
-                
-                    echo "<div class='listaEdit'>";
-                    echo "<div>" . $id . " " . $nombreCurso . "</div>";
-                    // Usar urlencode para codificar los valores en la URL
-                    echo "<a class='editIMG' href='EditarCursoFormulario.php?id=" . urlencode($id) . "&nombre=" . urlencode($nombreCurso) . "&dni=" . urlencode($id) . "'><img src='../imgg/edita.png' alt='edita'></a>";
-                    echo "</div>";
+                    if($_POST){
+                       
+                        if($nombreCurso==$_POST['searchInput']){
+                            echo "<div class='listaEdit'>";
+                            echo "<div>" . $id . " " . $nombreCurso . "</div>";
+                            // Usar urlencode para codificar los valores en la URL
+                            echo "<a class='editIMG' href='EditarCursoFormulario.php?id=" . urlencode($id) . "&nombre=" . urlencode($nombreCurso) . "&dni=" . urlencode($id) . "'><img src='../imgg/edita.png' alt='edita'></a>";
+                            echo "</div>";
+                        }
+                    }else{
+                        echo "<div class='listaEdit'>";
+                        echo "<div>" . $id . " " . $nombreCurso . "</div>";
+                        // Usar urlencode para codificar los valores en la URL
+                        echo "<a class='editIMG' href='EditarCursoFormulario.php?id=" . urlencode($id) . "&nombre=" . urlencode($nombreCurso) . "&dni=" . urlencode($id) . "'><img src='../imgg/edita.png' alt='edita'></a>";
+                        echo "</div>";
+
+                    }
+                    
                 }
+                echo"</div>";
 
             }else{
                 echo("No hi ha cursos disponibles");

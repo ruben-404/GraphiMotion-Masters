@@ -43,8 +43,13 @@ include '../funciones.php';
             
         </ul>
     </nav>
+    
     <div class="imagen">
     </div>
+    <div class="UploadFile">
+        <p>Puja l'arxiu amb les dades dels alumnes</p>
+    </div>
+   
     <?php
   
 
@@ -53,7 +58,6 @@ include '../funciones.php';
     } else {
     ?>
    <div class="container">
-       
         <input type="file" id="archivoInput">
         <table id="tablaEstudiantes"></table>
         <button id="enviarDatos" onclick="enviarDatosEstudiantes()">Enviar Datos a PHP</button>

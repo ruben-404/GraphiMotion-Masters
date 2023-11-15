@@ -464,6 +464,7 @@ body {
   background-color: #F8F6F4;
   align-items: center;
   font-size: 30px;
+  margin-bottom: 21px;
 }
 
 footer {
@@ -531,4 +532,18 @@ footer {
 
 .fechas {
   margin-left: 20px;
+}
+
+.UploadFile {
+  display: grid;
+  justify-content: center;
+}
+
+.UploadFile p {
+  padding-top: 10px;
+}
+
+.buscador {
+  position: absolute;
+  top: 150px;
 }/*# sourceMappingURL=main.css.map */

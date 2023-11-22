@@ -48,30 +48,26 @@ session_start();
    
     <h1>Añadir Curso</h1>
     <form method="post" action="AñadirCurso.php" enctype="multipart/form-data" onsubmit="return validarFechas();">
-        <label for="codigo">Código:</label>
-        <input type="text" id="codigo" name="codigo" required><br><br>
+        
+        <input type="text" id="codigo" name="codigo" placeholder="Código" required><br><br>
 
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required><br><br>
+        <input type="text" id="nombre" name="nombre" placeholder="Nombre" required><br><br>
 
         <!-- <label for="foto">Foto (URL):</label>
         <input type="file" id="image" name="image" accept="image/*"><br><br> -->
         
-        <label for="image" class="file-label"></label>
-        <input type="file" id="image" name="image" accept="image/*" style="display: none;" accept="image/*"><br><br>
+        
       <!-- <input type="file" id="image" name="image" accept="image/*" style="display: none;" accept="image/*"><br><br> -->
         
-        <label for="descripcion">Descripción:</label>
-        <textarea class="descripcionBox" id="descripcion" name="descripcion" rows="4" cols="50" required></textarea><br><br>
+        <textarea class="descripcionBox" placeholder="Descripción" id="descripcion" name="descripcion" rows="4" cols="50" required></textarea><br><br>
 
-        <label for="horas">Número de Horas:</label>
-        <input type="number" id="horas" name="horas" required><br><br>
+        <input type="number" id="horas" name="horas" placeholder="Número de Horas" required><br><br>
 
         <label for="fecha_inicio">Fecha de Inicio:</label>
-        <input type="date" id="fecha_inicio" name="fecha_inicio" required><br><br>
+        <input class="fechasInput" type="date" id="fecha_inicio" name="fecha_inicio" required><br><br>
 
         <label for="fecha_final">Fecha final:</label>
-        <input type="date" id="fecha_final" name="fecha_final" required><br><br>
+        <input class="fechasInput2" type="date" id="fecha_final" name="fecha_final" required><br><br>
 
         <label for="profe">Profesor:</label>
         <select id="profe" name="profe" required>
@@ -89,9 +85,16 @@ session_start();
             ?>
 
         </select><br><br>
-        
-        <label for="estado">Estado:</label>
-        <input class="checkboxStyle" type="checkbox" id="estado" name="estado">
+        <div class="edad-foto3">
+            <div class="contendorCheck">
+                <label for="estado">Estado:</label>
+                <input class="checkboxStyle" type="checkbox" id="estado" name="estado">
+            </div>
+            
+
+            <label for="image" class="file-label"></label>
+            <input type="file" id="image" name="image" accept="image/*" style="display: none;" accept="image/*">
+        </div>
         <div>
             <input type="submit" value="Agregar Curso">
         </div>

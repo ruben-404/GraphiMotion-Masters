@@ -474,12 +474,13 @@ body {
 }
 .CrearCursos form .checkboxStyle {
   width: 50px;
+  height: 30px;
 }
 .CrearCursos form input {
   border-radius: 20px;
   border: 1px solid #C4DFDF;
   width: 358px;
-  height: 30px;
+  height: 45px;
   background-color: #F8F6F4;
   font-family: "Poppins", sans-serif;
 }
@@ -492,7 +493,22 @@ body {
   height: 50px;
 }
 .CrearCursos form .descripcionBox {
-  height: 30px;
+  height: 45px;
+  border-radius: 20px;
+  border: 1px solid #C4DFDF;
+  width: 358px;
+  height: 45px;
+  background-color: #F8F6F4;
+}
+.CrearCursos .fechasInput {
+  width: 237px;
+}
+.CrearCursos .fechasInput2 {
+  width: 270px;
+}
+.CrearCursos .edad-foto3 {
+  display: grid;
+  grid-auto-flow: column;
 }
 
 footer {

@@ -432,12 +432,13 @@ form{
     
     .checkboxStyle{
         width: 50px;
+        height: 30px;
     }
     input{
         border-radius: 20px;
         border: 1px solid $header;
         width: 358px;
-        height: 30px;
+        height: 45px;
         background-color: $primary;
         font-family: 'Poppins', sans-serif;    
     }
@@ -450,7 +451,23 @@ form{
         }
     }
     .descripcionBox{
-        height: 30px;
+        height: 45px;
+        border-radius: 20px;
+        border: 1px solid $header;
+        width: 358px;
+        height: 45px;
+        background-color: $primary;
     }
+}
+.fechasInput{
+    width: 237px;
+}
+.fechasInput2{
+    width: 270px;
+}
+.edad-foto3{
+    
+    display: grid;
+    grid-auto-flow: column;
 }
 }

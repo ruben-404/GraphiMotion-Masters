@@ -611,4 +611,11 @@ footer {
   display: grid;
   grid-auto-flow: column;
   margin-right: 190px;
+}
+
+.file-label {
+  background-image: url("../img/foto.png");
+  margin-top: 5px;
+  width: 50px;
+  height: 48px;
 }/*# sourceMappingURL=main.css.map */

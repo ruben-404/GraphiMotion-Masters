@@ -56,6 +56,7 @@ session_start();
 
         <!-- <label for="foto">Foto (URL):</label>
         <input type="file" id="image" name="image" accept="image/*"><br><br> -->
+        
         <label for="image" class="file-label"></label>
         <input type="file" id="image" name="image" accept="image/*" style="display: none;" accept="image/*"><br><br>
         

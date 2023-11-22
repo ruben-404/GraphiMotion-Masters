@@ -59,6 +59,7 @@ session_start();
         
         <label for="image" class="file-label"></label>
         <input type="file" id="image" name="image" accept="image/*" style="display: none;" accept="image/*"><br><br>
+      <!-- <input type="file" id="image" name="image" accept="image/*" style="display: none;" accept="image/*"><br><br> -->
         
         <label for="descripcion">Descripción:</label>
         <textarea class="descripcionBox" id="descripcion" name="descripcion" rows="4" cols="50" required></textarea><br><br>

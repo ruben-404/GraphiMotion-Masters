@@ -29,7 +29,7 @@ session_start();
        
         <form method="POST" action="EditarCurso.php" enctype="multipart/form-data" class="buscador">
             <input type="text" id="searchInput" name="searchInput" placeholder="Buscar por nombre del curso">
-            <input type="submit" value="Buscar">
+            <input type="submit"  class="lupa">
         </form>
 
         

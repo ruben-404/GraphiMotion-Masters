@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header('location: ../index.php');
 
         }else{
-            echo("Incorrecto");
+            header('location: InicoAlumnoProfe.php');
         }
     } else {
         if(VerifyAlumnoc($dni,$contrasena)){
@@ -25,7 +25,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['ROL']="alumne";
             header('location: ../index.php');
         }else{
-            echo("Incorrecto");
+           
+            header('location: InicoAlumnoProfe.php');
         }
     }
 }else{

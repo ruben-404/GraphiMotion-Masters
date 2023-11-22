@@ -43,10 +43,10 @@ session_start();
    <div class="indexContainer2">
         <div class=child>
             <form method="POST" action="AñadirAlumno.php" enctype="multipart/form-data">
-                <label for="dni"></label><input type="text" id="dni" name="dni" placeholder="DNI" required><br><br>
-                <label for="nom"></label><input type="text" id="nom" name="nom" placeholder="Nom" required><br><br>
-                <label for="cognom"></label><input type="text" id="cognom" name="cognom" placeholder="Cognom" required><br><br>
-                <label for="contrasenya"></label><input type="password" id="contrasenya" name="contrasenya" placeholder="Contrasenya" required><br><br>
+                <label for="dni"></label><input type="text" id="dni" name="dni" placeholder="DNI" maxlength="9" required><br><br>
+                <label for="nom"></label><input type="text" id="nom" name="nom" placeholder="Nom" maxlength="10"required><br><br>
+                <label for="cognom"></label><input type="text" id="cognom" name="cognom" placeholder="Cognom" maxlength="10"required><br><br>
+                <label for="contrasenya"></label><input type="password" id="contrasenya" name="contrasenya" placeholder="Contrasenya" maxlength="9" required><br><br>
           
                 
                 <div class="edad-foto">

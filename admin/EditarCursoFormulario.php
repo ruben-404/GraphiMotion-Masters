@@ -110,10 +110,10 @@ if (isset($_GET['nombre']) && isset($_GET['dni'])) {
         ?>
 
         </select><br><br>
-
-        <label for="estado">Estado:</label>
-        <input type="checkbox" id="estado" name="estado" <?php echo (GetInfoCurso($codigo, 'estado') == 1) ? 'checked' : ''; ?>>
-
+        <div class="contendorCheck">
+            <label for="estado">Estado:</label>
+            <input type="checkbox" id="estado" name="estado" <?php echo (GetInfoCurso($codigo, 'estado') == 1) ? 'checked' : ''; ?>>
+        </div>
 
         <input type="submit" value="editar Curso">
     </form>

@@ -27,7 +27,7 @@ session_start();
         
         <form method="POST" action="EditarProfe.php" enctype="multipart/form-data" class="buscador">
             <input type="text" id="searchInput" name="searchInput" placeholder="Buscar por nombre del curso">
-            <input type="submit" value="Buscar">
+            <div class="div_lupa"><input type="submit" class="lupa"></div>
         </form>
         <?php
             // Llama a la función obtenerListaProfesores para obtener la lista de profesores

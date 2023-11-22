@@ -22,7 +22,7 @@ session_start();
         if(VerifyAdmin($nom,$passwd)){
             header('location: menu.php');
         }else{
-            echo("Incorrecto");
+            header('location: index.php');
         }
     }
     

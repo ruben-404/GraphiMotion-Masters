@@ -97,9 +97,11 @@ if (isset($_GET['nombre']) && isset($_GET['dni'])) {
                 <button type="button" id="cambiarContrasenaBtn" onclick="toggleContrasena()">Cambiar Contraseña</button>
 
                 <div class="edad-foto2">
-                    
-                    <label for="estado">Estado:</label>
+                <div class="contendorCheck">
+                    <label for="estado" class="estado">Estado:</label>
                     <input class="calendario2" type="checkbox" id="estado" name="estado" <?php echo (GetInfoProfe($dniProfesor, 'estado') == 1) ? 'checked' : ''; ?>>
+                </div>
+                   
                     <!-- Utiliza una etiqueta label para el campo de tipo file -->
                     <label for="image" class="file-label"></label>
                     <input type="file" id="image" name="image" accept="image/*" style="display: none;" accept="image/*"><br><br>

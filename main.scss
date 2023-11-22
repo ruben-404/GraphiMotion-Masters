@@ -103,7 +103,12 @@ th,td{
     margin-right: 190px;
     
 }
-
+.contendorCheck2{
+    display: grid;
+    grid-auto-flow: column;
+    margin-right: 200px;
+    padding-top: 15px;
+}
 .file-label{
     background-image: url("../img/foto.png");
     margin-top: 5px;

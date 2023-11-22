@@ -442,7 +442,7 @@ form{
         background-color: $primary;
         font-family: 'Poppins', sans-serif;    
     }
-    div{
+    .botonDown{
         display: grid;
         place-items: center;
         margin-top: 30px;
@@ -466,7 +466,7 @@ form{
     width: 270px;
 }
 .edad-foto3{
-    
+
     display: grid;
     grid-auto-flow: column;
 }

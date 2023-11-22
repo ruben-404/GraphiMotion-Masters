@@ -86,7 +86,7 @@ session_start();
 
         </select><br><br>
         <div class="edad-foto3">
-            <div class="contendorCheck">
+            <div class="contendorCheck2">
                 <label for="estado">Estado:</label>
                 <input class="checkboxStyle" type="checkbox" id="estado" name="estado">
             </div>
@@ -95,7 +95,7 @@ session_start();
             <label for="image" class="file-label"></label>
             <input type="file" id="image" name="image" accept="image/*" style="display: none;" accept="image/*">
         </div>
-        <div>
+        <div class="botonDown">
             <input type="submit" value="Agregar Curso">
         </div>
         

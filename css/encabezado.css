@@ -438,12 +438,12 @@ body {
   background-color: #F8F6F4;
   font-family: "Poppins", sans-serif;
 }
-.CrearCursos form div {
+.CrearCursos form .botonDown {
   display: grid;
   place-items: center;
   margin-top: 30px;
 }
-.CrearCursos form div input {
+.CrearCursos form .botonDown input {
   height: 50px;
 }
 .CrearCursos form .descripcionBox {

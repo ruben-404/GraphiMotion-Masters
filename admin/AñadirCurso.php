@@ -6,9 +6,12 @@ session_start();
 <head>
     <title>Añadir Curso</title>
     <script src="../js/script.js"></script>
-
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class = "CrearCursos">
     <?php
     include '../funciones.php';
 
@@ -51,11 +54,13 @@ session_start();
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" name="nombre" required><br><br>
 
-        <label for="foto">Foto (URL):</label>
-        <input type="file" id="image" name="image" accept="image/*"><br><br>
-
+        <!-- <label for="foto">Foto (URL):</label>
+        <input type="file" id="image" name="image" accept="image/*"><br><br> -->
+        <label for="image" class="file-label"></label>
+        <input type="file" id="image" name="image" accept="image/*" style="display: none;" accept="image/*"><br><br>
+        
         <label for="descripcion">Descripción:</label>
-        <textarea id="descripcion" name="descripcion" rows="4" cols="50" required></textarea><br><br>
+        <textarea class="descripcionBox" id="descripcion" name="descripcion" rows="4" cols="50" required></textarea><br><br>
 
         <label for="horas">Número de Horas:</label>
         <input type="number" id="horas" name="horas" required><br><br>
@@ -82,11 +87,13 @@ session_start();
             ?>
 
         </select><br><br>
-
+        
         <label for="estado">Estado:</label>
-        <input type="checkbox" id="estado" name="estado">
-
-        <input type="submit" value="Agregar Curso">
+        <input class="checkboxStyle" type="checkbox" id="estado" name="estado">
+        <div>
+            <input type="submit" value="Agregar Curso">
+        </div>
+        
     </form>
     <a href="sortir.php">Salir de la sesión</a>
 

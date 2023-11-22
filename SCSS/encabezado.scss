@@ -424,3 +424,32 @@ input{
     font-size: 30px;
     margin-bottom: 21px;
 }
+.CrearCursos{
+    background: $backadmin;
+    display: grid;
+    place-items: center;
+form{
+    .checkboxStyle{
+        width: 50px;
+    }
+    input{
+        border-radius: 20px;
+        border: 1px solid $header;
+        width: 358px;
+        height: 30px;
+        background-color: $primary;
+        font-family: 'Poppins', sans-serif;    
+    }
+    div{
+        display: grid;
+        place-items: center;
+        margin-top: 30px;
+        input{
+            height: 50px;
+        }
+    }
+    .descripcionBox{
+        height: 30px;
+    }
+}
+}

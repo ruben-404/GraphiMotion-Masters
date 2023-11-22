@@ -6,9 +6,12 @@ session_start();
 <head>
     <title>Iniciar Sesión</title>
     <script src="../js/script.js"></script>
-
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class = "CrearCursos">
     <?php
     include '../funciones.php';
 
@@ -62,10 +65,11 @@ session_start();
         <input type="password" id="contrasenya" name="contrasenya" required><br><br>
 
         <label for="estado">Estado:</label>
-        <input type="checkbox" id="estado" name="estado">
+        <input class="checkboxStyle" type="checkbox" id="estado" name="estado">
 
-
+        <div>
         <input type="submit" value="Añadir Profesor">
+        <div>
     </form>
 	<a href="sortir.php">Salir de la session</a>
 

@@ -467,6 +467,34 @@ body {
   margin-bottom: 21px;
 }
 
+.CrearCursos {
+  background: #D2E9E9;
+  display: grid;
+  place-items: center;
+}
+.CrearCursos form .checkboxStyle {
+  width: 50px;
+}
+.CrearCursos form input {
+  border-radius: 20px;
+  border: 1px solid #C4DFDF;
+  width: 358px;
+  height: 30px;
+  background-color: #F8F6F4;
+  font-family: "Poppins", sans-serif;
+}
+.CrearCursos form div {
+  display: grid;
+  place-items: center;
+  margin-top: 30px;
+}
+.CrearCursos form div input {
+  height: 50px;
+}
+.CrearCursos form .descripcionBox {
+  height: 30px;
+}
+
 footer {
   background-color: #C4DFDF;
   width: 100%;

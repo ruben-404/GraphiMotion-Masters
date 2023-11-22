@@ -17,9 +17,12 @@ if (isset($_GET['nombre']) && isset($_GET['dni'])) {
 <head>
     <title>Actualizar Profesor</title>
     <script src="../js/script.js"></script>
-
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class = "CrearCursos">
     <?php
     include '../funciones.php';
 

@@ -46,31 +46,37 @@ session_start();
    
     <h1>Creacio Profesor</h1>
     <form method="POST" action="AñadirProfe.php" enctype="multipart/form-data">
-        <label for="dni">DNI:</label>
-        <input type="text" id="dni" name="dni" required maxlenght="9" pattern="[0-9]{8}[A-Za-z]{1}" required><br><br>
+      
+        <input type="text" id="dni" placeholder="DNI" name="dni" required maxlenght="9" pattern="[0-9]{8}[A-Za-z]{1}" required><br><br>
 
-        <label for="nom">Nombre:</label>
-        <input type="text" id="nom" name="nom" required><br><br>
+        <input type="text" id="nom" name="nom" placeholder="Nom" required><br><br>
 
-        <label for="cognom">Apellido:</label>
-        <input type="text" id="cognom" name="cognom" required><br><br>
+        <input type="text" id="cognom" name="cognom" placeholder="Cognom" required><br><br>
 
-        <label for="titol">Título:</label>
-        <input type="text" id="titol" name="titol" required><br><br>
+        <input type="text" id="titol" name="titol" placeholder="Título" required><br><br>
 
-        <label for="image">Foto (URL):</label>
-        <input type="file" id="foto" name="image" accept="image/*"><br><br>
+        <!-- <label for="image">Foto (URL):</label>
+        <input type="file" id="foto" name="image" accept="image/*"><br><br> -->
 
-        <label for="contrasenya">Contraseña:</label>
-        <input type="password" id="contrasenya" name="contrasenya" required><br><br>
+        <input type="password" id="contrasenya" name="contrasenya" placeholder="Contraseña" ><br><br>
 
-        <label for="estado">Estado:</label>
-        <input class="checkboxStyle" type="checkbox" id="estado" name="estado">
-
-        <div>
+        <!-- <label for="estado">Estado:</label>
+        <input class="checkboxStyle" type="checkbox" id="estado" name="estado"> -->
+        <div class="edad-foto3">
+            <div class="contendorCheck2">
+                <label for="estado">Estado:</label>
+                <input class="checkboxStyle" type="checkbox" id="estado" name="estado">
+            </div>
+            
+            <label for="image" class="file-label"></label>
+            <input type="file" id="image" name="image" accept="image/*" style="display: none;" accept="image/*">
+        </div>
+        <div class="botonDown">
         <input type="submit" value="Añadir Profesor">
         <div>
     </form>
+    <br><br>   
+    <br><br>
 	<a href="sortir.php">Salir de la session</a>
 
     <?php

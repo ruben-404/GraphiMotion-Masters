@@ -38,7 +38,7 @@ session_start();
                 echo("Ese curso ya está registrado");
             } else {
                 if (AddCurso($codigo, $nom, $foto, $descripcion, $horas, $fecha_inicio, $profe, $estado, $fecha_final)) {
-                    echo('<a href="menu.php">Volver al menú</a>');
+                    header('location: menu.php');
                 } else {
                    
                 }

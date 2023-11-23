@@ -22,7 +22,9 @@ session_start();
         if(VerifyAdmin($nom,$passwd)){
             header('location: menu.php');
         }else{
-            header('location: index.php');
+            echo("<script>alert('Error al iniciar sesion')</script>");
+            //header('location: index.php');
+            echo("<meta http-equiv='refresh' content='0.1'");
         }
     }
     

@@ -463,4 +463,8 @@ body {
 .CrearCursos .edad-foto3 {
   display: grid;
   grid-auto-flow: column;
+}
+
+.imgCurso {
+  border-radius: 20px;
 }/*# sourceMappingURL=encabezado.css.map */

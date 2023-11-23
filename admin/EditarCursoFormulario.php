@@ -71,29 +71,27 @@ if (isset($_GET['nombre']) && isset($_GET['dni'])) {
        $fotoURL = GetInfoCurso($codigo, 'foto');
        // echo($fotoURL);
        if (!empty($fotoURL)) {
-           echo '<img src="fotos/' . $fotoURL . '" alt="Vista previa de la foto" width="150"><br>';
+           echo '<img src="fotos/' . $fotoURL . '" alt="Vista previa de la foto" width="150" class="imgCurso"><br>';
    }
        
        
     echo'<form method="post" enctype="multipart/form-data" action="EditarCursoFormulario.php">';
 
-        echo'<label for="nombre">Nombre:</label>';
-        echo '<input type="text" id="nombre" name="nombre" value="' . GetInfoCurso($codigo, 'Nom') . '" required><br><br>';
+    
+        echo '<input type="text" placeholder="Nombre" id="nombre" name="nombre" value="' . GetInfoCurso($codigo, 'Nom') . '" required><br><br>';
 
-        echo'<label for="foto">Foto (URL):</label>';
-        echo'<input type="file" id="image" name="image" accept="image/*" value="' . GetInfoCurso($codigo, 'foto') . '"><br><br>';
+        // echo'<label for="foto">Foto (URL):</label>';
+        // echo'<input type="file" id="image" name="image" accept="image/*" value="' . GetInfoCurso($codigo, 'foto') . '"><br><br>';
 
-        echo'<label for="descripcion">Descripción:</label>';
-        echo '<textarea id="descripcion" name="descripcion" rows="4" cols="50" required>' . GetInfoCurso($codigo, 'Descripcion') . '</textarea><br><br>';
+        echo '<textarea id="descripcion" class="descripcionBox" placeholder="Descripción" name="descripcion" rows="4" cols="50" required>' . GetInfoCurso($codigo, 'Descripcion') . '</textarea><br><br>';
 
-        echo'<label for="horas">Número de Horas:</label>';
-        echo'<input type="number" id="horas" name="horas" value="' . GetInfoCurso($codigo, 'NumeroHoras') . '" required><br><br>';
+        echo'<input type="number" id="horas"  placeholder="Número de Horas" name="horas" value="' . GetInfoCurso($codigo, 'NumeroHoras') . '" required><br><br>';
 
         echo'<label for="fecha_inicio">Fecha de Inicio:</label>';
-        echo'<input type="date" id="fecha_inicio" name="fecha_inicio" value="' . GetInfoCurso($codigo, 'DataInici') . '" required><br><br>';
+        echo'<input class="fechasInput" type="date" id="fecha_inicio" name="fecha_inicio" value="' . GetInfoCurso($codigo, 'DataInici') . '" required><br><br>';
 
         echo'<label for="fecha_final">Fecha final:</label>';
-        echo'<input type="date" id="fecha_final" name="fecha_final" value="' . GetInfoCurso($codigo, 'DataFinal') . '" required><br><br>';
+        echo'<input class="fechasInput2" type="date" id="fecha_final" name="fecha_final" value="' . GetInfoCurso($codigo, 'DataFinal') . '" required><br><br>';
 
         echo'<label for="profe">Profesor:</label>';
         echo'<select id="profe" name="profe" required>';
@@ -113,12 +111,22 @@ if (isset($_GET['nombre']) && isset($_GET['dni'])) {
         ?>
 
         </select><br><br>
-        <div class="contendorCheck">
-            <label for="estado">Estado:</label>
-            <input type="checkbox" id="estado" name="estado" <?php echo (GetInfoCurso($codigo, 'estado') == 1) ? 'checked' : ''; ?>>
-        </div>
+        <div class="edad-foto3">
+            <div class="contendorCheck2">
+                <label for="estado">Estado:</label>
+                <input type="checkbox"  class="checkboxStyle" id="estado" name="estado" <?php echo (GetInfoCurso($codigo, 'estado') == 1) ? 'checked' : ''; ?>>
+            </div>
+            <?php
+                echo'<label for="image" class="file-label"></label>';
+                echo'<input type="file" id="image" name="image" accept="image/*" style="display: none;" value="' . GetInfoCurso($codigo, 'foto') . '"><br><br>';
 
-        <input type="submit" value="editar Curso">
+
+            ?>
+        </div>
+        <div class="botonDown">
+            <input type="submit" value="Guardar Curso">
+        </div>
+        <br><br><br><br>
     </form>
    
     <?php

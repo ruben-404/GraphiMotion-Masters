@@ -511,6 +511,10 @@ body {
   grid-auto-flow: column;
 }
 
+.imgCurso {
+  border-radius: 20px;
+}
+
 footer {
   background-color: #C4DFDF;
   width: 100%;

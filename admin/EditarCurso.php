@@ -25,6 +25,7 @@ session_start();
         ?>
         <h1>Lista de cursos</h1>
         
+        <a class="flechaa" href="menu.php"><img class="flechaa" src="../imgg/flecha-izquierda.png" alt="Añadir"></a>
         <a class="buttonAgregar" href="AñadirCurso.php"><img src="../imgg/agregar.png" alt="Añadir"></a>
        
         <form method="POST" action="EditarCurso.php" enctype="multipart/form-data" class="buscador">
@@ -70,7 +71,7 @@ session_start();
 
             
         ?>
-        <a href="sortir.php">Salir de la session</a>
+        <a href="sortir.php">Sortir</a>
         
         <?php
             }

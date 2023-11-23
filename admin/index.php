@@ -32,7 +32,7 @@ session_start();
     <div class="indexContainer">
         <div class=child>
             <form method="POST" action="index.php">
-                <input type="text" id="nombre" name="nombre" placeholder="DNI" required><br><br>
+                <input type="text" id="nombre" name="nombre" placeholder="nom usuari" required><br><br>
                 <input type="password" id="contrasena" name="contrasena" placeholder="Contrasenya" required><br><br>
 
                 <input type="submit" value="Iniciar Sesión">

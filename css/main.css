@@ -45,6 +45,13 @@
   margin-left: 1185px;
 }
 
+.botonCurso, #cambiarContrasenaBtn, .botonNotas {
+  border: none;
+  background-color: #F8F6F4;
+  height: 28px;
+  border-radius: 6px;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -651,6 +658,35 @@ footer {
 .flechaa {
   width: 40px;
   height: 40px;
-  margin-right: 1200px;
-  margin-top: 15px;
+  position: absolute;
+  top: 77px;
+  left: 342px;
+}
+
+.flechaa2 {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 6px;
+  left: 405px;
+}
+
+.flechaa3 {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 32px;
+  left: 405px;
+}
+
+.flechaa4 {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 19px;
+  left: 405px;
+}
+
+.notaAlumne {
+  margin-left: 19px;
 }/*# sourceMappingURL=main.css.map */

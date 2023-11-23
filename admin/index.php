@@ -23,7 +23,6 @@ session_start();
             header('location: menu.php');
         }else{
             echo("<script>alert('Error al iniciar sesion')</script>");
-            //header('location: index.php');
             echo("<meta http-equiv='refresh' content='0.1'");
         }
     }

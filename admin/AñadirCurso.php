@@ -45,7 +45,7 @@ session_start();
             }
         } else {
     ?>
-   
+    <a class="flechaa4" href="menu.php"><img class="flechaa4" src="../imgg/flecha-izquierda.png" alt="Añadir"></a>
     <h1>Añadir Curso</h1>
     <form method="post" action="AñadirCurso.php" enctype="multipart/form-data" onsubmit="return validarFechas();">
         

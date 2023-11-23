@@ -43,7 +43,7 @@ session_start();
             
         } else {
     ?>
-   
+    <a class="flechaa3" href="menu.php"><img class="flechaa3" src="../imgg/flecha-izquierda.png" alt="Añadir"></a>
     <h1>Creacio Profesor</h1>
     <form method="POST" action="AñadirProfe.php" enctype="multipart/form-data">
       

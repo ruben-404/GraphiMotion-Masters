@@ -32,6 +32,7 @@ if (isset($_GET['nombre']) && isset($_GET['dni'])) {
         if (isset($_SESSION['cursoNombre']) && isset($_SESSION['cursoCodigo'])) {
             $cursoNom = $_SESSION['cursoNombre'];
             $codigo = $_SESSION['cursoCodigo'];
+            echo('<a class="flechaa2" href="EditarCurso.php"><img class="flechaa2" src="../imgg/flecha-izquierda.png" alt="Añadir"></a>');
             echo("<h1>Editar el curso: ".$cursoNom."</h1>");
             if ($_POST) {
                 $nom = $_POST['nombre'];

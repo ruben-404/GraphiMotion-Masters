@@ -17,7 +17,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header('location: ../index.php');
 
         }else{
-            header('location: InicoAlumnoProfe.php');
+            echo("<script>alert('Error al iniciar sesion')</script>");
+            echo("<meta http-equiv='refresh' content='0.1'");
         }
     } else {
         if(VerifyAlumnoc($dni,$contrasena)){
@@ -26,7 +27,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header('location: ../index.php');
         }else{
            
-            header('location: InicoAlumnoProfe.php');
+            echo("<script>alert('Error al iniciar sesion')</script>");
+            echo("<meta http-equiv='refresh' content='0.1'");
         }
     }
 }else{

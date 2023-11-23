@@ -41,3 +41,10 @@
     margin-left: 1185px;
 
 }
+
+.botonCurso,#cambiarContrasenaBtn,.botonNotas{
+    border: none;
+    background-color: $primary;
+    height: 28px;
+    border-radius: 6px;
+}

@@ -800,8 +800,9 @@ function InfoCurso($code){
     if(VerifyMatriculado($code,$_SESSION['dni'])){
       echo("<p class='notaCurso'>Estas matriculado</p>");
       if(GetInfoMatriculado($code,$_SESSION['dni'])){
+        echo("<div class='notaAlumne'>");
         echo(GetInfoMatriculado($code,$_SESSION['dni']));
-       
+        echo("</div>");
       }else{
         echo("<p class='notaCurso'>Nota no disponible</p>");
       }
@@ -1242,7 +1243,7 @@ function mostrarTablaNotasAlumnos($alumnos,$code) {
   }
 
   echo "</table>";
-  echo "<input type='submit' value='Guardar Notas'>";
+  echo "<input type='submit' class='botonNotas' value='Guardar Notas'>";
   echo "</form>";
   echo "</div>";
 }
@@ -1265,7 +1266,7 @@ function mostrarTablaNotasAlumnosSinNota($alumnos,$code){
   }
 
   echo "</table>";
-  echo "<input type='submit' value='Guardar Notas'>";
+ // echo "<input type='submit' value='Guardar Notas'>";
   echo "</form>";
   echo "</div>";
 }

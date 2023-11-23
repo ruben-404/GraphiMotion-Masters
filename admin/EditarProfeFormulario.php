@@ -29,6 +29,7 @@ if (isset($_GET['nombre']) && isset($_GET['dni'])) {
         if (isset($_SESSION['profesor_nombre']) && isset($_SESSION['profesor_dni'])) {
             $nombreProfesor = $_SESSION['profesor_nombre'];
             $dniProfesor = $_SESSION['profesor_dni'];
+            echo('<a class="flechaa2" href="EditarProfe.php"><img class="flechaa2" src="../imgg/flecha-izquierda.png" alt="Añadir"></a>');
             echo("<h1>Editar el profesor: ".$nombreProfesor."</h1>");
            
             if ($_POST) {
